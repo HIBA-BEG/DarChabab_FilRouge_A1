@@ -24,11 +24,12 @@
             theme: {
                 extend: {
                     colors: {
-                        'mainred-color': '#8A3C44',
-                        'mainreddark-color': '#4D1F24',
-                        'mainbeige-color': '#FFE6D5',
-                        'mainbeigedark-color': '#F2CFC6',
-                        'offwhite-color': '#EBEBEB',
+                        'orange-color': '#E64C3D',
+                        'lightorange-color': '#F29D12',
+                        'yellow-color': '#F5B041',
+                        'lightyellow-color': '#F6DC6E',
+                        'purple-color': '#5A2D6F',
+                        'offwhite-color': '#FEFFFE',
                     },
                 },
             },
@@ -76,7 +77,7 @@
             </div> --}}
                 <div class="slider">
                     <div class="slide">
-                        <div class="flex bg-mainbeige-color" style="height:600px;">
+                        <div class="flex" style="height:600px;">
                             <div class="flex items-center text-center lg:text-left px-8 md:px-12 lg:w-1/2">
                                 <div>
                                     <h2 class="text-3xl font-semibold text-gray-800 md:text-4xl">actuality 1 <span
@@ -193,7 +194,7 @@
     </section>
 
     {{-- statistics --}}
-    <section class="bg-mainreddark-color">
+    <section class="bg-[radial-gradient(circle_at_bottom_left,_var(--tw-gradient-stops))] from-yellow-color via-lightorange-color to-orange-color ">
 
         <div class="container flex flex-col mx-auto">
             <div class="w-full draggable">
@@ -316,7 +317,7 @@
     </section>
 
     <!-- component -->
-    <footer class="bg-gradient-to-r from-[#4D1F24] via-[#EBEBEB] to-[#4D1F24]">
+    <footer class="bg-gradient-to-r from-purple-color via-orange-color to-yellow-color">
         <div class="max-w-screen-xl px-4 py-16 mx-auto sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 gap-8 lg:grid-cols-3">
                 <div>

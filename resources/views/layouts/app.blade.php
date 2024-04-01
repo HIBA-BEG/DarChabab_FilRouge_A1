@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Hay Al Oumali</title>
+    <title>@yield('title', 'Hay Al Oumali')</title>
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.bunny.net">
@@ -40,8 +40,9 @@
 
 <body>
     <!-- component -->
-    @include('layouts.navigation')
+    @include('layouts.navbar')
 
+    @yield('content')
 
 </body>
 

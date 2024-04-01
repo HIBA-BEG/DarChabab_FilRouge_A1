@@ -1,4 +1,4 @@
-<nav class="lg:px-16 px-9 bg-offwhite-color shadow-md flex flex-wrap items-center lg:py-2 py-2">
+<nav class="lg:px-16 px-9 shadow-md flex flex-wrap items-center lg:py-2 py-2">
     <div class="flex-1 flex gap-6">
         <a href="" class="h-6 w-6">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
@@ -28,7 +28,7 @@
     <div class="hidden lg:flex lg:items-center lg:w-auto w-full" id="contacts">
         <nav>
             <ul
-                class="text-xl text-mainreddark-color text-center items-center gap-x-5 pt-4 md:gap-x-4 lg:text-lg lg:flex  lg:pt-0 ">
+                class="text-xl text-yellow-color text-center items-center gap-x-5 pt-4 md:gap-x-4 lg:text-lg lg:flex  lg:pt-0 ">
                 <li class="py-2 lg:py-0 ">
                     <a class="hover:pb-4 hover:border-b-4 hover:border-[#4D1F24]" href="#">
                         ACCUEIL
@@ -55,7 +55,7 @@
     </div>
 </nav>
 
-<nav class="lg:px-16 px-9 bg-[#8A3C44] shadow-md flex flex-wrap items-center lg:py-6 py-4">
+<nav class="lg:px-16 px-9 bg-[radial-gradient(circle_at_bottom_left,_var(--tw-gradient-stops))] from-orange-color via-lightorange-color to-yellow-color shadow-md flex flex-wrap items-center lg:py-6 py-4">
     <div class="flex-1 flex justify-between items-center">
         <a href="/" class="flex text-lg font-semibold">
             <img src="https://dev.rz-codes.com/static/logo-275e932fd817cc84d99d91f7519a9a22.svg" width="50"
@@ -101,12 +101,12 @@
                     </a>
                 </li> --}}
                 <li class="py-2 lg:py-0 ">
-                    <a class="hover:pb-4 hover:border-b-4 hover:border-[#4D1F24]" href="#">
+                    <a class="hover:pb-4 hover:border-b-4 hover:border-[#4D1F24]" href="{{ route('register') }}">
                         Créer un compte
                     </a>
                 </li>
                 <li class="py-2 lg:py-0 ">
-                    <a class="hover:pb-4 hover:border-b-4 hover:border-[#4D1F24]" href="#">
+                    <a class="hover:pb-4 hover:border-b-4 hover:border-[#4D1F24]" href="{{ route('login') }}">
                         Se connecter
                     </a>
                 </li>
