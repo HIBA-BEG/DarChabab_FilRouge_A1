@@ -1,8 +1,16 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Auth;
 
+use App\Http\Controllers\Controller;
+use App\Models\User;
+use Illuminate\View\View;
 use Illuminate\Http\Request;
+use App\Http\Requests\LoginRequest;
+use Illuminate\Http\RedirectResponse;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Foundation\Support\Providers\RouteServiceProvider;
+
 
 class LoginController extends Controller
 {
@@ -19,15 +27,12 @@ class LoginController extends Controller
 
         $user = Auth::user();
 
-        if($user->role == 'Candidate')
+        if($user->role == 'Association' || $user->role == 'Club' || $user->role == 'Direction')
             {
                 
-                return redirect()->route('candidate.home');
+                return redirect()->route('association.home');
             }
-            else if($user->role == 'Company')
-            {
-                return redirect()->route('company.home');
-            }else if($user->role == 'Admin')
+            else if($user->role == 'Admin')
             {
                 return redirect()->route('admin.home');
             }

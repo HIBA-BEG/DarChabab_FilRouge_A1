@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('association_id')->constrained('associations')->onDelete('cascade')->onUpdate('cascade');
             $table->foreignId('user_id')->constrained('users')->onDelete('cascade')->onUpdate('cascade');
+            // i think I should change user_id with admin_id
             $table->string('title');
             $table->string('picture');
             $table->string('description');

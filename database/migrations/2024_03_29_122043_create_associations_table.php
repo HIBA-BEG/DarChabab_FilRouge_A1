@@ -23,7 +23,7 @@ return new class extends Migration
             $table->string('emailPresident');
             $table->string('cinPresident');
 
-            $table->string('vice-president');
+            $table->string('vicePresident');
             $table->string('emailVice');
             $table->string('cinVice');
 

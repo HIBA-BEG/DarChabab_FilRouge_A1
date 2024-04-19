@@ -2,15 +2,8 @@
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <title>Hay Al Oumali</title>
-
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.bunny.net">
-    <link href="https://fonts.bunny.net/css?family=figtree:400,600&display=swap" rel="stylesheet" />
-    <script src="https://cdn.tailwindcss.com"></script>
+    
+    @include('layouts.head')
 
 </head>
 
@@ -50,7 +43,7 @@
             <p class="text-gray-100">
                 or use email your account
             </p>
-            <form action="{{ route('login') }}" class="sm:w-2/3 w-full px-4 lg:px-0 mx-auto">
+            <form method="POST" action="{{ route('login') }}" class="sm:w-2/3 w-full px-4 lg:px-0 mx-auto">
                 @csrf
                 @method('POST')
 

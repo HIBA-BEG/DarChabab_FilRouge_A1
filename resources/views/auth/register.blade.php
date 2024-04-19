@@ -1,6 +1,11 @@
-@extends('layouts.app')
-@yield('title', 'REGISTER')
-@section('content')
+<!DOCTYPE html>
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+
+<head>
+    @include('layouts.head')
+</head>
+
+<body>
     <div class="min-h-screen flex items-stretch text-white ">
         <div class="lg:flex w-1/2 hidden bg-gray-500 bg-no-repeat bg-cover relative items-center"
             style="background-image: url(https://images.unsplash.com/photo-1577495508048-b635879837f1?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=675&q=80);">
@@ -61,28 +66,29 @@
                 <p class="text-gray-100">
                     or use email your account
                 </p>
-                <form method="POST" action="{{ route('register') }}" class="sm:w-2/3 w-full px-4 lg:px-0 mx-auto" enctype="multipart/form-data" >
+                <form method="POST" action="{{ route('register') }}" class="sm:w-2/3 w-full px-4 lg:px-0 mx-auto"
+                    enctype="multipart/form-data">
                     @csrf
                     @method('POST')
 
                     <div class="pb-2 pt-4">
                         <input type="firstname" name="firstname" id="firstname" placeholder="First Name"
                             class="block w-full p-4 text-lg rounded-sm bg-black @error('firstname') border-red-500 @enderror">
-                            @error('firstname')
+                        @error('firstname')
                             <p class="text-red-500 text-sm mt-2">{{ $message }}</p>
                         @enderror
                     </div>
                     <div class="pb-2 pt-4">
                         <input type="lastname" name="lastname" id="lastname" placeholder="Last Name"
                             class="block w-full p-4 text-lg rounded-sm bg-black @error('lastname') border-red-500 @enderror">
-                            @error('lastname')
+                        @error('lastname')
                             <p class="text-red-500 text-sm mt-2">{{ $message }}</p>
                         @enderror
                     </div>
                     <div class="pb-2 pt-4">
-                        <input type="file" name="profile_picture" id="profile_picture"
-                            placeholder="profile picture" class="block w-full p-4 text-lg rounded-sm bg-black @error('profile_picture') border-red-500 @enderror">
-                            @error('profile_picture')
+                        <input type="file" name="profile_picture" id="profile_picture" placeholder="profile picture"
+                            class="block w-full p-4 text-lg rounded-sm bg-black @error('profile_picture') border-red-500 @enderror">
+                        @error('profile_picture')
                             <p class="text-red-500 text-sm mt-2">{{ $message }}</p>
                         @enderror
                     </div>
@@ -94,7 +100,8 @@
                         @enderror
                     </div>
                     <div class="pb-2 pt-4">
-                        <select name="role" id="role" class="block w-full p-4 text-lg rounded-sm bg-black @error('role') border-red-500 @enderror">
+                        <select name="role" id="role"
+                            class="block w-full p-4 text-lg rounded-sm bg-black @error('role') border-red-500 @enderror">
                             <option value="Association">Association</option>
                             <option value="Club">Club</option>
                             <option value="Direction">Direction</option>
@@ -106,14 +113,15 @@
                     <div class="pb-2 pt-4">
                         <input type="password" name="password" id="password" placeholder="Password"
                             class="block w-full p-4 text-lg rounded-sm bg-black @error('password') border-red-500 @enderror">
-                            @error('password')
+                        @error('password')
                             <p class="text-red-500 text-sm mt-2">{{ $message }}</p>
                         @enderror
                     </div>
                     <div class="pb-2 pt-4">
-                        <input type="password" name="password_confirmation" id="password_confirmation" placeholder="password_confirmation"
+                        <input type="password" name="password_confirmation" id="password_confirmation"
+                            placeholder="password_confirmation"
                             class="block w-full p-4 text-lg rounded-sm bg-black @error('password_confirmation') border-red-500 @enderror">
-                            @error('password_confirmation')
+                        @error('password_confirmation')
                             <p class="text-red-500 text-sm mt-2">{{ $message }}</p>
                         @enderror
                     </div>
@@ -125,7 +133,8 @@
                         <a href="#">Forgot your password?</a>
                     </div>
                     <div class="px-4 pb-2 pt-4">
-                        <button type="submit" class="uppercase block w-full p-4 text-lg rounded-full bg-indigo-500 hover:bg-indigo-600 focus:outline-none">
+                        <button type="submit"
+                            class="uppercase block w-full p-4 text-lg rounded-full bg-indigo-500 hover:bg-indigo-600 focus:outline-none">
                             Register
                         </button>
                     </div>
@@ -157,4 +166,5 @@
             </div>
         </div>
     </div>
-@endsection
+</body>
+</html>

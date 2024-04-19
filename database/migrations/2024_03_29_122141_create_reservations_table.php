@@ -18,6 +18,8 @@ return new class extends Migration
             $table->foreignId('activite_id')->constrained('activites')->onDelete('cascade')->onUpdate('cascade');
             $table->dateTime('startTime');
             $table->dateTime('endTime');
+            // I should add here the dirations of the reservation, with a countdown till the reservations ends... 
+            // so the status of the salle I made the reservation for changes to empty/free
             $table->timestamps();
         });
     }

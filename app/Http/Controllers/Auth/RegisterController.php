@@ -61,7 +61,7 @@ class RegisterController extends Controller
 
         if($user->role == 'Association' || $user->role == 'Club' || $user->role == 'Direction')
             {
-                return redirect()->route('Association.home');
+                return redirect()->route('association.home');
             }
             else if($user->role == 'Admin')
             {
