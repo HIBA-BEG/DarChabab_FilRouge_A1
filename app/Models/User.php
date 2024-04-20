@@ -25,6 +25,8 @@ class User extends Authenticatable
         'role',
         'password',
         'banned',
+        'archived',
+        'confirmed',
     ];
 
     /**

@@ -35,6 +35,9 @@ Route::post('logout', [LoginController::class, 'destroy'])->name('logout');
 // Route::get('HomeAssociation', [AssociationController::class, 'index'])->name('association.home');
 Route::get('HomeAdmin', [AdminController::class, 'index'])->name('admin.home');
 Route::get('ToutesLesAssociations', [AdminController::class, 'allAssociations'])->name('Associations');
+Route::get('ConfirmationComptes', [AdminController::class, 'allAccounts'])->name('confirmAccount');
+Route::patch('/updateCompte/{id}', [AdminController::class, 'updateConfirmed'])->name('updateConfirmed');
+
 
 Route::get('ToutesLesSallesA', [SalleController::class, 'StoreSalle'])->name('admin.salles');
 Route::post('Salles', [SalleController::class, 'create'])->name('addSalle');

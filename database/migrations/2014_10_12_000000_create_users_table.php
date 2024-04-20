@@ -21,6 +21,8 @@ return new class extends Migration
             $table->enum('role', ['Association','Club','Direction','Admin'])->default('Association');
             $table->string('password');
             $table->boolean('banned');
+            $table->boolean('archived');
+            $table->boolean('confirmed');
             $table->rememberToken();
             $table->timestamps();
         });

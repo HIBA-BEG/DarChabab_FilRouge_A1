@@ -5,8 +5,8 @@
     @include('layouts.head')
 </head>
 
-<body>
-    <div class="relative bg-gradient-to-r from-purple-300 to-blue-200">
+<body class="bg-gradient-to-r from-purple-300 to-blue-200">
+    <div class="relative">
 
 
         @include('layouts.sidebar')

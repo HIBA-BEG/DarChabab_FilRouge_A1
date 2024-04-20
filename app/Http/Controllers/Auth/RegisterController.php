@@ -35,6 +35,8 @@ class RegisterController extends Controller
             'password_confirmation' => 'required|same:password',
             'role'=>['required'],
             'banned'=>['boolean'],
+            'archived'=>['boolean'],
+            'confirmed'=>['boolean'],
         ]);
 
         if ($request->hasFile('profile_picture')) {
@@ -52,7 +54,9 @@ class RegisterController extends Controller
             'profile_picture' => $imageName,
             'password' => Hash::make($request->password),
             'role'=>$request->role,
-            'banned'=>$request->has('banned')
+            'banned'=>$request->has('banned'),
+            'archived'=>$request->has('archived'),
+            'confirmed'=> false
         ]);
 
         event(new Registered($user));
@@ -61,7 +65,14 @@ class RegisterController extends Controller
 
         if($user->role == 'Association' || $user->role == 'Club' || $user->role == 'Direction')
             {
-                return redirect()->route('association.home');
+                if (auth()->user()->confirmed) {
+                    // User's account is confirmed, allow login
+                    return redirect()->route('association.home');
+                } else {
+                    // User's account is not confirmed, show error message
+                    return redirect()->route('login')->with('error', 'Your account is not confirmed yet.');
+                }
+                
             }
             else if($user->role == 'Admin')
             {

@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use App\Models\User;
 use App\Models\Activite;
 use Illuminate\Support\Facades\DB;
@@ -22,9 +23,17 @@ class AdminController extends Controller
     {
         // $users = User::where('role', '<>', 'Admin')->get();
         $associations = DB::table('users')
-                        ->join('associations', "associations.user_id", "=", "users.id")
-                        ->get();
+            ->join('associations', "associations.user_id", "=", "users.id")
+            ->get();
         return view('admin.allAssociations', compact('associations'));
+    }
+    public function allAccounts()
+    {
+        $allusers = DB::table('users')
+            ->where('role', '!=', 'admin')
+            ->where('confirmed', 0)
+            ->get();
+        return view('admin.confirmAccounts', compact('allusers'));
     }
     public function statistics()
     {
@@ -56,4 +65,17 @@ class AdminController extends Controller
         //     ->value('title');
         return view('admin.home', compact('associationCount', 'clubCount', 'totalActivites', 'mostReservedActivites', 'mostActiveOrganisateur', 'mostActiveClient'));
     }
+
+    public function updateConfirmed(Request $request, $id)
+    {
+        $request->validate([
+            'confirmed' => 'required|boolean',
+        ]);
+        $user = User::findOrFail($id);
+            $user->confirmed = $request->input('confirmed');
+            $user->save();
+            return redirect()->route('confirmAccount')->with('success', 'Le compte a été confirmé avec succès.');
+        
+    }
+
 }

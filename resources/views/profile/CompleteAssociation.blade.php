@@ -40,7 +40,7 @@
 
                     <div class="mb-5">
                         <label for="domaine" class="mb-3 block text-base font-medium text-[#07074D]">
-                            Domain
+                            Domaine
                         </label>
                         <input type="text" name="domaine" id="domaine" placeholder="Enter association domain"
                             class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#F29D12] focus:shadow-md"
@@ -145,39 +145,7 @@
                             </label>
                             <input type="text" name="cinSecretaire" id="cinSecretaire"
                                 placeholder="Enter secretary CIN"
-                                class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#F29D12]" />
-                        </div>
-                    </div>
-
-                    <!-- Secretary -->
-                    <div class="flex flex-wrap justify-between w-full">
-                        <div class="mb-5">
-                            <label for="secretaire" class="mb-3 block text-base font-medium text-[#07074D]">
-                                Secretary
-                            </label>
-                            <input type="text" name="secretaire" id="secretaire"
-                                placeholder="Enter secretary name"
-                                class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#F29D12] focus:shadow-md"
-                                required />
-                        </div>
-
-                        <div class="mb-5">
-                            <label for="emailSecretaire" class="mb-3 block text-base font-medium text-[#07074D]">
-                                Secretary Email
-                            </label>
-                            <input type="email" name="emailSecretaire" id="emailSecretaire"
-                                placeholder="Enter secretary email"
-                                class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#F29D12] focus:shadow-md"
-                                required />
-                        </div>
-
-                        <div class="mb-5">
-                            <label for="cinSecretaire" class="mb-3 block text-base font-medium text-[#07074D]">
-                                Secretary CIN
-                            </label>
-                            <input type="text" name="cinSecretaire" id="cinSecretaire"
-                                placeholder="Enter secretary CIN"
-                                class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#F29D12]" />
+                                class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#F29D12]" required/>
                         </div>
                     </div>
 
@@ -290,8 +258,7 @@
                             </label>
                             <input type="text" name="conseiller1" id="conseiller1"
                                 placeholder="Enter counselor 1 name"
-                                class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#F29D12] focus:shadow-md"
-                                required />
+                                class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#F29D12] focus:shadow-md" />
                         </div>
 
                         <div class="mb-5">
@@ -300,8 +267,7 @@
                             </label>
                             <input type="email" name="emailConseiller1" id="emailConseiller1"
                                 placeholder="Enter counselor 1 email"
-                                class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#F29D12] focus:shadow-md"
-                                required />
+                                class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#F29D12] focus:shadow-md"/>
                         </div>
 
                         <div class="mb-5">
@@ -310,8 +276,7 @@
                             </label>
                             <input type="text" name="cinConseiller1" id="cinConseiller1"
                                 placeholder="Enter counselor 1 CIN"
-                                class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#F29D12] focus:shadow-md"
-                                required />
+                                class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#F29D12] focus:shadow-md" />
                         </div>
                     </div>
 

@@ -86,9 +86,9 @@ class ProfileController extends Controller
             'emailTresorierAdjoint' => 'string',
             'cinTresorierAdjoint' => 'string',
 
-            'conseiller1' => 'required|string',
-            'emailConseiller1' => 'required|string',
-            'cinConseiller1' => 'required|string',
+            'conseiller1' => 'string',
+            'emailConseiller1' => 'string',
+            'cinConseiller1' => 'string',
 
             'conseiller2' => 'string',
             'emailConseiller2' => 'string',

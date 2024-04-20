@@ -60,19 +60,25 @@
                     </h3>
                     <ul class="mb-8 text-sm font-medium">
                         <li>
-                            <a class="active flex items-center rounded py-3 pl-3 pr-4 text-gray-50 hover:bg-gray-600"
+                            <a class="nav-link flex items-center rounded py-3 pl-3 pr-4 text-gray-50 hover:bg-gray-600"
                                 href="{{ route('admin.home') }}">
                                 <span class="select-none">Statistiques</span>
                             </a>
                         </li>
                         <li>
-                            <a class="flex items-center rounded py-3 pl-3 pr-4 text-gray-50 hover:bg-gray-600"
+                            <a class="nav-link flex items-center rounded py-3 pl-3 pr-4 text-gray-50 hover:bg-gray-600"
+                                href="{{ route('confirmAccount') }}">
+                                <span class="select-none">Confirmer les comptes</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="nav-link flex items-center rounded py-3 pl-3 pr-4 text-gray-50 hover:bg-gray-600"
                                 href="{{ route('Associations') }}">
                                 <span class="select-none">Associations</span>
                             </a>
                         </li>
                         <li>
-                            <a class="flex items-center rounded py-3 pl-3 pr-4 text-gray-50 hover:bg-gray-600"
+                            <a class="nav-link flex items-center rounded py-3 pl-3 pr-4 text-gray-50 hover:bg-gray-600"
                                 href="#Clubs">
                                 <span class="select-none">Clubs</span>
                             </a>
@@ -88,19 +94,19 @@
                     </h3>
                     <ul class="mb-8 text-sm font-medium">
                         <li>
-                            <a class="flex items-center rounded py-3 pl-3 pr-4 text-gray-50 hover:bg-gray-600"
+                            <a class="nav-link flex items-center rounded py-3 pl-3 pr-4 text-gray-50 hover:bg-gray-600"
                                 href="{{ route('admin.salles') }}">
                                 <span class="select-none">Toutes les salles</span>
                             </a>
                         </li>
                         <li>
-                            <a class="flex items-center rounded py-3 pl-3 pr-4 text-gray-50 hover:bg-gray-600"
+                            <a class="nav-link flex items-center rounded py-3 pl-3 pr-4 text-gray-50 hover:bg-gray-600"
                                 href="#Reservations">
                                 <span class="select-none">Reservations</span>
                             </a>
                         </li>
                         <li>
-                            <a class="flex items-center rounded py-3 pl-3 pr-4 text-gray-50 hover:bg-gray-600"
+                            <a class="nav-link flex items-center rounded py-3 pl-3 pr-4 text-gray-50 hover:bg-gray-600"
                                 href="#Calendrier">
                                 <span class="select-none">Calendrier</span>
                             </a>
@@ -114,13 +120,13 @@
                     </h3>
                     <ul class="mb-8 text-sm font-medium">
                         <li>
-                            <a class="flex items-center rounded py-3 pl-3 pr-4 text-gray-50 hover:bg-gray-600"
+                            <a class="nav-link flex items-center rounded py-3 pl-3 pr-4 text-gray-50 hover:bg-gray-600"
                                 href="#ex1">
                                 <span class="select-none">...</span>
                             </a>
                         </li>
                         <li>
-                            <a class="flex items-center rounded py-3 pl-3 pr-4 text-gray-50 hover:bg-gray-600"
+                            <a class="nav-link flex items-center rounded py-3 pl-3 pr-4 text-gray-50 hover:bg-gray-600"
                                 href="#ex2">
                                 <span class="select-none">...</span>
                             </a>
@@ -149,7 +155,7 @@
     <nav id="navbar" class="sticky top-0 z-40 flex w-full flex-row justify-end bg-gray-700 px-4 sm:justify-between">
         <ul class="breadcrumb hidden flex-row items-center py-4 text-lg text-white sm:flex">
             <li class="inline">
-                <a href="#">{{ auth()->user()->firstname }}</a>
+                <a href="#">{{ auth()->user()->firstname }} {{ auth()->user()->lastname }}</a>
             </li>
             <li class="inline">
                 <span> </span>
@@ -180,19 +186,19 @@
                     </h3>
                     <ul class="mb-8 text-sm font-medium">
                         <li>
-                            <a class="active flex items-center rounded py-3 pl-3 pr-4 text-gray-50 hover:bg-gray-600"
+                            <a class="nav-link flex items-center rounded py-3 pl-3 pr-4 text-gray-50 hover:bg-gray-600"
                                 href="{{ route('association.home') }}">
                                 <span class="select-none">Salles</span>
                             </a>
                         </li>
                         <li>
-                            <a class="flex items-center rounded py-3 pl-3 pr-4 text-gray-50 hover:bg-gray-600"
+                            <a class="nav-link flex items-center rounded py-3 pl-3 pr-4 text-gray-50 hover:bg-gray-600"
                                 href="{{ route('Associations') }}">
                                 <span class="select-none">Mes Activités</span>
                             </a>
                         </li>
                         <li>
-                            <a class="flex items-center rounded py-3 pl-3 pr-4 text-gray-50 hover:bg-gray-600"
+                            <a class="nav-link flex items-center rounded py-3 pl-3 pr-4 text-gray-50 hover:bg-gray-600"
                                 href="#Clubs">
                                 <span class="select-none">Clubs</span>
                             </a>
@@ -208,13 +214,13 @@
                     </h3>
                     <ul class="mb-8 text-sm font-medium">
                         <li>
-                            <a class="flex items-center rounded py-3 pl-3 pr-4 text-gray-50 hover:bg-gray-600"
+                            <a class="nav-link flex items-center rounded py-3 pl-3 pr-4 text-gray-50 hover:bg-gray-600"
                                 href="{{ route('profile.ShowProfileAssociation') }}">
                                 <span class="select-none">Profile</span>
                             </a>
                         </li>
                         <li>
-                            <a class="flex items-center rounded py-3 pl-3 pr-4 text-gray-50 hover:bg-gray-600"
+                            <a class="nav-link flex items-center rounded py-3 pl-3 pr-4 text-gray-50 hover:bg-gray-600"
                                 href="{{ route('profile.CompleteAssociation') }}">
                                 <span class="select-none">Completer mon profile</span>
                             </a>
@@ -267,5 +273,23 @@
         });
 
         sidebar.style.top = parseInt(navbar.clientHeight) - 1 + "px";
+    });
+
+    // Get the current URL
+    var currentUrl = window.location.href;
+
+    // Select all links in the navigation
+    var navLinks = document.querySelectorAll('.nav-link');
+
+    // Loop through each link
+    navLinks.forEach(function(link) {
+        // Get the href attribute of the link
+        var linkUrl = link.getAttribute('href');
+
+        // If the current URL matches the link URL
+        if (currentUrl === linkUrl) {
+            // Add the 'active' class to the link
+            link.classList.add('active');
+        }
     });
 </script>

@@ -29,8 +29,13 @@ class LoginController extends Controller
 
         if($user->role == 'Association' || $user->role == 'Club' || $user->role == 'Direction')
             {
-                
-                return redirect()->route('association.home');
+                if ($user->confirmed) {
+                    // User's account is confirmed, allow login
+                    return redirect()->route('association.home');
+                } else {
+                    // User's account is not confirmed, show error message
+                    return redirect()->back()->with('error', 'Your account is not confirmed yet.');
+                }
             }
             else if($user->role == 'Admin')
             {
