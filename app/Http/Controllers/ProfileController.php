@@ -66,50 +66,49 @@ class ProfileController extends Controller
             'emailPresident' => 'required|string',
             'cinPresident' => 'required|string',
 
-            'vicePresident' => 'string',
-            'emailVice' => 'string',
-            'cinVice' => 'string',
+            'vicePresident' => 'nullable|string',
+            'emailVice' => 'nullable|string',
+            'cinVice' => 'nullable|string',
 
             'secretaire' => 'required|string',
             'emailSecretaire' => 'required|string',
             'cinSecretaire' => 'required|string',
 
-            'secretaireAdjoint' => 'string',
-            'emailSecretaireAdjoint' => 'string',
-            'cinSecretaireAdjoint' => 'string',
+            'secretaireAdjoint' => 'nullable|string',
+            'emailSecretaireAdjoint' => 'nullable|string',
+            'cinSecretaireAdjoint' => 'nullable|string',
 
             'tresorier' => 'required|string',
             'emailTresorier' => 'required|string',
             'cinTresorier' => 'required|string',
 
-            'tresorierAdjoint' => 'string',
-            'emailTresorierAdjoint' => 'string',
-            'cinTresorierAdjoint' => 'string',
+            'tresorierAdjoint' => 'nullable|string',
+            'emailTresorierAdjoint' => 'nullable|string',
+            'cinTresorierAdjoint' => 'nullable|string',
 
-            'conseiller1' => 'string',
-            'emailConseiller1' => 'string',
-            'cinConseiller1' => 'string',
+            'conseiller1' => 'nullable|string',
+            'emailConseiller1' => 'nullable|string',
+            'cinConseiller1' => 'nullable|string',
 
-            'conseiller2' => 'string',
-            'emailConseiller2' => 'string',
-            'cinConseiller2' => 'string',
+            'conseiller2' => 'nullable|string',
+            'emailConseiller2' => 'nullable|string',
+            'cinConseiller2' => 'nullable|string',
 
-            'conseiller3' => 'string',
-            'emailConseiller3' => 'string',
-            'cinConseiller3' => 'string',
+            'conseiller3' => 'nullable|string',
+            'emailConseiller3' => 'nullable|string',
+            'cinConseiller3' => 'nullable|string',
 
-            'conseiller4' => 'string',
-            'emailConseiller4' => 'string',
-            'cinConseiller4' => 'string',
+            'conseiller4' => 'nullable|string',
+            'emailConseiller4' => 'nullable|string',
+            'cinConseiller4' => 'nullable|string',
 
-            'conseiller5' => 'string',
-            'emailConseiller5' => 'string',
-            'cinConseiller5' => 'string',
+            'conseiller5' => 'nullable|string',
+            'emailConseiller5' => 'nullable|string',
+            'cinConseiller5' => 'nullable|string',
 
-            'conseiller6' => 'string',
-            'emailConseiller6' => 'string',
-            'cinConseiller6' => 'string',
-
+            'conseiller6' => 'nullable|string',
+            'emailConseiller6' => 'nullable|string',
+            'cinConseiller6' => 'nullable|string',
         ]);
 
         Association::create([

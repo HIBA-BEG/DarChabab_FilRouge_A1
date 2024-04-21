@@ -28,15 +28,9 @@
                         </p>
                         <p class="text-center text-sm text-gray-400 font-medium">Domaine: {{ $association[0]->domaine }}
                         </p>
-                        <p>
-                            <span>
-
-                            </span>
-                        </p>
                         <div class="my-5 px-6">
                             <a href="#"
-                                class="text-gray-200 block rounded-lg text-center font-medium leading-6 px-6 py-3 bg-gray-900 hover:bg-black hover:text-white">Connect
-                                with <span class="font-bold">@pantazisoft</span></a>
+                                class="text-gray-200 block rounded-lg text-center font-medium leading-6 px-6 py-3 bg-gray-900 hover:bg-black hover:text-white">Modifier mon compte</a>
                         </div>
                         <div class="flex justify-between items-center my-5 px-6">
                             <a href=""

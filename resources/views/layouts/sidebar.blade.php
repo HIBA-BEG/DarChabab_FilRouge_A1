@@ -193,14 +193,26 @@
                         </li>
                         <li>
                             <a class="nav-link flex items-center rounded py-3 pl-3 pr-4 text-gray-50 hover:bg-gray-600"
-                                href="{{ route('Associations') }}">
+                                href="{{ route('mesActivites') }}">
                                 <span class="select-none">Mes Activités</span>
                             </a>
                         </li>
                         <li>
                             <a class="nav-link flex items-center rounded py-3 pl-3 pr-4 text-gray-50 hover:bg-gray-600"
+                                href="{{ route('reservations') }}">
+                                <span class="select-none">Mes Reservations</span>
+                            </a>
+                        </li>
+                        {{-- <li>
+                            <a class="nav-link flex items-center rounded py-3 pl-3 pr-4 text-gray-50 hover:bg-gray-600"
                                 href="#Clubs">
                                 <span class="select-none">Clubs</span>
+                            </a>
+                        </li> --}}
+                        <li>
+                            <a class="flex items-center rounded py-3 pl-3 pr-4 text-gray-50 hover:bg-gray-600"
+                                href="#Calendrier">
+                                <span class="select-none">Calendrier</span>
                             </a>
                         </li>
                     </ul>
@@ -213,24 +225,22 @@
                         Mon Profile
                     </h3>
                     <ul class="mb-8 text-sm font-medium">
+                        @if (Auth::user()->association)
                         <li>
                             <a class="nav-link flex items-center rounded py-3 pl-3 pr-4 text-gray-50 hover:bg-gray-600"
-                                href="{{ route('profile.ShowProfileAssociation') }}">
+                               href="{{ route('profile.ShowProfileAssociation') }}">
                                 <span class="select-none">Profile</span>
                             </a>
                         </li>
+                    @else
                         <li>
                             <a class="nav-link flex items-center rounded py-3 pl-3 pr-4 text-gray-50 hover:bg-gray-600"
-                                href="{{ route('profile.CompleteAssociation') }}">
+                               href="{{ route('profile.CompleteAssociation') }}">
                                 <span class="select-none">Completer mon profile</span>
                             </a>
                         </li>
-                        {{-- <li>
-                            <a class="flex items-center rounded py-3 pl-3 pr-4 text-gray-50 hover:bg-gray-600"
-                                href="#Calendrier">
-                                <span class="select-none">Calendrier</span>
-                            </a>
-                        </li> --}}
+                    @endif
+                        
                     </ul>
                 </div>
 

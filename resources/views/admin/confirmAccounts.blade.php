@@ -64,7 +64,7 @@
                                 <p class="text-base text-gray-600 font-normal">{{ $user->email }}</p>
                             </div>
                             <div class="p-8 justify-center">
-                                <form action="{{ route('updateCompte', $user->id) }}" method="POST">
+                                <form action="{{ route('updateConfirmed', $user->id) }}" method="POST">
                                     @csrf
                                     @method('patch')
                                     <input type="hidden" name="confirmed" value="1">

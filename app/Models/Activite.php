@@ -20,12 +20,6 @@ class Activite extends Model
     ];
 
    
-
-    public function association()
-    {
-        return $this->belongsTo(Association::class, 'association_id');
-    }
-
     public function reservations()
     {
         return $this->hasMany(Reservation::class);

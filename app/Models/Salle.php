@@ -14,4 +14,11 @@ class Salle extends Model
         'profile_picture',
         'description',
     ];
+
+
+    public function reservations()
+    {
+        return $this->hasMany(Reservation::class);
+    }
+
 }

@@ -18,15 +18,24 @@ class Reservation extends Model
         'salle_id',
     ];
 
+
+    // public function association()
+    // {
+    //     return $this->belongsTo(Association::class, 'association_id');
+    // }
+
+    public function association()
+    {
+        return $this->belongsTo(Association::class);
+    }
+
+    public function salle()
+    {
+        return $this->belongsTo(Salle::class);
+    }
+
     public function activite()
     {
         return $this->belongsTo(Activite::class);
     }
-
-    public function association()
-    {
-        return $this->belongsTo(Association::class, 'association_id');
-    }
-
-
 }

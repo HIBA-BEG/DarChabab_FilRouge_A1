@@ -23,49 +23,49 @@ return new class extends Migration
             $table->string('emailPresident');
             $table->string('cinPresident');
 
-            $table->string('vicePresident')->nullable()->change();
-            $table->string('emailVice')->nullable()->change();
-            $table->string('cinVice')->nullable()->change();
+            $table->string('vicePresident')->nullable();
+            $table->string('emailVice')->nullable();
+            $table->string('cinVice')->nullable();
 
             $table->string('secretaire');
             $table->string('emailSecretaire');
             $table->string('cinSecretaire');
 
-            $table->string('secretaireAdjoint')->nullable()->change();
-            $table->string('emailSecretaireAdjoint')->nullable()->change();
-            $table->string('cinSecretaireAdjoint')->nullable()->change();
+            $table->string('secretaireAdjoint')->nullable();
+            $table->string('emailSecretaireAdjoint')->nullable();
+            $table->string('cinSecretaireAdjoint')->nullable();
 
             $table->string('tresorier');
             $table->string('emailTresorier');
             $table->string('cinTresorier');
 
-            $table->string('tresorierAdjoint')->nullable()->change();
-            $table->string('emailTresorierAdjoint')->nullable()->change();
-            $table->string('cinTresorierAdjoint')->nullable()->change();
+            $table->string('tresorierAdjoint')->nullable();
+            $table->string('emailTresorierAdjoint')->nullable();
+            $table->string('cinTresorierAdjoint')->nullable();
 
-            $table->string('conseiller1')->nullable()->change();
-            $table->string('emailConseiller1')->nullable()->change();
-            $table->string('cinConseiller1')->nullable()->change();
+            $table->string('conseiller1')->nullable();
+            $table->string('emailConseiller1')->nullable();
+            $table->string('cinConseiller1')->nullable();
 
-            $table->string('conseiller2')->nullable()->change();
-            $table->string('emailConseiller2')->nullable()->change();
-            $table->string('cinConseiller2')->nullable()->change();
+            $table->string('conseiller2')->nullable();
+            $table->string('emailConseiller2')->nullable();
+            $table->string('cinConseiller2')->nullable();
 
-            $table->string('conseiller3')->nullable()->change();
-            $table->string('emailConseiller3')->nullable()->change();
-            $table->string('cinConseiller3')->nullable()->change();
+            $table->string('conseiller3')->nullable();
+            $table->string('emailConseiller3')->nullable();
+            $table->string('cinConseiller3')->nullable();
 
-            $table->string('conseiller4')->nullable()->change();
-            $table->string('emailConseiller4')->nullable()->change();
-            $table->string('cinConseiller4')->nullable()->change();
+            $table->string('conseiller4')->nullable();
+            $table->string('emailConseiller4')->nullable();
+            $table->string('cinConseiller4')->nullable();
 
-            $table->string('conseiller5')->nullable()->change();
-            $table->string('emailConseiller5')->nullable()->change();
-            $table->string('cinConseiller5')->nullable()->change();
+            $table->string('conseiller5')->nullable();
+            $table->string('emailConseiller5')->nullable();
+            $table->string('cinConseiller5')->nullable();
 
-            $table->string('conseiller6')->nullable()->change();
-            $table->string('emailConseiller6')->nullable()->change();
-            $table->string('cinConseiller6')->nullable()->change();
+            $table->string('conseiller6')->nullable();
+            $table->string('emailConseiller6')->nullable();
+            $table->string('cinConseiller6')->nullable();
 
             $table->timestamps();
         });

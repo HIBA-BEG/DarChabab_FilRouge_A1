@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\DB;
 
 class SalleController extends Controller
 {
-    public function StoreSalle()
+    public function createSalle()
     {
         $salles = DB::table('salles')
             ->get();
@@ -58,9 +58,9 @@ class SalleController extends Controller
                 'profile_picture' => ['required'],
                 'description' => ['required', 'string', 'max:255'],
             ]);
-    
+
             $salle = Salle::findOrFail($id);
-    
+
             // Handle profile picture upload
             if ($request->hasFile('profile_picture')) {
                 $image = $request->file('profile_picture');
@@ -68,18 +68,18 @@ class SalleController extends Controller
                 $image->move(public_path('img'), $imageName);
                 $salle->profile_picture = $imageName;
             }
-    
+
             // Update salle data
             $salle->name = $request->name;
             $salle->description = $request->description;
             $salle->save();
-    
+
             return redirect()->route('admin.salles')->with('status', 'Salle Modifiée');
         } catch (\Exception $e) {
             return back()->withError($e->getMessage())->withInput();
         }
     }
-    
+
 
     public function delete(Salle $salle)
     {

@@ -7,6 +7,7 @@ use App\Http\Controllers\SalleController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\AssociationController;
+use App\Http\Controllers\ReservationController;
 use App\Http\Controllers\Auth\RegisterController;
 
 /*
@@ -39,14 +40,19 @@ Route::get('ConfirmationComptes', [AdminController::class, 'allAccounts'])->name
 Route::patch('/updateCompte/{id}', [AdminController::class, 'updateConfirmed'])->name('updateConfirmed');
 
 
-Route::get('ToutesLesSallesA', [SalleController::class, 'StoreSalle'])->name('admin.salles');
+Route::get('ToutesLesSallesA', [SalleController::class, 'createSalle'])->name('admin.salles');
 Route::post('Salles', [SalleController::class, 'create'])->name('addSalle');
 Route::put('Salle/{id}', [SalleController::class, 'update'])->name('updateSalle');
 Route::delete('/Salles/{salle}', [SalleController::class, 'delete'])->name('deleteSalle');
+Route::delete('/Salles', [SalleController::class, 'reserve'])->name('reserveSalle');
 
 Route::get('ToutesLesSalles', [SalleController::class, 'allSalles'])->name('association.home');
 // middleware(['auth', 'admin'])->
 
+Route::get('MesActivites', [AssociationController::class, 'activites'])->name('mesActivites');
+
+Route::get('/reservations', [ReservationController::class, 'createReservation'])->name('reservations');
+Route::post('/reservations', [ReservationController::class, 'store'])->name('addReservation');
 
 Route::middleware('auth')->group(function () {
 

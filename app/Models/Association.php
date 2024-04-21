@@ -2,8 +2,10 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\User;
+use App\Models\Reservation;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Association extends Model
 {
@@ -64,4 +66,20 @@ class Association extends Model
         'emailConseiller6',
         'cinConseiller6',
     ];
+
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+
+    public function reservations()
+    {
+        return $this->hasMany(Reservation::class);
+    }
+    
+    public function articleBlogs()
+    {
+        return $this->hasMany(ArticleBlog::class);
+    }
 }
