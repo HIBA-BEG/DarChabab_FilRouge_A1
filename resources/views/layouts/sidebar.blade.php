@@ -24,8 +24,9 @@
         background-color: #1f2937;
     }
 </style>
+
 @if (auth()->user()->role == 'Admin')
-    <!-- Navbar start -->
+    <!-- Navbar -->
     <nav id="navbar" class="sticky top-0 z-40 flex w-full flex-row justify-end bg-gray-700 px-4 sm:justify-between">
         <ul class="breadcrumb hidden flex-row items-center py-4 text-lg text-white sm:flex">
             <li class="inline">
@@ -46,14 +47,12 @@
             </svg>
         </button>
     </nav>
-    <!-- Navbar end -->
 
-    <!-- Sidebar start-->
+    <!-- Sidebar-->
     <div id="containerSidebar" class="z-40">
         <div class="navbar-menu relative z-40">
             <nav id="sidebar"
                 class="fixed left-0 bottom-0 flex w-3/4 -translate-x-full flex-col overflow-y-auto bg-gray-700 pt-6 pb-8 sm:max-w-xs lg:w-80">
-                <!-- one category / navigation group -->
                 <div class="px-4 pb-6">
                     <h3 class="mb-2 text-xs font-medium uppercase text-gray-500">
                         Associations
@@ -85,9 +84,8 @@
                         </li>
                     </ul>
                 </div>
-                <!-- navigation group end-->
+                
 
-                <!-- example copies start -->
                 <div class="px-4 pb-6">
                     <h3 class="mb-2 text-xs font-medium uppercase text-gray-500">
                         Salles
@@ -134,11 +132,11 @@
                     </ul>
                 </div>
 
-                <div class="px-4 pb-6">
+                <div class="flex justify-center container mx-auto p-4">
                     <form action="{{ route('logout') }}" method="POST">
-                        @csrf <!-- CSRF Protection -->
+                        @csrf
                         <button type="submit"
-                            class="middle none center rounded-lg bg-[radial-gradient(circle_at_bottom_left,_var(--tw-gradient-stops))] from-orange-color via-lightorange-color to-yellow-color py-3 px-6 font-sans text-xs font-bold uppercase text-white shadow-md shadow-pink-500/20 transition-all hover:shadow-lg hover:shadow-lightyellow-color focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
+                            class="rounded-br-3xl rounded-tl-3xl bg-gradient-to-r to-purple-500 from-blue-400 py-3 px-6 font-sans text-xs font-bold uppercase text-white shadow-md shadow-pink-500/20 transition-all hover:shadow-lg hover:shadow-lightyellow-color focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
                             data-ripple-light="true">
                             LOGOUT
                         </button>
@@ -149,7 +147,7 @@
         </div>
         <div class="mx-auto lg:ml-80"></div>
     </div>
-    <!-- Sidebar end -->
+
 @else
     <!-- Navbar start -->
     <nav id="navbar" class="sticky top-0 z-40 flex w-full flex-row justify-end bg-gray-700 px-4 sm:justify-between">
@@ -226,29 +224,29 @@
                     </h3>
                     <ul class="mb-8 text-sm font-medium">
                         @if (Auth::user()->association)
-                        <li>
-                            <a class="nav-link flex items-center rounded py-3 pl-3 pr-4 text-gray-50 hover:bg-gray-600"
-                               href="{{ route('profile.ShowProfileAssociation') }}">
-                                <span class="select-none">Profile</span>
-                            </a>
-                        </li>
-                    @else
-                        <li>
-                            <a class="nav-link flex items-center rounded py-3 pl-3 pr-4 text-gray-50 hover:bg-gray-600"
-                               href="{{ route('profile.CompleteAssociation') }}">
-                                <span class="select-none">Completer mon profile</span>
-                            </a>
-                        </li>
-                    @endif
-                        
+                            <li>
+                                <a class="nav-link flex items-center rounded py-3 pl-3 pr-4 text-gray-50 hover:bg-gray-600"
+                                    href="{{ route('profile.ShowProfileAssociation') }}">
+                                    <span class="select-none">Profile</span>
+                                </a>
+                            </li>
+                        @else
+                            <li>
+                                <a class="nav-link flex items-center rounded py-3 pl-3 pr-4 text-gray-50 hover:bg-gray-600"
+                                    href="{{ route('profile.CompleteAssociation') }}">
+                                    <span class="select-none">Completer mon profile</span>
+                                </a>
+                            </li>
+                        @endif
+
                     </ul>
                 </div>
 
-                <div class="px-4 pb-6">
+                <div class="flex justify-center container mx-auto p-4">
                     <form action="{{ route('logout') }}" method="POST">
                         @csrf <!-- CSRF Protection -->
                         <button type="submit"
-                            class="middle none center rounded-lg bg-[radial-gradient(circle_at_bottom_left,_var(--tw-gradient-stops))] from-orange-color via-lightorange-color to-yellow-color py-3 px-6 font-sans text-xs font-bold uppercase text-white shadow-md shadow-pink-500/20 transition-all hover:shadow-lg hover:shadow-lightyellow-color focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
+                            class="rounded-br-3xl rounded-tl-3xl bg-gradient-to-r to-purple-500 from-blue-400 py-3 px-6 font-sans text-xs font-bold uppercase text-white shadow-md shadow-pink-500/20 transition-all hover:shadow-lg hover:shadow-lightyellow-color focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
                             data-ripple-light="true">
                             LOGOUT
                         </button>
@@ -263,9 +261,6 @@
     <!-- Sidebar end -->
 @endif
 
-<main>
-    <!-- your content goes here -->
-</main>
 
 <script type="text/javascript">
     document.addEventListener("DOMContentLoaded", () => {

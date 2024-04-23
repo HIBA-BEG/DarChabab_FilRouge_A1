@@ -12,6 +12,7 @@ class Salle extends Model
     protected $fillable = [
         'name',
         'profile_picture',
+        'capacite',
         'description',
     ];
 

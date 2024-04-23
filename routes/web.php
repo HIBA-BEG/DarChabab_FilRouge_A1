@@ -10,16 +10,6 @@ use App\Http\Controllers\AssociationController;
 use App\Http\Controllers\ReservationController;
 use App\Http\Controllers\Auth\RegisterController;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "web" middleware group. Make something great!
-|
-*/
 
 Route::get('/', function () {
     return view('home');
@@ -29,40 +19,37 @@ Route::get('login', [LoginController::class, 'create'])->name('login');
 Route::post('login', [LoginController::class, 'store'])->name('login');
 Route::get('register', [RegisterController::class, 'create'])->name('register');
 Route::post('register', [RegisterController::class, 'store'])->name('register');
-Route::post('logout', [LoginController::class, 'destroy'])->name('logout');
-// ->middleware(['auth', 'admin'])
-
-
-// Route::get('HomeAssociation', [AssociationController::class, 'index'])->name('association.home');
-Route::get('HomeAdmin', [AdminController::class, 'index'])->name('admin.home');
-Route::get('ToutesLesAssociations', [AdminController::class, 'allAssociations'])->name('Associations');
-Route::get('ConfirmationComptes', [AdminController::class, 'allAccounts'])->name('confirmAccount');
-Route::patch('/updateCompte/{id}', [AdminController::class, 'updateConfirmed'])->name('updateConfirmed');
-
-
-Route::get('ToutesLesSallesA', [SalleController::class, 'createSalle'])->name('admin.salles');
-Route::post('Salles', [SalleController::class, 'create'])->name('addSalle');
-Route::put('Salle/{id}', [SalleController::class, 'update'])->name('updateSalle');
-Route::delete('/Salles/{salle}', [SalleController::class, 'delete'])->name('deleteSalle');
-Route::delete('/Salles', [SalleController::class, 'reserve'])->name('reserveSalle');
-
-Route::get('ToutesLesSalles', [SalleController::class, 'allSalles'])->name('association.home');
-// middleware(['auth', 'admin'])->
-
-Route::get('MesActivites', [AssociationController::class, 'activites'])->name('mesActivites');
-
-Route::get('/reservations', [ReservationController::class, 'createReservation'])->name('reservations');
-Route::post('/reservations', [ReservationController::class, 'store'])->name('addReservation');
 
 Route::middleware('auth')->group(function () {
 
-    //Association
+    Route::post('logout', [LoginController::class, 'destroy'])->name('logout');
 
-    Route::get('/profileAssociation', [ProfileController::class, 'edit'])->name('profile.editAssociation');
-    Route::get('/CompleteprofileAssociation', [ProfileController::class, 'storeAssociationView'])->name('profile.CompleteAssociation');
-    Route::post('/CompleteprofileAssociation', [ProfileController::class, 'storeAssociation'])->name('profile.storeAssociation');
-    Route::get('/ShowProfileAssociation', [ProfileController::class, 'ShowProfileAssociation'])->name('profile.ShowProfileAssociation');
+    // Route::get('HomeAssociation', [AssociationController::class, 'index'])->name('association.home');
+    Route::get('HomeAdmin', [AdminController::class, 'index'])->name('admin.home')->middleware(['admin']);
+    Route::get('ToutesLesAssociations', [AdminController::class, 'allAssociations'])->name('Associations')->middleware(['admin']);
+    Route::get('ConfirmationComptes', [AdminController::class, 'allAccounts'])->name('confirmAccount')->middleware(['admin']);
+    Route::patch('/updateCompte/{id}', [AdminController::class, 'updateConfirmed'])->name('updateConfirmed')->middleware(['admin']);
 
-    //admin
-    Route::get('/ShowProfileAdmin', [ProfileController::class, 'ShowProfileAdmin'])->name('profile.ShowProfileAdmin');
+    Route::get('ToutesLesSallesA', [SalleController::class, 'createSalle'])->name('admin.salles')->middleware(['admin']);
+    Route::post('Salles', [SalleController::class, 'create'])->name('addSalle')->middleware(['admin']);
+    Route::put('Salle/{id}', [SalleController::class, 'update'])->name('updateSalle')->middleware(['admin']);
+    Route::delete('/Salles/{salle}', [SalleController::class, 'delete'])->name('deleteSalle')->middleware(['admin']);
+
+    Route::delete('/Salles', [SalleController::class, 'reserve'])->name('reserveSalle')->middleware(['association']);
+
+    Route::get('ToutesLesSalles', [SalleController::class, 'allSalles'])->name('association.home')->middleware(['association']);
+
+    Route::get('MesActivites', [AssociationController::class, 'activites'])->name('mesActivites')->middleware(['association']);
+
+    Route::get('/reservations', [ReservationController::class, 'createReservation'])->name('reservations')->middleware(['association']);
+    Route::post('/reservations', [ReservationController::class, 'store'])->name('addReservation')->middleware(['association']);
+
+
+    Route::get('/profileAssociation', [ProfileController::class, 'edit'])->name('profile.editAssociation')->middleware('Association')->middleware(['association']);
+    Route::get('/CompleteprofileAssociation', [ProfileController::class, 'storeAssociationView'])->name('profile.CompleteAssociation')->middleware(['association']);
+    Route::post('/CompleteprofileAssociation', [ProfileController::class, 'storeAssociation'])->name('profile.storeAssociation')->middleware(['association']);
+    Route::get('/ShowProfileAssociation', [ProfileController::class, 'ShowProfileAssociation'])->name('profile.ShowProfileAssociation')->middleware(['association']);
+
+    Route::get('/ShowProfileAdmin', [ProfileController::class, 'ShowProfileAdmin'])->name('profile.ShowProfileAdmin')->middleware(['admin']);
 });
+

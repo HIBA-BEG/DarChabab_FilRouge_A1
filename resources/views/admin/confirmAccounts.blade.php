@@ -21,7 +21,6 @@
 <body class="bg-gradient-to-r from-purple-300 to-blue-200">
     <div class="relative">
 
-
         @include('layouts.sidebar')
         <!-- component -->
         <section class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-4 py-12">

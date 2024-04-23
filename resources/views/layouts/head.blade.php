@@ -16,6 +16,12 @@
 <link href="/dist/tailwind.css" rel="stylesheet" />
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.0/font/bootstrap-icons.css" />
 
+{{-- <link rel="preconnect" href="https://fonts.bunny.net"> --}}
+        {{-- <link href="https://fonts.bunny.net/css?family=figtree:400,600&display=swap" rel="stylesheet" /> --}}
+        {{-- <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script> --}}
+        {{-- <link href='https://fonts.googleapis.com/css?family=Zen Dots' rel='stylesheet'>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> --}}
+
 @vite(['resources/css/app.css', 'resources/js/app.js'])
 
 <script>
@@ -45,8 +51,8 @@
       document.querySelector(".sidebar").classList.toggle("hidden");
     }
   </script>
-<style>
+{{-- <style>
     #menu-toggle:checked+#menu {
         display: block;
     }
-</style>
+</style> --}}

@@ -8,9 +8,8 @@
 <body>
     <div class="relative">
 
-
         @include('layouts.sidebar')
-        <!-- component -->
+        
         <section class="main-content">
             <div class="min-h-screen flex flex-col sm:flex-row bg-gray-100">
 

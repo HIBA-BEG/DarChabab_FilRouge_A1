@@ -15,7 +15,7 @@ class Association
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if(Auth()->user()->role == 'Association'){
+        if(Auth()->user()->role == 'Association' || Auth()->user()->role == 'Club' || Auth()->user()->role == 'Direction'){
             return $next($request);
         }
 

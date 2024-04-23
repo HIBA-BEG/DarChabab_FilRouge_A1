@@ -27,6 +27,7 @@ class SalleController extends Controller
             $request->validate([
                 'name' => ['required', 'string', 'max:255'],
                 'profile_picture' => ['required'],
+                'capacite' => ['required'],
                 'description' => ['required', 'string', 'max:255'],
             ]);
 

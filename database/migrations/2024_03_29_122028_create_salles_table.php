@@ -15,6 +15,8 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('profile_picture');
+            // I added capacite column.. I need ti add it everywhere now
+            $table->integer('capacite');
             $table->string('description');
             $table->timestamps();
         });

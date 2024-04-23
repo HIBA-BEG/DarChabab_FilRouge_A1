@@ -31,17 +31,14 @@
     </div>
 </div> --}}
 
+
     {{-- News Slider --}}
     <section class="mx-auto my-25">
         <div class="container mx-auto px-4 py-8">
-            <div class="bg-mainbeige-color rounded-lg shadow-md">
-                {{-- <div class="flex items-center justify-between p-4">
-                <h2 class="text-xl font-semibold">Toutes les actualités</h2>
-                <div class="text-sm text-gray-500">5 mars 2024</div>
-            </div> --}}
+            <div class="bg-mainbeige-color  rounded-br-3xl rounded-tl-3xl  shadow-md">
                 <div class="slider">
-                    <div class="slide">
-                        <div class="flex" style="height:600px;">
+                    <div class="slide relative h-[700px]">
+                        <div class="flex" style="height:700px">
                             <div class="flex items-center text-center lg:text-left px-8 md:px-12 lg:w-1/2">
                                 <div>
                                     <h2 class="text-3xl font-semibold text-gray-800 md:text-4xl">actuality 1 <span
@@ -51,23 +48,21 @@
                                         harum id necessitatibus odio quam quasi, quibusdam rem tempora voluptates.
                                         Cumque debitis dignissimos id quam vel!</p>
                                     <div class="flex justify-center lg:justify-start mt-6">
-                                        <a class="px-4 py-3 bg-gray-900 text-gray-200 text-xs font-semibold rounded hover:bg-gray-800"
+                                        <a class="px-4 py-3 bg-gray-900 text-gray-200 text-xs font-semibold  rounded-br-3xl rounded-tl-3xl  hover:bg-gray-800"
                                             href="#">Get Started</a>
-                                        <a class="mx-4 px-4 py-3 bg-gray-300 text-gray-900 text-xs font-semibold rounded hover:bg-gray-400"
+                                        <a class="mx-4 px-4 py-3 bg-gray-300 text-gray-900 text-xs font-semibold  rounded-br-3xl rounded-tl-3xl  hover:bg-gray-400"
                                             href="#">Learn More</a>
                                     </div>
                                 </div>
                             </div>
-                            <div class="hidden lg:block lg:w-1/2"
-                                style="clip-path:polygon(10% 0, 100% 0%, 100% 100%, 0 100%)">
-                                <div class="h-full object-cover">
-                                    <img src="../../img/darchabab.jpg" alt="DarChabab">
-                                    <div class="h-full bg-black opacity-25"></div>
-                                </div>
+                            <div class="hidden lg:block lg:w-1/2 " style="clip-path: xywh(0 5px 100% 75% round 15% 0)">
+                                <div class="absolute ">
+                                    <img class="h-full w-full object-cover" src="{{asset('img/darchabab.jpg')}}" alt="DarChabab">
+                                </div>                            
                             </div>
                         </div>
                     </div>
-                    <div class="slide">
+                    {{-- <div class="slide">
                         <div class="flex" style="height:600px;">
                             <div class="flex items-center text-center lg:text-left px-8 md:px-12 lg:w-1/2">
                                 <div>
@@ -147,10 +142,6 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    {{-- <div class="slide">
-                        <h3 class="text-xl font-semibold">Actualité 3</h3>
-                        <p class="mt-2">Description de l'actualité 3...</p>
                     </div> --}}
                 </div>
             </div>
@@ -159,7 +150,7 @@
 
     {{-- statistics --}}
     <section
-        class="bg-[radial-gradient(circle_at_bottom_left,_var(--tw-gradient-stops))] from-yellow-color via-lightorange-color to-orange-color ">
+        class="bg-gradient-to-r from-purple-300 to-blue-300">
 
         <div class="container flex flex-col mx-auto">
             <div class="w-full draggable">
@@ -282,7 +273,7 @@
     </section>
 
     <!-- component -->
-    <footer class="bg-gradient-to-r from-purple-color via-orange-color to-yellow-color">
+    <footer class="bg-gradient-to-r from-purple-300 to-blue-300">
         <div class="max-w-screen-xl px-4 py-16 mx-auto sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 gap-8 lg:grid-cols-3">
                 <div>

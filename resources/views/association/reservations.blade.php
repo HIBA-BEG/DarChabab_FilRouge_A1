@@ -26,7 +26,7 @@
                             </button>
                         </div>
 
-                        {{-- don't forget to add hidden to the first div --}}
+                        {{--hiba don't forget to add hidden to the first div --}}
                         <div id="crud-modal" tabindex="-1" aria-hidden="true"
                             class="hidden fixed left-0 right-0 top-0 z-50 h-[calc(100%-2rem)] max-h-full w-full items-center justify-center overflow-y-auto overflow-x-hidden md:inset-0">
                             <div class="relative max-h-full w-full max-w-md p-4">
@@ -110,6 +110,43 @@
 
 
 
+                    </div>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        @foreach ($reservations as $reservation)
+                                <div class="box w-full rounded-br-3xl rounded-tl-3xl flex flex-col justify-center p-12 bg-opacity-30 bg-white border border-opacity-25 backdrop-filter backdrop-blur-md  transition-all duration-300">
+                                <div class="text-center">
+                                    {{-- <p class="text-xl text-gray-700 font-bold mb-2">{{ $reservation->firstname }} {{ $reservation->lastname }}</p> --}}
+                                </div>
+        
+                                <p class="text-base text-black font-normal">{{ $reservation->name }}</p>
+                                <p class="text-base text-black font-normal">{{ $reservation->description }}</p>
+        
+                                <div class="mt-5">
+                                    <p class="text-base text-black font-normal" value="{{ $reservation->salle_id}}">{{ $reservation->name }}</p>
+                                    <p class="text-base text-black font-normal">{{ $reservation->cinPresident }}</p>
+        
+                                </div>
+                                <div class="mt-5">
+                                    <p class="text-base text-black font-normal">{{ $reservation->vicePresident }}</p>
+                                    <p class="text-base text-black font-normal">{{ $reservation->cinVice }}</p>
+        
+                                </div>
+                                <div class="mt-5">
+                                    <p class="text-base text-black font-normal">{{ $reservation->secretaire }}</p>
+                                    <p class="text-base text-black font-normal">{{ $reservation->cinSecretaire }}</p>
+        
+                                </div>
+                                <div class="mt-5">
+                                    <p class="text-base text-black font-normal">{{ $reservation->president }}</p>
+                                    <p class="text-base text-black font-normal">{{ $reservation->cinPresident }}</p>
+        
+                                </div>
+        
+        
+        
+                            </div>
+                        @endforeach
+        
                     </div>
                 </div>
             </section>

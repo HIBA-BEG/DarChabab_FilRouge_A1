@@ -15,6 +15,9 @@ class ReservationController extends Controller
         $user = Auth::id();
         $salles = Salle::all();
         $reservations = Reservation::where('association_id', $user)
+            ->join('salles', "reservations.salle_id", "=", "salles.id")
+            ->join('associations', "reservations.association_id", "=", "associations.id")
+            ->join('users', "associations.user_id", "=", "users.id")
             ->orderby('created_at', 'desc')
             ->paginate(9);
 
