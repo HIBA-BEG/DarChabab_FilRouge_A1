@@ -29,18 +29,22 @@
                         <p class="text-center text-sm text-gray-400 font-medium">Domaine: {{ $association[0]->domaine }}
                         </p>
                         <div class="my-5 px-6">
-                            <a href="#"
-                                class="text-gray-200 block rounded-lg text-center font-medium leading-6 px-6 py-3 bg-gray-900 hover:bg-black hover:text-white">Modifier mon compte</a>
+                            <a href="{{ route('associations.update')}}" class="text-gray-200 block rounded-lg text-center font-medium leading-6 px-6 py-3 bg-gray-900 hover:bg-black hover:text-white">Modifier mon compte</a>
                         </div>
+                        {{-- links  --}}
                         <div class="flex justify-between items-center my-5 px-6">
-                            <a href=""
-                                class="text-gray-500 hover:text-gray-900 hover:bg-gray-100 rounded transition duration-150 ease-in font-medium text-sm text-center w-full py-3">Facebook</a>
-                            <a href=""
-                                class="text-gray-500 hover:text-gray-900 hover:bg-gray-100 rounded transition duration-150 ease-in font-medium text-sm text-center w-full py-3">Twitter</a>
-                            <a href=""
-                                class="text-gray-500 hover:text-gray-900 hover:bg-gray-100 rounded transition duration-150 ease-in font-medium text-sm text-center w-full py-3">Instagram</a>
-                            <a href=""
-                                class="text-gray-500 hover:text-gray-900 hover:bg-gray-100 rounded transition duration-150 ease-in font-medium text-sm text-center w-full py-3">Email</a>
+                            @if (isset($association[0]->facebookLink) && $association[0]->facebookLink)
+                                <a href="{{ $association[0]->facebookLink }}"
+                                    class="text-gray-500 hover:text-gray-900 hover:bg-gray-100 rounded transition duration-150 ease-in font-medium text-sm text-center w-full py-3">Facebook</a>
+                            @endif
+                            @if (isset($association[0]->instagramLink) && $association[0]->instagramLink)
+                                <a href="{{ $association[0]->instagramLink }}"
+                                    class="text-gray-500 hover:text-gray-900 hover:bg-gray-100 rounded transition duration-150 ease-in font-medium text-sm text-center w-full py-3">Instagram</a>
+                            @endif
+                            @if (isset($association[0]->otherLink) && $association[0]->otherLink)
+                                <a href="{{ $association[0]->otherLink }}"
+                                    class="text-gray-500 hover:text-gray-900 hover:bg-gray-100 rounded transition duration-150 ease-in font-medium text-sm text-center w-full py-3">Other link</a>
+                            @endif
                         </div>
 
                         <div class="w-full">
@@ -98,58 +102,59 @@
                             </div>
 
                             {{-- Vice Président --}}
-                            @if(isset($association[0]->vicePresident) && $association[0]->vicePresident)
-                            <div>
-                                <h3 class="font-medium text-gray-900 text-left px-6">Vice Président</h3>
-                                <div class="w-full overflow-hidden text-sm">
-                                    <div class=" grid items-center max-w-4xl grid-cols-1 gap-2 mx-auto md:grid-cols-3">
+                            @if (isset($association[0]->vicePresident) && $association[0]->vicePresident)
+                                <div>
+                                    <h3 class="font-medium text-gray-900 text-left px-6">Vice Président</h3>
+                                    <div class="w-full overflow-hidden text-sm">
                                         <div
-                                            class="from-purple-300 to-blue-200 py-4 pl-3 pr-3 text-gray-600 transition duration-150 hover:bg-gradient-to-r">
-                                            <div class="flex">
-                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512"
-                                                    class="h-5 w-5">
-                                                    <path
-                                                        d="M246.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-128-128c-9.2-9.2-22.9-11.9-34.9-6.9s-19.8 16.6-19.8 29.6l0 256c0 12.9 7.8 24.6 19.8 29.6s25.7 2.2 34.9-6.9l128-128z" />
-                                                </svg>
-                                                <b>Nom: </b>
+                                            class=" grid items-center max-w-4xl grid-cols-1 gap-2 mx-auto md:grid-cols-3">
+                                            <div
+                                                class="from-purple-300 to-blue-200 py-4 pl-3 pr-3 text-gray-600 transition duration-150 hover:bg-gradient-to-r">
+                                                <div class="flex">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512"
+                                                        class="h-5 w-5">
+                                                        <path
+                                                            d="M246.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-128-128c-9.2-9.2-22.9-11.9-34.9-6.9s-19.8 16.6-19.8 29.6l0 256c0 12.9 7.8 24.6 19.8 29.6s25.7 2.2 34.9-6.9l128-128z" />
+                                                    </svg>
+                                                    <b>Nom: </b>
+                                                </div>
+                                                <div>
+                                                    {{ $association[0]->vicePresident }}
+                                                </div>
                                             </div>
-                                            <div>
-                                                {{ $association[0]->vicePresident }}
+                                            <div
+                                                class="border-r border-l border-gray-100 from-purple-300 to-blue-200 py-4 pl-3 pr-3 text-gray-600 transition duration-150 hover:bg-gradient-to-r">
+                                                <div class="flex">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512"
+                                                        class="h-5 w-5">
+                                                        <path
+                                                            d="M246.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-128-128c-9.2-9.2-22.9-11.9-34.9-6.9s-19.8 16.6-19.8 29.6l0 256c0 12.9 7.8 24.6 19.8 29.6s25.7 2.2 34.9-6.9l128-128z" />
+                                                    </svg>
+                                                    <b>Email: </b>
+                                                </div>
+                                                <div>
+                                                    {{ $association[0]->emailVice }}
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div
-                                            class="border-r border-l border-gray-100 from-purple-300 to-blue-200 py-4 pl-3 pr-3 text-gray-600 transition duration-150 hover:bg-gradient-to-r">
-                                            <div class="flex">
-                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512"
-                                                    class="h-5 w-5">
-                                                    <path
-                                                        d="M246.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-128-128c-9.2-9.2-22.9-11.9-34.9-6.9s-19.8 16.6-19.8 29.6l0 256c0 12.9 7.8 24.6 19.8 29.6s25.7 2.2 34.9-6.9l128-128z" />
-                                                </svg>
-                                                <b>Email: </b>
-                                            </div>
-                                            <div>
-                                                {{ $association[0]->emailVice }}
-                                            </div>
-                                        </div>
-                                        <div
-                                            class="from-purple-300 to-blue-200 py-4 pl-3 pr-3 text-gray-600 transition duration-150 hover:bg-gradient-to-r">
-                                            <div class="flex">
-                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512"
-                                                    class="h-5 w-5">
-                                                    <path
-                                                        d="M246.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-128-128c-9.2-9.2-22.9-11.9-34.9-6.9s-19.8 16.6-19.8 29.6l0 256c0 12.9 7.8 24.6 19.8 29.6s25.7 2.2 34.9-6.9l128-128z" />
-                                                </svg>
-                                                <b>Cin: </b>
-                                            </div>
-                                            <div>
-                                                {{ $association[0]->cinVice }}
+                                            <div
+                                                class="from-purple-300 to-blue-200 py-4 pl-3 pr-3 text-gray-600 transition duration-150 hover:bg-gradient-to-r">
+                                                <div class="flex">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512"
+                                                        class="h-5 w-5">
+                                                        <path
+                                                            d="M246.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-128-128c-9.2-9.2-22.9-11.9-34.9-6.9s-19.8 16.6-19.8 29.6l0 256c0 12.9 7.8 24.6 19.8 29.6s25.7 2.2 34.9-6.9l128-128z" />
+                                                    </svg>
+                                                    <b>Cin: </b>
+                                                </div>
+                                                <div>
+                                                    {{ $association[0]->cinVice }}
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
                             @endif
-                            
+
                             {{-- secretaire --}}
                             <div>
                                 <h3 class="font-medium text-gray-900 text-left px-6">Secretaire</h3>
@@ -202,56 +207,57 @@
                             </div>
 
                             {{-- secretaireAdjoint --}}
-                            @if(isset($association[0]->secretaireAdjoint) && $association[0]->secretaireAdjoint)
-                            <div>
-                                <h3 class="font-medium text-gray-900 text-left px-6">Secretaire Adjoint</h3>
-                                <div class="w-full overflow-hidden text-sm">
-                                    <div class=" grid items-center max-w-4xl grid-cols-1 gap-2 mx-auto md:grid-cols-3">
+                            @if (isset($association[0]->secretaireAdjoint) && $association[0]->secretaireAdjoint)
+                                <div>
+                                    <h3 class="font-medium text-gray-900 text-left px-6">Secretaire Adjoint</h3>
+                                    <div class="w-full overflow-hidden text-sm">
                                         <div
-                                            class="from-purple-300 to-blue-200 py-4 pl-3 pr-3 text-gray-600 transition duration-150 hover:bg-gradient-to-r">
-                                            <div class="flex">
-                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512"
-                                                    class="h-5 w-5">
-                                                    <path
-                                                        d="M246.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-128-128c-9.2-9.2-22.9-11.9-34.9-6.9s-19.8 16.6-19.8 29.6l0 256c0 12.9 7.8 24.6 19.8 29.6s25.7 2.2 34.9-6.9l128-128z" />
-                                                </svg>
-                                                <b>Nom: </b>
+                                            class=" grid items-center max-w-4xl grid-cols-1 gap-2 mx-auto md:grid-cols-3">
+                                            <div
+                                                class="from-purple-300 to-blue-200 py-4 pl-3 pr-3 text-gray-600 transition duration-150 hover:bg-gradient-to-r">
+                                                <div class="flex">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512"
+                                                        class="h-5 w-5">
+                                                        <path
+                                                            d="M246.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-128-128c-9.2-9.2-22.9-11.9-34.9-6.9s-19.8 16.6-19.8 29.6l0 256c0 12.9 7.8 24.6 19.8 29.6s25.7 2.2 34.9-6.9l128-128z" />
+                                                    </svg>
+                                                    <b>Nom: </b>
+                                                </div>
+                                                <div>
+                                                    {{ $association[0]->secretaireAdjoint }}
+                                                </div>
                                             </div>
-                                            <div>
-                                                {{ $association[0]->secretaireAdjoint }}
+                                            <div
+                                                class="border-r border-l border-gray-100 from-purple-300 to-blue-200 py-4 pl-3 pr-3 text-gray-600 transition duration-150 hover:bg-gradient-to-r">
+                                                <div class="flex">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512"
+                                                        class="h-5 w-5">
+                                                        <path
+                                                            d="M246.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-128-128c-9.2-9.2-22.9-11.9-34.9-6.9s-19.8 16.6-19.8 29.6l0 256c0 12.9 7.8 24.6 19.8 29.6s25.7 2.2 34.9-6.9l128-128z" />
+                                                    </svg>
+                                                    <b>Email: </b>
+                                                </div>
+                                                <div>
+                                                    {{ $association[0]->emailSecretaireAdjoint }}
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div
-                                            class="border-r border-l border-gray-100 from-purple-300 to-blue-200 py-4 pl-3 pr-3 text-gray-600 transition duration-150 hover:bg-gradient-to-r">
-                                            <div class="flex">
-                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512"
-                                                    class="h-5 w-5">
-                                                    <path
-                                                        d="M246.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-128-128c-9.2-9.2-22.9-11.9-34.9-6.9s-19.8 16.6-19.8 29.6l0 256c0 12.9 7.8 24.6 19.8 29.6s25.7 2.2 34.9-6.9l128-128z" />
-                                                </svg>
-                                                <b>Email: </b>
-                                            </div>
-                                            <div>
-                                                {{ $association[0]->emailSecretaireAdjoint }}
-                                            </div>
-                                        </div>
-                                        <div
-                                            class="from-purple-300 to-blue-200 py-4 pl-3 pr-3 text-gray-600 transition duration-150 hover:bg-gradient-to-r">
-                                            <div class="flex">
-                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512"
-                                                    class="h-5 w-5">
-                                                    <path
-                                                        d="M246.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-128-128c-9.2-9.2-22.9-11.9-34.9-6.9s-19.8 16.6-19.8 29.6l0 256c0 12.9 7.8 24.6 19.8 29.6s25.7 2.2 34.9-6.9l128-128z" />
-                                                </svg>
-                                                <b>Cin: </b>
-                                            </div>
-                                            <div>
-                                                {{ $association[0]->cinSecretaireAdjoint }}
+                                            <div
+                                                class="from-purple-300 to-blue-200 py-4 pl-3 pr-3 text-gray-600 transition duration-150 hover:bg-gradient-to-r">
+                                                <div class="flex">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512"
+                                                        class="h-5 w-5">
+                                                        <path
+                                                            d="M246.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-128-128c-9.2-9.2-22.9-11.9-34.9-6.9s-19.8 16.6-19.8 29.6l0 256c0 12.9 7.8 24.6 19.8 29.6s25.7 2.2 34.9-6.9l128-128z" />
+                                                    </svg>
+                                                    <b>Cin: </b>
+                                                </div>
+                                                <div>
+                                                    {{ $association[0]->cinSecretaireAdjoint }}
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
                             @endif
 
                             {{-- tresorier --}}
@@ -306,374 +312,381 @@
                             </div>
 
                             {{-- tresorierAdjoint --}}
-                            @if(isset($association[0]->tresorierAdjoint) && $association[0]->tresorierAdjoint)
-                            <div>
-                                <h3 class="font-medium text-gray-900 text-left px-6">Tresorier Adjoint</h3>
-                                <div class="w-full overflow-hidden text-sm">
-                                    <div class=" grid items-center max-w-4xl grid-cols-1 gap-2 mx-auto md:grid-cols-3">
+                            @if (isset($association[0]->tresorierAdjoint) && $association[0]->tresorierAdjoint)
+                                <div>
+                                    <h3 class="font-medium text-gray-900 text-left px-6">Tresorier Adjoint</h3>
+                                    <div class="w-full overflow-hidden text-sm">
                                         <div
-                                            class="from-purple-300 to-blue-200 py-4 pl-3 pr-3 text-gray-600 transition duration-150 hover:bg-gradient-to-r">
-                                            <div class="flex">
-                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512"
-                                                    class="h-5 w-5">
-                                                    <path
-                                                        d="M246.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-128-128c-9.2-9.2-22.9-11.9-34.9-6.9s-19.8 16.6-19.8 29.6l0 256c0 12.9 7.8 24.6 19.8 29.6s25.7 2.2 34.9-6.9l128-128z" />
-                                                </svg>
-                                                <b>Nom: </b>
+                                            class=" grid items-center max-w-4xl grid-cols-1 gap-2 mx-auto md:grid-cols-3">
+                                            <div
+                                                class="from-purple-300 to-blue-200 py-4 pl-3 pr-3 text-gray-600 transition duration-150 hover:bg-gradient-to-r">
+                                                <div class="flex">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512"
+                                                        class="h-5 w-5">
+                                                        <path
+                                                            d="M246.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-128-128c-9.2-9.2-22.9-11.9-34.9-6.9s-19.8 16.6-19.8 29.6l0 256c0 12.9 7.8 24.6 19.8 29.6s25.7 2.2 34.9-6.9l128-128z" />
+                                                    </svg>
+                                                    <b>Nom: </b>
+                                                </div>
+                                                <div>
+                                                    {{ $association[0]->tresorierAdjoint }}
+                                                </div>
                                             </div>
-                                            <div>
-                                                {{ $association[0]->tresorierAdjoint }}
+                                            <div
+                                                class="border-r border-l border-gray-100 from-purple-300 to-blue-200 py-4 pl-3 pr-3 text-gray-600 transition duration-150 hover:bg-gradient-to-r">
+                                                <div class="flex">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512"
+                                                        class="h-5 w-5">
+                                                        <path
+                                                            d="M246.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-128-128c-9.2-9.2-22.9-11.9-34.9-6.9s-19.8 16.6-19.8 29.6l0 256c0 12.9 7.8 24.6 19.8 29.6s25.7 2.2 34.9-6.9l128-128z" />
+                                                    </svg>
+                                                    <b>Email: </b>
+                                                </div>
+                                                <div>
+                                                    {{ $association[0]->emailTresorierAdjoint }}
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div
-                                            class="border-r border-l border-gray-100 from-purple-300 to-blue-200 py-4 pl-3 pr-3 text-gray-600 transition duration-150 hover:bg-gradient-to-r">
-                                            <div class="flex">
-                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512"
-                                                    class="h-5 w-5">
-                                                    <path
-                                                        d="M246.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-128-128c-9.2-9.2-22.9-11.9-34.9-6.9s-19.8 16.6-19.8 29.6l0 256c0 12.9 7.8 24.6 19.8 29.6s25.7 2.2 34.9-6.9l128-128z" />
-                                                </svg>
-                                                <b>Email: </b>
-                                            </div>
-                                            <div>
-                                                {{ $association[0]->emailTresorierAdjoint }}
-                                            </div>
-                                        </div>
-                                        <div
-                                            class="from-purple-300 to-blue-200 py-4 pl-3 pr-3 text-gray-600 transition duration-150 hover:bg-gradient-to-r">
-                                            <div class="flex">
-                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512"
-                                                    class="h-5 w-5">
-                                                    <path
-                                                        d="M246.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-128-128c-9.2-9.2-22.9-11.9-34.9-6.9s-19.8 16.6-19.8 29.6l0 256c0 12.9 7.8 24.6 19.8 29.6s25.7 2.2 34.9-6.9l128-128z" />
-                                                </svg>
-                                                <b>Cin: </b>
-                                            </div>
-                                            <div>
-                                                {{ $association[0]->cinTresorierAdjoint }}
+                                            <div
+                                                class="from-purple-300 to-blue-200 py-4 pl-3 pr-3 text-gray-600 transition duration-150 hover:bg-gradient-to-r">
+                                                <div class="flex">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512"
+                                                        class="h-5 w-5">
+                                                        <path
+                                                            d="M246.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-128-128c-9.2-9.2-22.9-11.9-34.9-6.9s-19.8 16.6-19.8 29.6l0 256c0 12.9 7.8 24.6 19.8 29.6s25.7 2.2 34.9-6.9l128-128z" />
+                                                    </svg>
+                                                    <b>Cin: </b>
+                                                </div>
+                                                <div>
+                                                    {{ $association[0]->cinTresorierAdjoint }}
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
                             @endif
 
                             {{-- conseiller1 --}}
-                            @if(isset($association[0]->conseiller1) && $association[0]->conseiller1)
-                            <div>
-                                <h3 class="font-medium text-gray-900 text-left px-6">Conseiller 1</h3>
-                                <div class="w-full overflow-hidden text-sm">
-                                    <div class=" grid items-center max-w-4xl grid-cols-1 gap-2 mx-auto md:grid-cols-3">
+                            @if (isset($association[0]->conseiller1) && $association[0]->conseiller1)
+                                <div>
+                                    <h3 class="font-medium text-gray-900 text-left px-6">Conseiller 1</h3>
+                                    <div class="w-full overflow-hidden text-sm">
                                         <div
-                                            class="from-purple-300 to-blue-200 py-4 pl-3 pr-3 text-gray-600 transition duration-150 hover:bg-gradient-to-r">
-                                            <div class="flex">
-                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512"
-                                                    class="h-5 w-5">
-                                                    <path
-                                                        d="M246.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-128-128c-9.2-9.2-22.9-11.9-34.9-6.9s-19.8 16.6-19.8 29.6l0 256c0 12.9 7.8 24.6 19.8 29.6s25.7 2.2 34.9-6.9l128-128z" />
-                                                </svg>
-                                                <b>Nom: </b>
+                                            class=" grid items-center max-w-4xl grid-cols-1 gap-2 mx-auto md:grid-cols-3">
+                                            <div
+                                                class="from-purple-300 to-blue-200 py-4 pl-3 pr-3 text-gray-600 transition duration-150 hover:bg-gradient-to-r">
+                                                <div class="flex">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512"
+                                                        class="h-5 w-5">
+                                                        <path
+                                                            d="M246.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-128-128c-9.2-9.2-22.9-11.9-34.9-6.9s-19.8 16.6-19.8 29.6l0 256c0 12.9 7.8 24.6 19.8 29.6s25.7 2.2 34.9-6.9l128-128z" />
+                                                    </svg>
+                                                    <b>Nom: </b>
+                                                </div>
+                                                <div>
+                                                    {{ $association[0]->conseiller1 }}
+                                                </div>
                                             </div>
-                                            <div>
-                                                {{ $association[0]->conseiller1 }}
+                                            <div
+                                                class="border-r border-l border-gray-100 from-purple-300 to-blue-200 py-4 pl-3 pr-3 text-gray-600 transition duration-150 hover:bg-gradient-to-r">
+                                                <div class="flex">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512"
+                                                        class="h-5 w-5">
+                                                        <path
+                                                            d="M246.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-128-128c-9.2-9.2-22.9-11.9-34.9-6.9s-19.8 16.6-19.8 29.6l0 256c0 12.9 7.8 24.6 19.8 29.6s25.7 2.2 34.9-6.9l128-128z" />
+                                                    </svg>
+                                                    <b>Email: </b>
+                                                </div>
+                                                <div>
+                                                    {{ $association[0]->emailConseiller1 }}
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div
-                                            class="border-r border-l border-gray-100 from-purple-300 to-blue-200 py-4 pl-3 pr-3 text-gray-600 transition duration-150 hover:bg-gradient-to-r">
-                                            <div class="flex">
-                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512"
-                                                    class="h-5 w-5">
-                                                    <path
-                                                        d="M246.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-128-128c-9.2-9.2-22.9-11.9-34.9-6.9s-19.8 16.6-19.8 29.6l0 256c0 12.9 7.8 24.6 19.8 29.6s25.7 2.2 34.9-6.9l128-128z" />
-                                                </svg>
-                                                <b>Email: </b>
-                                            </div>
-                                            <div>
-                                                {{ $association[0]->emailConseiller1 }}
-                                            </div>
-                                        </div>
-                                        <div
-                                            class="from-purple-300 to-blue-200 py-4 pl-3 pr-3 text-gray-600 transition duration-150 hover:bg-gradient-to-r">
-                                            <div class="flex">
-                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512"
-                                                    class="h-5 w-5">
-                                                    <path
-                                                        d="M246.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-128-128c-9.2-9.2-22.9-11.9-34.9-6.9s-19.8 16.6-19.8 29.6l0 256c0 12.9 7.8 24.6 19.8 29.6s25.7 2.2 34.9-6.9l128-128z" />
-                                                </svg>
-                                                <b>Cin: </b>
-                                            </div>
-                                            <div>
-                                                {{ $association[0]->cinConseiller1 }}
+                                            <div
+                                                class="from-purple-300 to-blue-200 py-4 pl-3 pr-3 text-gray-600 transition duration-150 hover:bg-gradient-to-r">
+                                                <div class="flex">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512"
+                                                        class="h-5 w-5">
+                                                        <path
+                                                            d="M246.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-128-128c-9.2-9.2-22.9-11.9-34.9-6.9s-19.8 16.6-19.8 29.6l0 256c0 12.9 7.8 24.6 19.8 29.6s25.7 2.2 34.9-6.9l128-128z" />
+                                                    </svg>
+                                                    <b>Cin: </b>
+                                                </div>
+                                                <div>
+                                                    {{ $association[0]->cinConseiller1 }}
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
                             @endif
 
                             {{-- conseiller2 --}}
-                            @if(isset($association[0]->conseiller2) && $association[0]->conseiller2)
-                            <div>
-                                <h3 class="font-medium text-gray-900 text-left px-6">Conseiller 2</h3>
-                                <div class="w-full overflow-hidden text-sm">
-                                    <div class=" grid items-center max-w-4xl grid-cols-1 gap-2 mx-auto md:grid-cols-3">
+                            @if (isset($association[0]->conseiller2) && $association[0]->conseiller2)
+                                <div>
+                                    <h3 class="font-medium text-gray-900 text-left px-6">Conseiller 2</h3>
+                                    <div class="w-full overflow-hidden text-sm">
                                         <div
-                                            class="from-purple-300 to-blue-200 py-4 pl-3 pr-3 text-gray-600 transition duration-150 hover:bg-gradient-to-r">
-                                            <div class="flex">
-                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512"
-                                                    class="h-5 w-5">
-                                                    <path
-                                                        d="M246.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-128-128c-9.2-9.2-22.9-11.9-34.9-6.9s-19.8 16.6-19.8 29.6l0 256c0 12.9 7.8 24.6 19.8 29.6s25.7 2.2 34.9-6.9l128-128z" />
-                                                </svg>
-                                                <b>Nom: </b>
+                                            class=" grid items-center max-w-4xl grid-cols-1 gap-2 mx-auto md:grid-cols-3">
+                                            <div
+                                                class="from-purple-300 to-blue-200 py-4 pl-3 pr-3 text-gray-600 transition duration-150 hover:bg-gradient-to-r">
+                                                <div class="flex">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512"
+                                                        class="h-5 w-5">
+                                                        <path
+                                                            d="M246.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-128-128c-9.2-9.2-22.9-11.9-34.9-6.9s-19.8 16.6-19.8 29.6l0 256c0 12.9 7.8 24.6 19.8 29.6s25.7 2.2 34.9-6.9l128-128z" />
+                                                    </svg>
+                                                    <b>Nom: </b>
+                                                </div>
+                                                <div>
+                                                    {{ $association[0]->conseiller2 }}
+                                                </div>
                                             </div>
-                                            <div>
-                                                {{ $association[0]->conseiller2 }}
+                                            <div
+                                                class="border-r border-l border-gray-100 from-purple-300 to-blue-200 py-4 pl-3 pr-3 text-gray-600 transition duration-150 hover:bg-gradient-to-r">
+                                                <div class="flex">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512"
+                                                        class="h-5 w-5">
+                                                        <path
+                                                            d="M246.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-128-128c-9.2-9.2-22.9-11.9-34.9-6.9s-19.8 16.6-19.8 29.6l0 256c0 12.9 7.8 24.6 19.8 29.6s25.7 2.2 34.9-6.9l128-128z" />
+                                                    </svg>
+                                                    <b>Email: </b>
+                                                </div>
+                                                <div>
+                                                    {{ $association[0]->emailConseiller2 }}
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div
-                                            class="border-r border-l border-gray-100 from-purple-300 to-blue-200 py-4 pl-3 pr-3 text-gray-600 transition duration-150 hover:bg-gradient-to-r">
-                                            <div class="flex">
-                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512"
-                                                    class="h-5 w-5">
-                                                    <path
-                                                        d="M246.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-128-128c-9.2-9.2-22.9-11.9-34.9-6.9s-19.8 16.6-19.8 29.6l0 256c0 12.9 7.8 24.6 19.8 29.6s25.7 2.2 34.9-6.9l128-128z" />
-                                                </svg>
-                                                <b>Email: </b>
-                                            </div>
-                                            <div>
-                                                {{ $association[0]->emailConseiller2 }}
-                                            </div>
-                                        </div>
-                                        <div
-                                            class="from-purple-300 to-blue-200 py-4 pl-3 pr-3 text-gray-600 transition duration-150 hover:bg-gradient-to-r">
-                                            <div class="flex">
-                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512"
-                                                    class="h-5 w-5">
-                                                    <path
-                                                        d="M246.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-128-128c-9.2-9.2-22.9-11.9-34.9-6.9s-19.8 16.6-19.8 29.6l0 256c0 12.9 7.8 24.6 19.8 29.6s25.7 2.2 34.9-6.9l128-128z" />
-                                                </svg>
-                                                <b>Cin: </b>
-                                            </div>
-                                            <div>
-                                                {{ $association[0]->cinConseiller2 }}
+                                            <div
+                                                class="from-purple-300 to-blue-200 py-4 pl-3 pr-3 text-gray-600 transition duration-150 hover:bg-gradient-to-r">
+                                                <div class="flex">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512"
+                                                        class="h-5 w-5">
+                                                        <path
+                                                            d="M246.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-128-128c-9.2-9.2-22.9-11.9-34.9-6.9s-19.8 16.6-19.8 29.6l0 256c0 12.9 7.8 24.6 19.8 29.6s25.7 2.2 34.9-6.9l128-128z" />
+                                                    </svg>
+                                                    <b>Cin: </b>
+                                                </div>
+                                                <div>
+                                                    {{ $association[0]->cinConseiller2 }}
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
                             @endif
 
                             {{-- conseiller3 --}}
-                            @if(isset($association[0]->conseiller3) && $association[0]->conseiller3)
-                            <div>
-                                <h3 class="font-medium text-gray-900 text-left px-6">Conseiller 3</h3>
-                                <div class="w-full overflow-hidden text-sm">
-                                    <div class=" grid items-center max-w-4xl grid-cols-1 gap-2 mx-auto md:grid-cols-3">
+                            @if (isset($association[0]->conseiller3) && $association[0]->conseiller3)
+                                <div>
+                                    <h3 class="font-medium text-gray-900 text-left px-6">Conseiller 3</h3>
+                                    <div class="w-full overflow-hidden text-sm">
                                         <div
-                                            class="from-purple-300 to-blue-200 py-4 pl-3 pr-3 text-gray-600 transition duration-150 hover:bg-gradient-to-r">
-                                            <div class="flex">
-                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512"
-                                                    class="h-5 w-5">
-                                                    <path
-                                                        d="M246.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-128-128c-9.2-9.2-22.9-11.9-34.9-6.9s-19.8 16.6-19.8 29.6l0 256c0 12.9 7.8 24.6 19.8 29.6s25.7 2.2 34.9-6.9l128-128z" />
-                                                </svg>
-                                                <b>Nom: </b>
+                                            class=" grid items-center max-w-4xl grid-cols-1 gap-2 mx-auto md:grid-cols-3">
+                                            <div
+                                                class="from-purple-300 to-blue-200 py-4 pl-3 pr-3 text-gray-600 transition duration-150 hover:bg-gradient-to-r">
+                                                <div class="flex">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512"
+                                                        class="h-5 w-5">
+                                                        <path
+                                                            d="M246.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-128-128c-9.2-9.2-22.9-11.9-34.9-6.9s-19.8 16.6-19.8 29.6l0 256c0 12.9 7.8 24.6 19.8 29.6s25.7 2.2 34.9-6.9l128-128z" />
+                                                    </svg>
+                                                    <b>Nom: </b>
+                                                </div>
+                                                <div>
+                                                    {{ $association[0]->conseiller3 }}
+                                                </div>
                                             </div>
-                                            <div>
-                                                {{ $association[0]->conseiller3 }}
+                                            <div
+                                                class="border-r border-l border-gray-100 from-purple-300 to-blue-200 py-4 pl-3 pr-3 text-gray-600 transition duration-150 hover:bg-gradient-to-r">
+                                                <div class="flex">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512"
+                                                        class="h-5 w-5">
+                                                        <path
+                                                            d="M246.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-128-128c-9.2-9.2-22.9-11.9-34.9-6.9s-19.8 16.6-19.8 29.6l0 256c0 12.9 7.8 24.6 19.8 29.6s25.7 2.2 34.9-6.9l128-128z" />
+                                                    </svg>
+                                                    <b>Email: </b>
+                                                </div>
+                                                <div>
+                                                    {{ $association[0]->emailConseiller3 }}
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div
-                                            class="border-r border-l border-gray-100 from-purple-300 to-blue-200 py-4 pl-3 pr-3 text-gray-600 transition duration-150 hover:bg-gradient-to-r">
-                                            <div class="flex">
-                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512"
-                                                    class="h-5 w-5">
-                                                    <path
-                                                        d="M246.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-128-128c-9.2-9.2-22.9-11.9-34.9-6.9s-19.8 16.6-19.8 29.6l0 256c0 12.9 7.8 24.6 19.8 29.6s25.7 2.2 34.9-6.9l128-128z" />
-                                                </svg>
-                                                <b>Email: </b>
-                                            </div>
-                                            <div>
-                                                {{ $association[0]->emailConseiller3 }}
-                                            </div>
-                                        </div>
-                                        <div
-                                            class="from-purple-300 to-blue-200 py-4 pl-3 pr-3 text-gray-600 transition duration-150 hover:bg-gradient-to-r">
-                                            <div class="flex">
-                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512"
-                                                    class="h-5 w-5">
-                                                    <path
-                                                        d="M246.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-128-128c-9.2-9.2-22.9-11.9-34.9-6.9s-19.8 16.6-19.8 29.6l0 256c0 12.9 7.8 24.6 19.8 29.6s25.7 2.2 34.9-6.9l128-128z" />
-                                                </svg>
-                                                <b>Cin: </b>
-                                            </div>
-                                            <div>
-                                                {{ $association[0]->cinConseiller3 }}
+                                            <div
+                                                class="from-purple-300 to-blue-200 py-4 pl-3 pr-3 text-gray-600 transition duration-150 hover:bg-gradient-to-r">
+                                                <div class="flex">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512"
+                                                        class="h-5 w-5">
+                                                        <path
+                                                            d="M246.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-128-128c-9.2-9.2-22.9-11.9-34.9-6.9s-19.8 16.6-19.8 29.6l0 256c0 12.9 7.8 24.6 19.8 29.6s25.7 2.2 34.9-6.9l128-128z" />
+                                                    </svg>
+                                                    <b>Cin: </b>
+                                                </div>
+                                                <div>
+                                                    {{ $association[0]->cinConseiller3 }}
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
                             @endif
 
                             {{-- conseiller4 --}}
-                            @if(isset($association[0]->conseiller4) && $association[0]->conseiller4)
-                            <div>
-                                <h3 class="font-medium text-gray-900 text-left px-6">Conseiller 4</h3>
-                                <div class="w-full overflow-hidden text-sm">
-                                    <div class=" grid items-center max-w-4xl grid-cols-1 gap-2 mx-auto md:grid-cols-3">
+                            @if (isset($association[0]->conseiller4) && $association[0]->conseiller4)
+                                <div>
+                                    <h3 class="font-medium text-gray-900 text-left px-6">Conseiller 4</h3>
+                                    <div class="w-full overflow-hidden text-sm">
                                         <div
-                                            class="from-purple-300 to-blue-200 py-4 pl-3 pr-3 text-gray-600 transition duration-150 hover:bg-gradient-to-r">
-                                            <div class="flex">
-                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512"
-                                                    class="h-5 w-5">
-                                                    <path
-                                                        d="M246.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-128-128c-9.2-9.2-22.9-11.9-34.9-6.9s-19.8 16.6-19.8 29.6l0 256c0 12.9 7.8 24.6 19.8 29.6s25.7 2.2 34.9-6.9l128-128z" />
-                                                </svg>
-                                                <b>Nom: </b>
+                                            class=" grid items-center max-w-4xl grid-cols-1 gap-2 mx-auto md:grid-cols-3">
+                                            <div
+                                                class="from-purple-300 to-blue-200 py-4 pl-3 pr-3 text-gray-600 transition duration-150 hover:bg-gradient-to-r">
+                                                <div class="flex">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512"
+                                                        class="h-5 w-5">
+                                                        <path
+                                                            d="M246.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-128-128c-9.2-9.2-22.9-11.9-34.9-6.9s-19.8 16.6-19.8 29.6l0 256c0 12.9 7.8 24.6 19.8 29.6s25.7 2.2 34.9-6.9l128-128z" />
+                                                    </svg>
+                                                    <b>Nom: </b>
+                                                </div>
+                                                <div>
+                                                    {{ $association[0]->conseiller4 }}
+                                                </div>
                                             </div>
-                                            <div>
-                                                {{ $association[0]->conseiller4 }}
+                                            <div
+                                                class="border-r border-l border-gray-100 from-purple-300 to-blue-200 py-4 pl-3 pr-3 text-gray-600 transition duration-150 hover:bg-gradient-to-r">
+                                                <div class="flex">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512"
+                                                        class="h-5 w-5">
+                                                        <path
+                                                            d="M246.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-128-128c-9.2-9.2-22.9-11.9-34.9-6.9s-19.8 16.6-19.8 29.6l0 256c0 12.9 7.8 24.6 19.8 29.6s25.7 2.2 34.9-6.9l128-128z" />
+                                                    </svg>
+                                                    <b>Email: </b>
+                                                </div>
+                                                <div>
+                                                    {{ $association[0]->emailConseiller4 }}
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div
-                                            class="border-r border-l border-gray-100 from-purple-300 to-blue-200 py-4 pl-3 pr-3 text-gray-600 transition duration-150 hover:bg-gradient-to-r">
-                                            <div class="flex">
-                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512"
-                                                    class="h-5 w-5">
-                                                    <path
-                                                        d="M246.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-128-128c-9.2-9.2-22.9-11.9-34.9-6.9s-19.8 16.6-19.8 29.6l0 256c0 12.9 7.8 24.6 19.8 29.6s25.7 2.2 34.9-6.9l128-128z" />
-                                                </svg>
-                                                <b>Email: </b>
-                                            </div>
-                                            <div>
-                                                {{ $association[0]->emailConseiller4 }}
-                                            </div>
-                                        </div>
-                                        <div
-                                            class="from-purple-300 to-blue-200 py-4 pl-3 pr-3 text-gray-600 transition duration-150 hover:bg-gradient-to-r">
-                                            <div class="flex">
-                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512"
-                                                    class="h-5 w-5">
-                                                    <path
-                                                        d="M246.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-128-128c-9.2-9.2-22.9-11.9-34.9-6.9s-19.8 16.6-19.8 29.6l0 256c0 12.9 7.8 24.6 19.8 29.6s25.7 2.2 34.9-6.9l128-128z" />
-                                                </svg>
-                                                <b>Cin: </b>
-                                            </div>
-                                            <div>
-                                                {{ $association[0]->cinConseiller4 }}
+                                            <div
+                                                class="from-purple-300 to-blue-200 py-4 pl-3 pr-3 text-gray-600 transition duration-150 hover:bg-gradient-to-r">
+                                                <div class="flex">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512"
+                                                        class="h-5 w-5">
+                                                        <path
+                                                            d="M246.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-128-128c-9.2-9.2-22.9-11.9-34.9-6.9s-19.8 16.6-19.8 29.6l0 256c0 12.9 7.8 24.6 19.8 29.6s25.7 2.2 34.9-6.9l128-128z" />
+                                                    </svg>
+                                                    <b>Cin: </b>
+                                                </div>
+                                                <div>
+                                                    {{ $association[0]->cinConseiller4 }}
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
                             @endif
 
                             {{-- conseiller5 --}}
-                            @if(isset($association[0]->conseiller5) && $association[0]->conseiller5)
-                            <div>
-                                <h3 class="font-medium text-gray-900 text-left px-6">Conseiller 5</h3>
-                                <div class="w-full overflow-hidden text-sm">
-                                    <div class=" grid items-center max-w-4xl grid-cols-1 gap-2 mx-auto md:grid-cols-3">
+                            @if (isset($association[0]->conseiller5) && $association[0]->conseiller5)
+                                <div>
+                                    <h3 class="font-medium text-gray-900 text-left px-6">Conseiller 5</h3>
+                                    <div class="w-full overflow-hidden text-sm">
                                         <div
-                                            class="from-purple-300 to-blue-200 py-4 pl-3 pr-3 text-gray-600 transition duration-150 hover:bg-gradient-to-r">
-                                            <div class="flex">
-                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512"
-                                                    class="h-5 w-5">
-                                                    <path
-                                                        d="M246.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-128-128c-9.2-9.2-22.9-11.9-34.9-6.9s-19.8 16.6-19.8 29.6l0 256c0 12.9 7.8 24.6 19.8 29.6s25.7 2.2 34.9-6.9l128-128z" />
-                                                </svg>
-                                                <b>Nom: </b>
+                                            class=" grid items-center max-w-4xl grid-cols-1 gap-2 mx-auto md:grid-cols-3">
+                                            <div
+                                                class="from-purple-300 to-blue-200 py-4 pl-3 pr-3 text-gray-600 transition duration-150 hover:bg-gradient-to-r">
+                                                <div class="flex">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512"
+                                                        class="h-5 w-5">
+                                                        <path
+                                                            d="M246.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-128-128c-9.2-9.2-22.9-11.9-34.9-6.9s-19.8 16.6-19.8 29.6l0 256c0 12.9 7.8 24.6 19.8 29.6s25.7 2.2 34.9-6.9l128-128z" />
+                                                    </svg>
+                                                    <b>Nom: </b>
+                                                </div>
+                                                <div>
+                                                    {{ $association[0]->conseiller5 }}
+                                                </div>
                                             </div>
-                                            <div>
-                                                {{ $association[0]->conseiller5 }}
+                                            <div
+                                                class="border-r border-l border-gray-100 from-purple-300 to-blue-200 py-4 pl-3 pr-3 text-gray-600 transition duration-150 hover:bg-gradient-to-r">
+                                                <div class="flex">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512"
+                                                        class="h-5 w-5">
+                                                        <path
+                                                            d="M246.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-128-128c-9.2-9.2-22.9-11.9-34.9-6.9s-19.8 16.6-19.8 29.6l0 256c0 12.9 7.8 24.6 19.8 29.6s25.7 2.2 34.9-6.9l128-128z" />
+                                                    </svg>
+                                                    <b>Email: </b>
+                                                </div>
+                                                <div>
+                                                    {{ $association[0]->emailConseiller5 }}
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div
-                                            class="border-r border-l border-gray-100 from-purple-300 to-blue-200 py-4 pl-3 pr-3 text-gray-600 transition duration-150 hover:bg-gradient-to-r">
-                                            <div class="flex">
-                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512"
-                                                    class="h-5 w-5">
-                                                    <path
-                                                        d="M246.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-128-128c-9.2-9.2-22.9-11.9-34.9-6.9s-19.8 16.6-19.8 29.6l0 256c0 12.9 7.8 24.6 19.8 29.6s25.7 2.2 34.9-6.9l128-128z" />
-                                                </svg>
-                                                <b>Email: </b>
-                                            </div>
-                                            <div>
-                                                {{ $association[0]->emailConseiller5 }}
-                                            </div>
-                                        </div>
-                                        <div
-                                            class="from-purple-300 to-blue-200 py-4 pl-3 pr-3 text-gray-600 transition duration-150 hover:bg-gradient-to-r">
-                                            <div class="flex">
-                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512"
-                                                    class="h-5 w-5">
-                                                    <path
-                                                        d="M246.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-128-128c-9.2-9.2-22.9-11.9-34.9-6.9s-19.8 16.6-19.8 29.6l0 256c0 12.9 7.8 24.6 19.8 29.6s25.7 2.2 34.9-6.9l128-128z" />
-                                                </svg>
-                                                <b>Cin: </b>
-                                            </div>
-                                            <div>
-                                                {{ $association[0]->cinConseiller5 }}
+                                            <div
+                                                class="from-purple-300 to-blue-200 py-4 pl-3 pr-3 text-gray-600 transition duration-150 hover:bg-gradient-to-r">
+                                                <div class="flex">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512"
+                                                        class="h-5 w-5">
+                                                        <path
+                                                            d="M246.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-128-128c-9.2-9.2-22.9-11.9-34.9-6.9s-19.8 16.6-19.8 29.6l0 256c0 12.9 7.8 24.6 19.8 29.6s25.7 2.2 34.9-6.9l128-128z" />
+                                                    </svg>
+                                                    <b>Cin: </b>
+                                                </div>
+                                                <div>
+                                                    {{ $association[0]->cinConseiller5 }}
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
                             @endif
 
                             {{-- conseiller6 --}}
-                            @if(isset($association[0]->conseiller6) && $association[0]->conseiller6)
-                            <div>
-                                <h3 class="font-medium text-gray-900 text-left px-6">Conseiller 6</h3>
-                                <div class="w-full overflow-hidden text-sm">
-                                    <div class=" grid items-center max-w-4xl grid-cols-1 gap-2 mx-auto md:grid-cols-3">
+                            @if (isset($association[0]->conseiller6) && $association[0]->conseiller6)
+                                <div>
+                                    <h3 class="font-medium text-gray-900 text-left px-6">Conseiller 6</h3>
+                                    <div class="w-full overflow-hidden text-sm">
                                         <div
-                                            class="from-purple-300 to-blue-200 py-4 pl-3 pr-3 text-gray-600 transition duration-150 hover:bg-gradient-to-r">
-                                            <div class="flex">
-                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512"
-                                                    class="h-5 w-5">
-                                                    <path
-                                                        d="M246.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-128-128c-9.2-9.2-22.9-11.9-34.9-6.9s-19.8 16.6-19.8 29.6l0 256c0 12.9 7.8 24.6 19.8 29.6s25.7 2.2 34.9-6.9l128-128z" />
-                                                </svg>
-                                                <b>Nom: </b>
+                                            class=" grid items-center max-w-4xl grid-cols-1 gap-2 mx-auto md:grid-cols-3">
+                                            <div
+                                                class="from-purple-300 to-blue-200 py-4 pl-3 pr-3 text-gray-600 transition duration-150 hover:bg-gradient-to-r">
+                                                <div class="flex">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512"
+                                                        class="h-5 w-5">
+                                                        <path
+                                                            d="M246.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-128-128c-9.2-9.2-22.9-11.9-34.9-6.9s-19.8 16.6-19.8 29.6l0 256c0 12.9 7.8 24.6 19.8 29.6s25.7 2.2 34.9-6.9l128-128z" />
+                                                    </svg>
+                                                    <b>Nom: </b>
+                                                </div>
+                                                <div>
+                                                    {{ $association[0]->conseiller6 }}
+                                                </div>
                                             </div>
-                                            <div>
-                                                {{ $association[0]->conseiller6 }}
+                                            <div
+                                                class="border-r border-l border-gray-100 from-purple-300 to-blue-200 py-4 pl-3 pr-3 text-gray-600 transition duration-150 hover:bg-gradient-to-r">
+                                                <div class="flex">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512"
+                                                        class="h-5 w-5">
+                                                        <path
+                                                            d="M246.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-128-128c-9.2-9.2-22.9-11.9-34.9-6.9s-19.8 16.6-19.8 29.6l0 256c0 12.9 7.8 24.6 19.8 29.6s25.7 2.2 34.9-6.9l128-128z" />
+                                                    </svg>
+                                                    <b>Email: </b>
+                                                </div>
+                                                <div>
+                                                    {{ $association[0]->emailConseiller6 }}
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div
-                                            class="border-r border-l border-gray-100 from-purple-300 to-blue-200 py-4 pl-3 pr-3 text-gray-600 transition duration-150 hover:bg-gradient-to-r">
-                                            <div class="flex">
-                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512"
-                                                    class="h-5 w-5">
-                                                    <path
-                                                        d="M246.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-128-128c-9.2-9.2-22.9-11.9-34.9-6.9s-19.8 16.6-19.8 29.6l0 256c0 12.9 7.8 24.6 19.8 29.6s25.7 2.2 34.9-6.9l128-128z" />
-                                                </svg>
-                                                <b>Email: </b>
-                                            </div>
-                                            <div>
-                                                {{ $association[0]->emailConseiller6 }}
-                                            </div>
-                                        </div>
-                                        <div
-                                            class="from-purple-300 to-blue-200 py-4 pl-3 pr-3 text-gray-600 transition duration-150 hover:bg-gradient-to-r">
-                                            <div class="flex">
-                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512"
-                                                    class="h-5 w-5">
-                                                    <path
-                                                        d="M246.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-128-128c-9.2-9.2-22.9-11.9-34.9-6.9s-19.8 16.6-19.8 29.6l0 256c0 12.9 7.8 24.6 19.8 29.6s25.7 2.2 34.9-6.9l128-128z" />
-                                                </svg>
-                                                <b>Cin: </b>
-                                            </div>
-                                            <div>
-                                                {{ $association[0]->cinConseiller6 }}
+                                            <div
+                                                class="from-purple-300 to-blue-200 py-4 pl-3 pr-3 text-gray-600 transition duration-150 hover:bg-gradient-to-r">
+                                                <div class="flex">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512"
+                                                        class="h-5 w-5">
+                                                        <path
+                                                            d="M246.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-128-128c-9.2-9.2-22.9-11.9-34.9-6.9s-19.8 16.6-19.8 29.6l0 256c0 12.9 7.8 24.6 19.8 29.6s25.7 2.2 34.9-6.9l128-128z" />
+                                                    </svg>
+                                                    <b>Cin: </b>
+                                                </div>
+                                                <div>
+                                                    {{ $association[0]->cinConseiller6 }}
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
                             @endif
 
                         </div>

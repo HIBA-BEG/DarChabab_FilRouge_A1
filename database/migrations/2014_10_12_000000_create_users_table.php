@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('lastname');
             $table->string('profile_picture');
             $table->string('email')->unique();
+            $table->string('phoneNumber');
             $table->timestamp('email_verified_at')->nullable();
             $table->enum('role', ['Association','Club','Direction','Admin'])->default('Association');
             $table->string('password');

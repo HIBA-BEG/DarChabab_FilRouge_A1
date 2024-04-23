@@ -13,15 +13,12 @@ use Illuminate\Support\Facades\Redirect;
 
 class ProfileController extends Controller
 {
-    public function edit(Request $request): View
+    public function edit(Request $request, Association $association): View
     { 
-
         $user = Auth::user();
 
         if ($user->role == 'Association') {
-            return view('profile.editAssociation', [
-                'user' => $request->user(),
-            ]);
+            return view('associations.edit', compact('association'));
         } else if ($user->role == 'Admin') {
             return view('profile.editAdmin', [
                 'user' => $request->user(),
@@ -61,6 +58,10 @@ class ProfileController extends Controller
             'origine' => 'required|string',
             'domaine' => 'required|string',
             'description' => 'required|string',
+
+            'facebookLink' => 'nullable|string',
+            'instagramLink' => 'nullable|string',
+            'otherLink' => 'nullable|string',
 
             'president' => 'required|string',
             'emailPresident' => 'required|string',
@@ -117,6 +118,10 @@ class ProfileController extends Controller
             'origine' => $request->origine,
             'domaine' => $request->domaine,
             'description' => $request->description,
+            
+            'facebookLink' => $request->vicePresident,
+            'instagramLink' => $request->instagramLink,
+            'otherLink' => $request->otherLink,
 
             'president' => $request->president,
             'emailPresident' => $request->emailPresident,
@@ -170,6 +175,94 @@ class ProfileController extends Controller
 
         return to_route('profile.ShowProfileAssociation');
     }
+
+ 
+
+    public function updateAssociation(Request $request, Association $association)
+{
+    $validatedData = $request->validate([
+        'type' => 'nullable|string',
+        'origine' => 'nullable|string',
+        'domaine' => 'nullable|string',
+        'description' => 'nullable|string',
+
+        'facebookLink' => 'nullable|string',
+        'instagramLink' => 'nullable|string',
+        'otherLink' => 'nullable|string',
+
+        'president' => 'nullable|string',
+        'emailPresident' => 'nullable|string',
+        'cinPresident' => 'nullable|string',
+
+        'vicePresident' => 'nullable|string',
+        'emailVice' => 'nullable|string',
+        'cinVice' => 'nullable|string',
+
+        'secretaire' => 'nullable|string',
+        'emailSecretaire' => 'nullable|string',
+        'cinSecretaire' => 'nullable|string',
+
+        'secretaireAdjoint' => 'nullable|string',
+        'emailSecretaireAdjoint' => 'nullable|string',
+        'cinSecretaireAdjoint' => 'nullable|string',
+
+        'tresorier' => 'nullable|string',
+        'emailTresorier' => 'nullable|string',
+        'cinTresorier' => 'nullable|string',
+
+        'tresorierAdjoint' => 'nullable|string',
+        'emailTresorierAdjoint' => 'nullable|string',
+        'cinTresorierAdjoint' => 'nullable|string',
+
+        'conseiller1' => 'nullable|string',
+        'emailConseiller1' => 'nullable|string',
+        'cinConseiller1' => 'nullable|string',
+
+        'conseiller2' => 'nullable|string',
+        'emailConseiller2' => 'nullable|string',
+        'cinConseiller2' => 'nullable|string',
+
+        'conseiller3' => 'nullable|string',
+        'emailConseiller3' => 'nullable|string',
+        'cinConseiller3' => 'nullable|string',
+
+        'conseiller4' => 'nullable|string',
+        'emailConseiller4' => 'nullable|string',
+        'cinConseiller4' => 'nullable|string',
+
+        'conseiller5' => 'nullable|string',
+        'emailConseiller5' => 'nullable|string',
+        'cinConseiller5' => 'nullable|string',
+
+        'conseiller6' => 'nullable|string',
+        'emailConseiller6' => 'nullable|string',
+        'cinConseiller6' => 'nullable|string',
+
+        'profile_picture' => 'nullable|image', // Add this line for profile picture validation
+    ]);
+
+    $association->update($validatedData);
+
+    // Handle profile picture upload if provided
+    if ($request->hasFile('profile_picture')) {
+        $profilePicture = $request->file('profile_picture');
+        $fileName = time() . '_' . $profilePicture->getClientOriginalName();
+        $filePath = $profilePicture->storeAs('uploads', $fileName, 'public');
+
+        $association->profile_picture = '/storage/' . $filePath;
+        $association->save();
+    } 
+
+    // if ($request->hasFile('profile_picture')) {
+    //     $image = request()->file('profile_picture');
+    //     $imageName = time() . '.' . $image->getClientOriginalExtension();
+    //     $image->move(public_path('img'), $imageName);
+    // } else {
+    //     $imageName = 'profile.png';
+    // }
+
+    return to_route('profile.ShowProfileAssociation');
+}
 
     public function destroy(Request $request): RedirectResponse
     {

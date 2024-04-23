@@ -30,7 +30,7 @@ class RegisterController extends Controller
             'firstname' => ['required', 'string', 'max:255'],
             'lastname' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:'.User::class],
-            'profile_picture' => ['required'],
+            'profile_picture' => ['required', 'image', 'mimes:jpeg,png,jpg,gif'],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
             'password_confirmation' => 'required|same:password',
             'role'=>['required'],
@@ -39,19 +39,31 @@ class RegisterController extends Controller
             'confirmed'=>['boolean'],
         ]);
 
+        // if ($request->hasFile('profile_picture')) {
+        //     $image = request()->file('profile_picture');
+        //     $imageName = time() . '.' . $image->getClientOriginalExtension();
+        //     $image->move(public_path('img'), $imageName);
+        // } else {
+        //     $imageName = 'profile.png';
+        // }
+
         if ($request->hasFile('profile_picture')) {
-            $image = request()->file('profile_picture');
-            $imageName = time() . '.' . $image->getClientOriginalExtension();
-            $image->move(public_path('img'), $imageName);
+            $profilePicture = $request->file('profile_picture');
+            $fileName = time() . '_' . $profilePicture->getClientOriginalName();
+            $filePath = $profilePicture->storeAs('uploads', $fileName, 'public');
+
+            // Save the file path to the user's profile_picture attribute
+            $profilePicturePath = '/storage/' . $filePath;
         } else {
-            $imageName = 'profile.png';
+            // If no profile picture is uploaded, use a default image
+            $profilePicturePath = 'img/profile.png';
         }
 
         $user = User::create([
             'firstname' => $request->firstname,
             'lastname' => $request->lastname,
             'email' => $request->email,
-            'profile_picture' => $imageName,
+            'profile_picture' => $profilePicturePath,
             'password' => Hash::make($request->password),
             'role'=>$request->role,
             'banned'=>$request->has('banned'),
@@ -63,7 +75,7 @@ class RegisterController extends Controller
 
         Auth::login($user);
 
-        if($user->role == 'Association' || $user->role == 'Club' || $user->role == 'Direction')
+        if(in_array($user->role, ['Association', 'Club', 'Direction']))
             {
                 if (auth()->user()->confirmed) {
                     // User's account is confirmed, allow login

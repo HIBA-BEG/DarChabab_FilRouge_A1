@@ -49,6 +49,8 @@ Route::middleware('auth')->group(function () {
     Route::get('/CompleteprofileAssociation', [ProfileController::class, 'storeAssociationView'])->name('profile.CompleteAssociation')->middleware(['association']);
     Route::post('/CompleteprofileAssociation', [ProfileController::class, 'storeAssociation'])->name('profile.storeAssociation')->middleware(['association']);
     Route::get('/ShowProfileAssociation', [ProfileController::class, 'ShowProfileAssociation'])->name('profile.ShowProfileAssociation')->middleware(['association']);
+    Route::put('/associations/{association}', [AssociationController::class, 'updateAssociation'])->name('associations.update');
+
 
     Route::get('/ShowProfileAdmin', [ProfileController::class, 'ShowProfileAdmin'])->name('profile.ShowProfileAdmin')->middleware(['admin']);
 });

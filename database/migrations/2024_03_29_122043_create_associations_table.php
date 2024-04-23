@@ -19,9 +19,9 @@ return new class extends Migration
             $table->string('domaine');
             $table->string('description');
             
-            // $table->string('facebookLink');
-            // $table->string('instagramLink');
-            // $table->string('twitterLink');
+            $table->string('facebookLink')->nullable();
+            $table->string('instagramLink')->nullable();
+            $table->string('otherLink')->nullable();
 
             $table->string('president');
             $table->string('emailPresident');

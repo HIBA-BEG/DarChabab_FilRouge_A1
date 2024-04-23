@@ -18,6 +18,10 @@ class Association extends Model
         'domaine',
         'description',
 
+        'facebookLink',
+        'instagramLink',
+        'twitterLink',
+
         'president',
         'emailPresident',
         'cinPresident',
