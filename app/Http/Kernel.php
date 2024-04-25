@@ -68,6 +68,5 @@ class Kernel extends HttpKernel
         'admin' => \App\Http\Middleware\Admin::class,
         'association' => \App\Http\Middleware\Association::class,
         'club' => \App\Http\Middleware\Club::class,
-        'direction' => \App\Http\Middleware\Direction::class,
     ];
 }

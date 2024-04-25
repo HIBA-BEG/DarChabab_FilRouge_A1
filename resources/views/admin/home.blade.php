@@ -65,7 +65,7 @@
                         </div>
                     </div>
 
-                    {{-- 5 nbr des membres de la direction --}}
+                    {{-- 5 nbr des membres de la direction
                     <div class="p-4 sm:w-1/2 lg:w-1/4 w-full hover:scale-105 duration-500">
                         <div class="items-center  justify-between p-4 rounded-lg bg-white shadow-purple-50 shadow-md">
                             <h2 class="text-gray-900 text-lg font-bold my-auto">Membres de la Direction:</h2>
@@ -73,7 +73,7 @@
                                 <h1 class="text-purple-400 text-7xl font-bold">{{ $directionCount }}</h1>
                             </div>
                         </div>
-                    </div>
+                    </div> --}}
 
                     {{-- 6 nbr des utilisateurs all roles except admin --}}
                     <div class="p-4 sm:w-1/2 lg:w-1/4 w-full hover:scale-105 duration-500">

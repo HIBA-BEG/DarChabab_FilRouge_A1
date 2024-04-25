@@ -13,6 +13,8 @@ class Reservation extends Model
     protected $fillable = [
         'startTime',
         'endTime',
+        'status',
+        'user_id',
         'association_id',
         'activite_id',
         'salle_id',
@@ -24,6 +26,10 @@ class Reservation extends Model
     //     return $this->belongsTo(Association::class, 'association_id');
     // }
 
+    public function user()
+    {
+        return $this->belongsTo(Admin::class);
+    }
     public function association()
     {
         return $this->belongsTo(Association::class);

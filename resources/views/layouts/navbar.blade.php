@@ -49,63 +49,6 @@
 
      </div>
  </nav>
- {{--
-<nav class="lg:px-16 px-9 bg-[radial-gradient(circle_at_bottom_left,_var(--tw-gradient-stops))] from-orange-color via-lightorange-color to-yellow-color shadow-md flex flex-wrap items-center lg:py-6 py-4">
-    <div class="flex-1 flex justify-between items-center">
-        <a href="/" class="flex text-lg font-semibold">
-            <img src="https://dev.rz-codes.com/static/logo-275e932fd817cc84d99d91f7519a9a22.svg" width="50"
-                height="50" class="p-2" alt="Hay Al Oumali Logo" />
-            <div class="mt-3 text-offwhite-color">Hay Al Oumali</div>
-        </a>
-    </div>
-    <label for="menu-toggle" class="cursor-pointer lg:hidden block">
-        <svg class="fill-current text-gray-900" xmlns="http://www.w3.org/2000/svg" width="20" height="20"
-            viewBox="0 0 20 20">
-            <title>menu</title>
-            <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"></path>
-        </svg>
-    </label>
-    <input class="hidden" type="checkbox" id="menu-toggle" />
-    <div class="hidden lg:flex lg:items-center lg:w-auto w-full" id="menu">
-        <nav>
-            <ul
-                class="text-xl text-[#EBEBEB] text-center items-center gap-x-5 pt-4 md:gap-x-4 lg:text-lg lg:flex  lg:pt-0 ">
-                <li class="py-2 lg:py-0 ">
-                    <a class="hover:pb-4 hover:border-b-4 hover:border-[#4D1F24]" href="#">
-                        ACCUEIL
-                    </a>
-                </li>
-                <li class="py-2 lg:py-0 ">
-                    <a class=" hover:pb-4 hover:border-b-4 hover:border-[#4D1F24]" href="#">
-                        Projects
-                    </a>
-                </li>
-                <li class="py-2 lg:py-0 ">
-                    <a class="hover:pb-4 hover:border-b-4 hover:border-[#4D1F24]" href="#">
-                        MÉDIATHÈQUE
-                    </a>
-                </li>
-                <li class="py-2 lg:py-0 ">
-                    <a class="hover:pb-4 hover:border-b-4 hover:border-[#4D1F24]" href="#">
-                        SERVICES NUMÉRIQUES
-                    </a>
-                </li>
-                <li class="py-2 lg:py-0 ">
-                    <a class="hover:pb-4 hover:border-b-4 hover:border-[#4D1F24]" href="{{ route('register') }}">
-                        Créer un compte
-                    </a>
-                </li>
-                <li class="py-2 lg:py-0 ">
-                    <a class="hover:pb-4 hover:border-b-4 hover:border-[#4D1F24]" href="{{ route('login') }}">
-                        Se connecter
-                    </a>
-                </li>
-            </ul>
-        </nav>
-
-    </div>
-</nav> --}}
-
 
  <nav class="bg-blue-300 mx-4 shadow-xl rounded-br-3xl rounded-bl-3xl hover:border-slate-400 sticky top-0 z-50">
      <div class=" flex flex-wrap items-center justify-between mx-4">
@@ -138,8 +81,8 @@
                      </a>
                  </li>
                  <li class="py-2 lg:py-0 ">
-                     <a class=" hover:pb-4 hover:border-b-4 hover:border-[#4D1F24]" href="#">
-                         Projects
+                     <a class=" hover:pb-4 hover:border-b-4 hover:border-[#4D1F24]" href="{{ route('blog') }}">
+                         Blog
                      </a>
                  </li>
                  {{-- <li class="py-2 lg:py-0 ">
@@ -152,7 +95,7 @@
                             SERVICES NUMÉRIQUES
                         </a>
                     </li> --}}
-                 <li class="py-2 lg:py-0 ">
+                 {{-- <li class="py-2 lg:py-0 ">
                      <a class="hover:pb-4 hover:border-b-4 hover:border-[#4D1F24]" href="{{ route('register') }}">
                          Créer un compte
                      </a>
@@ -161,37 +104,35 @@
                      <a class="hover:pb-4 hover:border-b-4 hover:border-[#4D1F24]" href="{{ route('login') }}">
                          Se connecter
                      </a>
-                 </li>
+                 </li> --}}
                  <li>
-                     <button id="dropdownNavbarLink" data-dropdown-toggle="dropdownNavbar"
+                    <button id="dropdownNavbarLink" data-dropdown-toggle="dropdownNavbar"
                          class="text-gray-700 hover:bg-gray-50 border-b border-gray-100 md:hover:bg-transparent md:border-0 pl-3 pr-4 py-2 md:hover:text-blue-700 md:p-0 font-medium flex items-center justify-between w-full md:w-auto">
                          Authentification
-                         <svg class="w-4 h-4 ml-1" fill="currentColor" viewBox="0 0 20 20"
-                             xmlns="http://www.w3.org/2000/svg">
-                             <path fill-rule="evenodd"
-                                 d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                                 clip-rule="evenodd"></path>
-                         </svg></button>
+                         <svg class="w-4 h-4 ml-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                             <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+                         </svg>
+                    </button>
                      <!-- Dropdown menu -->
                      <div id="dropdownNavbar"
                          class="hidden bg-white text-base z-10 list-none divide-y divide-gray-100 rounded shadow my-4 w-44">
                          <ul class="py-1 text-black" aria-labelledby="dropdownLargeButton">
                              @auth
                                  <li>
-                                     <a href="{{ url('/ ') }}"
-                                         class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Dashboard</a>
+                                     <a href="#"
+                                         class="font-semibold text-gray-600 hover:text-gray-900">Dashboard</a>
                                  </li>
                              @else
                                  <li>
                                      <a href="{{ route('login') }}"
-                                         class="ml-4 font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">
-                                         Créer un compte
-                                     </a>
-                                 </li>
-                                 <li>
-                                     <a href="{{ route('register') }}"
-                                         class="ml-4 font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">
+                                         class="m-auto font-semibold text-gray-600 hover:text-blue-600">
                                          Se connecter
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="{{ route('register') }}"
+                                        class="m-auto font-semibold text-gray-600 hover:text-blue-600">
+                                        Créer un compte
                                      </a>
                                  </li>
                              @endauth

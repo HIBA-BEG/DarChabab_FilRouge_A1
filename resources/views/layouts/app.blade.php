@@ -18,7 +18,7 @@
         @if (auth()->user()->role == 'Admin')
             @include('layouts.sidebar')
             @include('admin.home')
-        @elseif(auth()->user()->role == 'Association' || auth()->user()->role == 'Club' || auth()->user()->role == 'Direction')
+        @elseif(auth()->user()->role == 'Association' || auth()->user()->role == 'Club')
             @include('layouts.navbar')
 
             @include('layouts.footer')

@@ -27,20 +27,22 @@ class LoginController extends Controller
 
         $user = Auth::user();
 
-        if($user->role == 'Association' || $user->role == 'Club' || $user->role == 'Direction')
-            {
-                if ($user->confirmed) {
+        if ($user->role == 'Association' || $user->role == 'Club') {
+            if ($user->confirmed) {
+                if ($user->banned == 1) {
+                    Auth::logout();
+                    return redirect()->route('login')->with('error', "Votre compte est actuellement suspendu en raison d'une violation des politiques.");
+                } else {
                     // User's account is confirmed, allow login
                     return redirect()->route('association.home');
-                } else {
-                    // User's account is not confirmed, show error message
-                    return redirect()->back()->with('error', 'Your account is not confirmed yet.');
                 }
+            } else {
+                // User's account is not confirmed, show error message
+                return redirect()->back()->with('error', 'Votre compte na pas encore été confirmé.');
             }
-            else if($user->role == 'Admin')
-            {
-                return redirect()->route('admin.home');
-            }
+        } else if ($user->role == 'Admin') {
+            return redirect()->route('admin.home');
+        }
 
         return redirect()->intended(RouteServiceProvider::HOME);
     }
@@ -58,5 +60,4 @@ class LoginController extends Controller
 
         return redirect('/');
     }
-
 }

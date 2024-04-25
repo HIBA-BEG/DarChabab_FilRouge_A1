@@ -30,7 +30,8 @@ class RegisterController extends Controller
             'firstname' => ['required', 'string', 'max:255'],
             'lastname' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:'.User::class],
-            'profile_picture' => ['required', 'image', 'mimes:jpeg,png,jpg,gif'],
+            'profile_picture' => ['required'],
+            'phoneNumber' => ['required', 'string', 'max:20'],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
             'password_confirmation' => 'required|same:password',
             'role'=>['required'],
@@ -59,11 +60,13 @@ class RegisterController extends Controller
             $profilePicturePath = 'img/profile.png';
         }
 
+
         $user = User::create([
             'firstname' => $request->firstname,
             'lastname' => $request->lastname,
             'email' => $request->email,
             'profile_picture' => $profilePicturePath,
+            'phoneNumber' => $request->phoneNumber,
             'password' => Hash::make($request->password),
             'role'=>$request->role,
             'banned'=>$request->has('banned'),
@@ -75,7 +78,7 @@ class RegisterController extends Controller
 
         Auth::login($user);
 
-        if(in_array($user->role, ['Association', 'Club', 'Direction']))
+        if($user->role == 'Association' || $user->role == 'Club' || $user->role == 'Direction')
             {
                 if (auth()->user()->confirmed) {
                     // User's account is confirmed, allow login

@@ -119,8 +119,8 @@
                     <ul class="mb-8 text-sm font-medium">
                         <li>
                             <a class="nav-link flex items-center rounded py-3 pl-3 pr-4 text-gray-50 hover:bg-gray-600"
-                                href="#ex1">
-                                <span class="select-none">...</span>
+                                href="{{ route('blog')}}">
+                                <span class="select-none">My feed</span>
                             </a>
                         </li>
                         <li>
@@ -241,6 +241,27 @@
 
                     </ul>
                 </div>
+
+                <div class="px-4 pb-6">
+                    <h3 class="mb-2 text-xs font-medium uppercase text-gray-500">
+                        Blog
+                    </h3>
+                    <ul class="mb-8 text-sm font-medium">
+                        <li>
+                            <a class="nav-link flex items-center rounded py-3 pl-3 pr-4 text-gray-50 hover:bg-gray-600"
+                                href="{{ route('blog')}}">
+                                <span class="select-none">My feed</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="nav-link flex items-center rounded py-3 pl-3 pr-4 text-gray-50 hover:bg-gray-600"
+                                href="#ex2">
+                                <span class="select-none">...</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
 
                 <div class="flex justify-center container mx-auto p-4">
                     <form action="{{ route('logout') }}" method="POST">

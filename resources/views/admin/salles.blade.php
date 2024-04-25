@@ -66,6 +66,13 @@
                                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 bg-gray-100 border-gray-500 placeholder-gray-400 text-black focus:ring-primary-500 focus:border-primary-500"
                                             placeholder="Donnez une description de la salle" required="">
                                     </div>
+                                    <div class="col-span-2">
+                                        <label for=""
+                                            class="block mb-2 text-sm font-medium text-gray-900 text-black">Capacite</label>
+                                        <input type="number" name="capacite" id=""
+                                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 bg-gray-100 border-gray-500 placeholder-gray-400 text-black focus:ring-primary-500 focus:border-primary-500"
+                                            placeholder="Quelle est la capacite de la salle" required="">
+                                    </div>
                                 </div>
                                 <button type="submit" name="addcat"
                                     class="inline-flex items-center focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center bg-blue-200 hover:bg-blue-400 focus:ring-blue-800">
@@ -128,13 +135,17 @@
                                                 <span
                                                     class="mt-1 text-l text-black whitespace-nowrap">{{ $salle->description }}</span>
                                             </div>
+                                            <div class="flex justify-center justify-center w-10">
+                                                <span
+                                                    class="mt-1 text-l text-black whitespace-nowrap">{{ $salle->capacite }}</span>
+                                            </div>
                                             <div class="flex items-center gap-6">
                                                 <a href="#" title="Edit" class="editSalleButton"
                                                     data-modal-id="authentication-modal-{{ $salle->id }}"
                                                     data-modal-toggle="authentication-modal"
                                                     data-salle-id="{{ $salle->id }}"
                                                     data-salle-name="{{ $salle->name }}"
-                                                    data-salle-description="{{ $salle->description }}">
+                                                    data-salle-description="{{ $salle->description }}" data-salle-capacite="{{ $salle->capacite }}">
                                                     <svg xmlns="http://www.w3.org/2000/svg" height="16"
                                                         width="16" viewBox="0 0 512 512">
                                                         <path opacity="1" fill="#2766d3"
@@ -193,9 +204,7 @@
                                                                 <input type="hidden" name="salleID" id="editSalleId"
                                                                     value="{{ $salle->id }}">
                                                                 <label for=""
-                                                                    class="block mb-2 text-sm font-medium text-gray-900 text-black">Nom
-                                                                    de
-                                                                    la salle</label>
+                                                                    class="block mb-2 text-sm font-medium text-gray-900 text-black">Nom de la salle</label>
                                                                 <input type="text" name="name" id="editName"
                                                                     value="{{ $salle->name }}"
                                                                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 bg-gray-100 border-gray-500 placeholder-gray-400 text-black focus:ring-primary-500 focus:border-primary-500"
@@ -218,6 +227,18 @@
                                                                     placeholder="Photo de la salle">
                                                             </div>
                                                             {{-- update dyal l picture ma kheddamachh!! don't forget about it, and don't forget to add what you added to the script f lkhrr --}}
+                                                            <div class="col-span-2">
+                                                                <input type="hidden" name="salleID" id="editSalleId"
+                                                                    value="{{ $salle->id }}">
+                                                                <label for=""
+                                                                    class="block mb-2 text-sm font-medium text-gray-900 text-black">Capacite</label>
+                                                                <input type="number" name="capacite"
+                                                                    id="editCapacite"
+                                                                    value="{{ $salle->capacite }}"
+                                                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 bg-gray-100 border-gray-500 placeholder-gray-400 text-black focus:ring-primary-500 focus:border-primary-500"
+                                                                    placeholder="quelle est la capacite de la salle"
+                                                                    required="">
+                                                            </div>
                                                             <div class="col-span-2">
                                                                 <input type="hidden" name="salleID" id="editSalleId"
                                                                     value="{{ $salle->id }}">
@@ -266,6 +287,7 @@
                     const editSalleIdInput = document.getElementById('editSalleId');
                     const editNameInput = document.getElementById('editName');
                     const editDescriptionInput = document.getElementById('editDescription');
+                    const editCapaciteInput = document.getElementById('editCapacite');
 
                     editButtons.forEach(function(button) {
                         button.addEventListener('click', function(event) {
@@ -274,14 +296,17 @@
                             const salleId = this.getAttribute('data-salle-id');
                             const salleName = this.getAttribute('data-salle-name');
                             const salleDescription = this.getAttribute('data-salle-description');
+                            const salleCapacite = this.getAttribute('data-salle-Capacite');
 
                             console.log('Salle ID:', salleId);
                             console.log('Salle Name:', salleName);
                             console.log('Salle Description:', salleDescription);
+                            console.log('Salle Capacite:', salleCapacite);
 
                             editSalleIdInput.value = salleId;
                             editNameInput.value = salleName;
                             editDescriptionInput.value = salleDescription;
+                            editCapaciteInput.value = salleCapacite;
                         });
                     });
                 });

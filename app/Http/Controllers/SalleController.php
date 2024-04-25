@@ -43,6 +43,7 @@ class SalleController extends Controller
             Salle::create([
                 'name' => $request->name,
                 'profile_picture' => $imageName,
+                'capacite' => $request->capacite,
                 'description' => $request->description,
             ]);
             return redirect()->route('admin.salles');
@@ -57,6 +58,7 @@ class SalleController extends Controller
             $request->validate([
                 'name' => ['required', 'string', 'max:255'],
                 'profile_picture' => ['required'],
+                'capacite' => ['required'],
                 'description' => ['required', 'string', 'max:255'],
             ]);
 
@@ -72,6 +74,7 @@ class SalleController extends Controller
 
             // Update salle data
             $salle->name = $request->name;
+            $salle->capacite = $request->capacite;
             $salle->description = $request->description;
             $salle->save();
 
