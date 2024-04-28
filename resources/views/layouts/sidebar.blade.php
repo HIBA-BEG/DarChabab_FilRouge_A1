@@ -78,6 +78,12 @@
                         </li>
                         <li>
                             <a class="nav-link flex items-center rounded py-3 pl-3 pr-4 text-gray-50 hover:bg-gray-600"
+                                href="{{ route('ArchivedAssociations') }}">
+                                <span class="select-none">Associations Archivées</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="nav-link flex items-center rounded py-3 pl-3 pr-4 text-gray-50 hover:bg-gray-600"
                                 href="#Clubs">
                                 <span class="select-none">Clubs</span>
                             </a>

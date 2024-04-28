@@ -42,6 +42,7 @@ class ProfileController extends Controller
         $association = DB::table('users')
             ->join('associations', "associations.user_id", "=", "users.id")
             ->where('users.id', $id)
+            ->where('banned', 0)
             ->get();
         // echo '<pre>';
         // print_r($association);

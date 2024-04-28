@@ -29,7 +29,7 @@
                         @if ($errors->any())
                             <div class="col-12">
                                 @foreach ($errors->all() as $error)
-                                    <div class="bg-red-100 border border-red-400 text-red-700 w-full px-4 py-3 lg:px-0 mx-auto rounded relative"
+                                    <div class="bg-green-100 border border-green-400 text-green-700 w-full px-4 py-3 lg:px-0 mx-auto rounded relative"
                                         role="alert">
                                         <strong class="font-bold">
                                             {{ $error }}
@@ -47,7 +47,7 @@
                             </div>
                         @endif
                         @if (session()->has('success'))
-                            <div class="bg-green-100 border border-green-400 text-green-700 w-full px-4 py-3 lg:px-0 mx-auto rounded relative"
+                            <div class="bg-red-100 border border-red-400 text-red-700 w-full px-4 py-3 lg:px-0 mx-auto rounded relative"
                                 role="alert">
                                 <strong>
                                     {{ session('success') }}
@@ -56,10 +56,13 @@
                         @endif
                     </div>
 
-                    <form method="POST" action="{{ route('login') }}">
+                    <p>
+                        We will send a link to your email, use that link to reset your password
+                    </p>
+                    <form method="POST" action="{{ route('resetPassword', $token) }}">
                         @csrf
                         @method('POST')
-
+                        <input type="text" name="token" hidden value="{{ $token }}">
                         <div class="mb-4 text-lg">
                             <input
                                 class="rounded-3xl border-none bg-white px-6 py-2 text-center text-inherit placeholder-grey-500 shadow-lg outline-none backdrop-blur-md"
@@ -69,13 +72,13 @@
                         <div class="mb-4 text-lg">
                             <input
                                 class="rounded-3xl border-none bg-white px-6 py-2 text-center text-inherit placeholder-grey-500 shadow-lg outline-none backdrop-blur-md"
-                                type="password" name="password" id="password" placeholder="Password" />
+                                type="password" name="password" id="password" placeholder="Entez nouveau Password" />
                         </div>
-                        <div class="text-right text-gray-400 hover:underline hover:text-gray-100">
-                            <a href="{{ route('forgotPassword') }}">Mot de passe oublié?</a>
-                        </div>
-                        <div class="text-right text-gray-400 hover:underline hover:text-gray-100">
-                            <a href="{{ route('register') }}">Créer un compte</a>
+                        <div class="mb-4 text-lg">
+                            <input
+                                class="rounded-3xl border-none bg-white px-6 py-2 text-center text-inherit placeholder-grey-500 shadow-lg outline-none backdrop-blur-md"
+                                type="password" name="password_confirmation" id="password"
+                                placeholder="Confirmer Password" />
                         </div>
                         <div class="mt-8 flex justify-center text-lg">
                             <button type="submit"

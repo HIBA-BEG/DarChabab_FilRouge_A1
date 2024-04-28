@@ -49,6 +49,7 @@ class ReservationController extends Controller
             $validatedData['activite_id'] = $activite->id;
         }
         $reservation = $association->reservations()->create([
+            'user_id' => Auth::id(),
             'salle_id' => $validatedData['salle_id'],
             'activite_id' => $validatedData['activite_id'],
             'startTime' => $validatedData['startTime'],

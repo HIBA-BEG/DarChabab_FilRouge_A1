@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ArticleBlogController;
 use App\Http\Middleware\Association;
+use App\Http\Middleware\Banned;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\SalleController;
@@ -10,6 +11,7 @@ use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\AssociationController;
 use App\Http\Controllers\ReservationController;
 use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\Auth\PasswordOublieController;
 
 Route::get('/', function () {
     return view('home');
@@ -19,8 +21,12 @@ Route::get('login', [LoginController::class, 'create'])->name('login');
 Route::post('login', [LoginController::class, 'store'])->name('login');
 Route::get('register', [RegisterController::class, 'create'])->name('register');
 Route::post('register', [RegisterController::class, 'store'])->name('register');
+Route::get('forgotMyPassword', [PasswordOublieController::class, 'create'])->name('forgotPassword');
+Route::post('forgotMyPassword', [PasswordOublieController::class, 'forgotPassword'])->name('forgotPassword');
+Route::get('resetMyPassword/{token}', [PasswordOublieController::class, 'resetPassword'])->name('resetPassword');
+Route::post('resetMyPassword/{token}', [PasswordOublieController::class, 'resetPasswordPost'])->name('resetPassword');
 
-Route::middleware('auth')->group(function () {
+Route::middleware(['auth', 'banned'])->group(function () {
 
     Route::post('logout', [LoginController::class, 'destroy'])->name('logout');
 
@@ -28,10 +34,11 @@ Route::middleware('auth')->group(function () {
     Route::get('ToutesLesAssociations', [AdminController::class, 'allAssociations'])->name('Associations')->middleware(['admin']);
     Route::get('ConfirmationComptes', [AdminController::class, 'allAccounts'])->name('confirmAccount')->middleware(['admin']);
     Route::patch('/updateCompte/{id}', [AdminController::class, 'updateConfirmed'])->name('updateConfirmed')->middleware(['admin']);
-
+    
     Route::put('/ban/association/{userId}',  [AdminController::class, 'banAssociation'])->name('ban.association')->middleware(['admin']);
     Route::put('/Unban/association/{userId}',  [AdminController::class, 'unbanAssociation'])->name('unban.association')->middleware(['admin']);
-
+    
+    Route::get('ToutesLesAssociationsArchivées', [AdminController::class, 'allArchivedAssociations'])->name('ArchivedAssociations')->middleware(['admin']);
     Route::put('/Archive/association/{userId}',  [AdminController::class, 'ArchiveAssociation'])->name('Archive.association')->middleware(['admin']);
     Route::put('/UnArchive/association/{userId}',  [AdminController::class, 'unArchiveAssociation'])->name('unArchive.association')->middleware(['admin']);
 

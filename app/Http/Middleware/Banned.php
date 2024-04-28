@@ -6,18 +6,21 @@ use Closure;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
 
-class Association
+class Banned
 {
     /**
      * Handle an incoming request.
      *
      * @param  \Closure(\Illuminate\Http\Request): (\Symfony\Component\HttpFoundation\Response)  $next
      */
-    public function handle(Request $request, Closure $next): Response
+
+    public function handle($request, Closure $next)
     {
-        if(Auth()->user()->role == 'Association' || Auth()->user()->role == 'Club'){
-            return $next($request);
+        if (auth()->check() && auth()->user()->banned) {
+            auth()->logout();
+            return redirect()->route('login')->with('banned_message', 'You are banned');
         }
-        abort(401);
-    }   
+
+        return $next($request);
+    }
 }
