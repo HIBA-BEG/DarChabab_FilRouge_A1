@@ -13,7 +13,6 @@
         <!-- component -->
         <section class="main-content">
             <!-- component -->
-            <section>
                 <div class="py-16">
                     <div class="mx-auto px-6 max-w-6xl text-gray-500">
                         <div class="text-center pb-12">
@@ -61,7 +60,6 @@
                         @endif
                     </div>
                 </div>
-            </section>
         </section>
     </div>
 </body>

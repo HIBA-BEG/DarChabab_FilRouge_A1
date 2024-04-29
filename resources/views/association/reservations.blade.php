@@ -9,7 +9,6 @@
     <div class="relative">
         @include('layouts.sidebar')
         <section class="main-content">
-            <!-- component -->
             <section>
                 <div class="py-16">
                     <div class="mx-auto px-6 max-w-6xl text-gray-500">
@@ -106,47 +105,23 @@
                                 </div>
                             </div>
                         </div>
-
-
-
-
                     </div>
                     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-6">
                         @foreach ($reservations as $reservation)
-                                <div class="box w-full rounded-br-3xl rounded-tl-3xl flex flex-col justify-center p-12 bg-opacity-30 bg-white border border-opacity-25 backdrop-filter backdrop-blur-md  transition-all duration-300">
+                            <div class="box w-full rounded-br-3xl rounded-tl-3xl flex flex-col justify-center p-12 bg-opacity-30 bg-white border border-opacity-25 backdrop-filter backdrop-blur-md transition-all duration-300">
                                 <div class="text-center">
-                                    {{-- <p class="text-xl text-gray-700 font-bold mb-2">{{ $reservation->firstname }} {{ $reservation->lastname }}</p> --}}
+                                    <p class="text-xl text-gray-700 font-bold mb-2">{{ $reservation->activite->name }}</p>
                                 </div>
-        
-                                <p class="text-base text-black font-normal">{{ $reservation->name }}</p>
-                                <p class="text-base text-black font-normal">{{ $reservation->description }}</p>
-        
+                                <p class="text-base text-black font-normal">{{ $reservation->activite->description }}</p>
                                 <div class="mt-5">
-                                    <p class="text-base text-black font-normal" value="{{ $reservation->salle_id}}">{{ $reservation->name }}</p>
-                                    <p class="text-base text-black font-normal">{{ $reservation->cinPresident }}</p>
-        
+                                    <p class="text-base text-black font-normal">{{ $reservation->salle->name }}</p>
                                 </div>
                                 <div class="mt-5">
-                                    <p class="text-base text-black font-normal">{{ $reservation->vicePresident }}</p>
-                                    <p class="text-base text-black font-normal">{{ $reservation->cinVice }}</p>
-        
+                                    <p class="text-base text-black font-normal">Start Time: {{ $reservation->startTime }}</p>
+                                    <p class="text-base text-black font-normal">End Time: {{ $reservation->endTime }}</p>
                                 </div>
-                                <div class="mt-5">
-                                    <p class="text-base text-black font-normal">{{ $reservation->secretaire }}</p>
-                                    <p class="text-base text-black font-normal">{{ $reservation->cinSecretaire }}</p>
-        
-                                </div>
-                                <div class="mt-5">
-                                    <p class="text-base text-black font-normal">{{ $reservation->president }}</p>
-                                    <p class="text-base text-black font-normal">{{ $reservation->cinPresident }}</p>
-        
-                                </div>
-        
-        
-        
                             </div>
                         @endforeach
-        
                     </div>
                 </div>
             </section>

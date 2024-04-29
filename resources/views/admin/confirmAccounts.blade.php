@@ -55,7 +55,7 @@
                             class="box w-full rounded-br-3xl rounded-tl-3xl flex flex-col justify-center p-12 bg-opacity-30 bg-white border border-opacity-25 backdrop-filter backdrop-blur-md transition-all duration-300">
                             <div class="mb-8">
                                 <img class="w-full object-cover rounded-br-3xl rounded-tl-3xl h-48"
-                                    src="{{ asset('img/' . $user->profile_picture) }}" alt="photo de profile">
+                                    src="{{ asset($user->profile_picture) }}" alt="photo de profile">
                             </div>
                             <div class="text-center">
                                 <p class="text-xl text-gray-700 font-bold mb-2">{{ $user->firstname }}

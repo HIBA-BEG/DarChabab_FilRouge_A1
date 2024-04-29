@@ -13,9 +13,7 @@ return new class extends Migration
     {
         Schema::create('article_blogs', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('association_id')->constrained('associations')->onDelete('cascade')->onUpdate('cascade');
-            $table->foreignId('user_id')->constrained('users')->onDelete('cascade')->onUpdate('cascade');
-            // i think I should change user_id with admin_id
+            $table->foreignId('user_id')->constrained('users')->onDelete('cascade')->onUpdate('cascade')->nullable();
             $table->string('title');
             $table->string('picture');
             $table->string('description');

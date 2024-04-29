@@ -52,7 +52,6 @@ class RegisterController extends Controller
             $profilePicture = $request->file('profile_picture');
             $fileName = time() . '_' . $profilePicture->getClientOriginalName();
             $filePath = $profilePicture->storeAs('uploads', $fileName, 'public');
-
             // Save the file path to the user's profile_picture attribute
             $profilePicturePath = '/storage/' . $filePath;
         } else {

@@ -30,8 +30,4 @@ class ArticleBlog extends Model
         return $this->belongsTo(User::class);
     }
 
-    public function pictures()
-    {
-        return $this->hasMany(Picture::class);
-    }
 }

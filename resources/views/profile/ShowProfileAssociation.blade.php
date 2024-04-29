@@ -16,7 +16,7 @@
 
                 <div class="bg-opacity-30 bg-white border border-opacity-25 backdrop-filter backdrop-blur-md  transition-all duration-300 relative shadow rounded-br-3xl rounded-tl-3xl w-full md:w-5/6  lg:w-4/6 xl:w-3/6 mx-auto">
                     <div class="flex justify-center">
-                        <img src="{{ asset('img/' . $association[0]->profile_picture) }}" alt=""
+                        <img src="{{ asset($association[0]->profile_picture) }}" alt=""
                             class="rounded-full mx-auto absolute -top-20 w-32 h-32 shadow-md border-4 border-white transition duration-200 transform hover:scale-110">
                     </div>
 

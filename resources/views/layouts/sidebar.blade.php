@@ -183,7 +183,7 @@
         <div class="navbar-menu relative z-40">
             <nav id="sidebar"
                 class="fixed left-0 bottom-0 flex w-3/4 -translate-x-full flex-col overflow-y-auto bg-gray-700 pt-6 pb-8 sm:max-w-xs lg:w-80">
-                <!-- one category / navigation group -->
+                <!-- one categor / navigation group -->
                 <div class="px-4 pb-6">
                     <h3 class="mb-2 text-xs font-medium uppercase text-gray-500">
                         Mon Dashboard

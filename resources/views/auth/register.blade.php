@@ -12,7 +12,7 @@
             <div class="flex text-black">
                 <div class="mb-8 flex flex-col items-center gap-4">
                     <img src="{{ asset('img/white-logo.png') }}" width="250" alt="" srcset="" />
-                    @if (session('error'))
+                    {{-- @if (session('error'))
                         <div role="alert">
 
                             <div class="bg-red-100 border border-red-400 text-red-700 w-full px-4 py-3 lg:px-0 mx-auto rounded relative"
@@ -20,23 +20,38 @@
                                 <strong class="font-bold">{{ session('error') }}</strong>
                             </div>
                         </div>
-                    @endif
-{{-- 
+                    @endif --}}
+
                     <div class="mt-5">
                         @if ($errors->any())
                             <div class="col-12">
                                 @foreach ($errors->all() as $error)
-                                    <div class="alert alert-danger">{{ $error }}</div>
+                                    <div class="bg-red-100 border border-red-400 text-red-700 w-full px-4 py-3 lg:px-0 mx-auto rounded relative"
+                                        role="alert">
+                                        <strong class="font-bold">
+                                            {{ $error }}
+                                        </strong>
+                                    </div>
                                 @endforeach
                             </div>
                         @endif
                         @if (session()->has('error'))
-                            <div class="alert alert-danger">{{ session('error') }}</div>
+                            <div class="bg-red-100 border border-red-400 text-red-700 w-full px-4 py-3 lg:px-0 mx-auto rounded relative"
+                                role="alert">
+                                <strong class="font-bold">
+                                    {{ session('error') }}
+                                </strong>
+                            </div>
                         @endif
                         @if (session()->has('success'))
-                            <div class="alert alert-success">{{ session('success') }}</div>
+                            <div class="bg-green-100 border border-green-400 text-green-700 w-full px-4 py-3 lg:px-0 mx-auto rounded relative"
+                                role="alert">
+                                <strong>
+                                    {{ session('success') }}
+                                </strong>
+                            </div>
                         @endif
-                    </div> --}}
+                    </div>
 
                     <form method="POST" action="{{ route('register') }}" enctype="multipart/form-data">
                         @csrf

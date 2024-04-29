@@ -11,7 +11,7 @@ class ActiviteController extends Controller
     public function viewAll()
     {
         // $user = Auth::id();
-        // $categories = Category::all();
+        // $categories = Categorie::all();
         // $events = Event::orderby('created_at', 'desc')
         //     ->paginate(9);
         // // dd($events);

@@ -64,7 +64,7 @@
                                 Facebook Link
                             </label>
                             <input type="text" name="facebookLink" id="facebookLink"
-                                placeholder="Enter vice president name"
+                                placeholder="Enter Facebook Link"
                                 class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#F29D12] focus:shadow-md" />
                         </div>
 
@@ -72,8 +72,8 @@
                             <label for="instagramLink" class="mb-3 block text-base font-medium text-[#07074D]">
                                 Instagram Link
                             </label>
-                            <input type="email" name="instagramLink" id="instagramLink"
-                                placeholder="Enter vice president email"
+                            <input type="text" name="instagramLink" id="instagramLink"
+                                placeholder="Enter Instagram Link"
                                 class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#F29D12] focus:shadow-md" />
                         </div>
 
@@ -81,7 +81,7 @@
                             <label for="OtherLink" class="mb-3 block text-base font-medium text-[#07074D]">
                                 Other Link
                             </label>
-                            <input type="text" name="OtherLink" id="OtherLink" placeholder="Enter vice president CIN"
+                            <input type="text" name="OtherLink" id="OtherLink" placeholder="Enter Other link"
                                 class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#F29D12] focus:shadow-md" />
                         </div>
 
