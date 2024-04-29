@@ -84,7 +84,6 @@ class SalleController extends Controller
         }
     }
 
-
     public function delete(Salle $salle)
     {
         $salle->delete();

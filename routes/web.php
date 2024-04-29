@@ -69,7 +69,11 @@ Route::middleware(['auth', 'banned'])->group(function () {
 
 
     Route::get('/ShowProfileAdmin', [ProfileController::class, 'ShowProfileAdmin'])->name('profile.ShowProfileAdmin')->middleware(['admin']);
+
+    Route::post('/AddPost', [ArticleBlogController::class, 'store'])->name('article.store');
+    Route::delete('/MyfeedD/{article}', [ArticleBlogController::class, 'delete'])->name('deleteArticle');
+    Route::post('/MyfeedD/search', [ArticleBlogController::class, 'blogView'])->name('article.search');
+
 });
 
 Route::get('/Myfeed', [ArticleBlogController::class, 'blogView'])->name('blog');
-Route::post('/AddPost', [ArticleBlogController::class, 'store'])->name('article.store');

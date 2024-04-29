@@ -8,11 +8,15 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
 
+
+
+
 class ArticleBlogController extends Controller
 {
-    public function blogView()
+
+    public function blogView(Request $request)
     {
-        $articles = ArticleBlog::all();
+
         $categories = Categorie::all();
         $id = auth()->user()->id;
         $admin = DB::table('users')->where('users.id', $id)->first();
@@ -21,6 +25,15 @@ class ArticleBlogController extends Controller
             ->where('users.id', $id)
             ->where('banned', 0)
             ->first();
+
+        $query = ArticleBlog::query();
+        // $query->where('status', 'Approved');
+        if ($request->has('search')) {
+            $searchTerm = $request->input('search');
+            $query->where('title', 'like', '%' . $searchTerm . '%');
+        }
+        $events = $query->orderBy('created_at', 'desc')->get();
+        $articles = $query->orderBy('created_at', 'desc')->paginate(9);
         // echo '<pre>';
         // print_r($association);
         // echo '</pre>';
@@ -62,5 +75,11 @@ class ArticleBlogController extends Controller
         } catch (\Exception $e) {
             return redirect()->back()->with('error', 'Failed to create article blog.');
         }
+    }
+
+    public function delete(ArticleBlog $article)
+    {
+        $article->delete();
+        return redirect()->back()->with('success', 'Article supprimé.');
     }
 }
