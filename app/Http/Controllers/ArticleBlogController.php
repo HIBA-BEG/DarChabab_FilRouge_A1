@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\ArticleBlog;
+use App\Models\User;
+use App\Models\Association;
+use App\Models\Activite;
 use App\Models\Categorie;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -14,6 +17,15 @@ use Illuminate\Support\Facades\DB;
 class ArticleBlogController extends Controller
 {
 
+    public function welcome(Request $request)
+    {
+        $articles = ArticleBlog::orderBy('created_at', 'desc')->get();
+        $totalArticlesPublished = ArticleBlog::count();
+        $userCount = User::where('role', '!=', 'admin')->count();
+        $verifiedAssociationCount = Association::count();
+        $totalActivites = Activite::count();
+        return view('home', compact('articles', 'totalArticlesPublished', 'userCount', 'totalActivites'));
+    }
     public function blogView(Request $request)
     {
 

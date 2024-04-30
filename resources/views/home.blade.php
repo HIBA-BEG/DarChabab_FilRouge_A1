@@ -7,174 +7,59 @@
 
 </head>
 
-<body class="bg-offwhite-color">
+<body class="bg-blue-200">
     @include('layouts.navbar')
-    <!-- component -->
-    {{-- <div class="w-full">
-    <div class="flex bg-[#EBEBEB]" style="height:600px;">
-        <div class="flex items-center text-center lg:text-left px-8 md:px-12 lg:w-1/2">
-            <div>
-                <h2 class="text-3xl font-semibold text-gray-800 md:text-4xl">Build Your New <span class="text-indigo-600">Idea</span></h2>
-                <p class="mt-2 text-sm text-gray-500 md:text-base">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis commodi cum cupiditate ducimus, fugit harum id necessitatibus odio quam quasi, quibusdam rem tempora voluptates. Cumque debitis dignissimos id quam vel!</p>
-                <div class="flex justify-center lg:justify-start mt-6">
-                    <a class="px-4 py-3 bg-gray-900 text-gray-200 text-xs font-semibold rounded hover:bg-gray-800" href="#">Get Started</a>
-                    <a class="mx-4 px-4 py-3 bg-gray-300 text-gray-900 text-xs font-semibold rounded hover:bg-gray-400" href="#">Learn More</a>
-                </div>
-            </div>
+ 
+    {{-- darchabab picture + blog button --}}
+    <section class="lg:my-20 my-10">
+        <div class="relative overflow-hidden bg-cover bg-no-repeat bg-[80%] bg-[url('{{ asset('img/darchabab.jpg') }}')] h-[500px]">
         </div>
-        <div class="hidden lg:block lg:w-1/2" style="clip-path:polygon(10% 0, 100% 0%, 100% 100%, 0 100%)">
-            <div class="h-full object-cover">
-                <img  src="../../img/darchabab.jpg" alt="DarChabab">
-                <div class="h-full bg-black opacity-25"></div>
-            </div>
-        </div>
-    </div>
-</div> --}}
-
-
-    {{-- News Slider --}}
-    <section class="mx-auto my-25">
-        <div class="container mx-auto px-4 py-8">
-            <div class="bg-mainbeige-color  rounded-br-3xl rounded-tl-3xl  shadow-md">
-                <div class="slider">
-                    <div class="slide relative h-[700px]">
-                        <div class="flex" style="height:700px">
-                            <div class="flex items-center text-center lg:text-left px-8 md:px-12 lg:w-1/2">
-                                <div>
-                                    <h2 class="text-3xl font-semibold text-gray-800 md:text-4xl">actuality 1 <span
-                                            class="text-indigo-600">Idea</span></h2>
-                                    <p class="mt-2 text-sm text-gray-500 md:text-base">Lorem ipsum dolor sit amet,
-                                        consectetur adipisicing elit. Blanditiis commodi cum cupiditate ducimus, fugit
-                                        harum id necessitatibus odio quam quasi, quibusdam rem tempora voluptates.
-                                        Cumque debitis dignissimos id quam vel!</p>
-                                    <div class="flex justify-center lg:justify-start mt-6">
-                                        <a class="px-4 py-3 bg-gray-900 text-gray-200 text-xs font-semibold  rounded-br-3xl rounded-tl-3xl  hover:bg-gray-800"
-                                            href="#">Get Started</a>
-                                        <a class="mx-4 px-4 py-3 bg-gray-300 text-gray-900 text-xs font-semibold  rounded-br-3xl rounded-tl-3xl  hover:bg-gray-400"
-                                            href="#">Learn More</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="hidden lg:block lg:w-1/2 " style="clip-path: xywh(0 5px 100% 75% round 15% 0)">
-                                <div class="absolute ">
-                                    <img class="h-full w-full object-cover" src="{{asset('img/darchabab.jpg')}}" alt="DarChabab">
-                                </div>                            
-                            </div>
-                        </div>
+        <div class="w-100 mx-auto px-6 sm:max-w-2xl md:max-w-3xl md:px-12 lg:max-w-5xl xl:max-w-7xl xl:px-32">
+            <div class="text-center">
+                <div class="block rounded-br-3xl rounded-tl-3xl bg-gradient-to-r bg-[hsla(0,0%,100%,0.55)] px-6 py-12 dark:shadow-black/20 md:py-16 md:px-12 mt-[-300px] backdrop-blur-[30px]">
+                    <h1 class="mt-2 mb-16 text-2xl font-bold tracking-tight md:text-6xl xl:text-7xl">
+                        Maison Des Jeunes<br /><span class="">Hay Al Oumali</span>
+                    </h1>
+                    <div class="flex justify-center container mx-auto p-4">
+                        <a href="">
+                            <button
+                                class="block rounded-br-3xl rounded-tl-3xl bg-gradient-to-r to-purple-500 from-blue-400 py-3 px-6 font-sans text-xs font-bold uppercase text-white shadow-md shadow-pink-500/20 transition-all hover:shadow-lg hover:shadow-lightyellow-color focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
+                                type="button">
+                                BLOG
+                            </button>
+                        </a>
                     </div>
-                    {{-- <div class="slide">
-                        <div class="flex" style="height:600px;">
-                            <div class="flex items-center text-center lg:text-left px-8 md:px-12 lg:w-1/2">
-                                <div>
-                                    <h2 class="text-3xl font-semibold text-gray-800 md:text-4xl">actuality 2 <span
-                                            class="text-indigo-600">Idea</span></h2>
-                                    <p class="mt-2 text-sm text-gray-500 md:text-base">Lorem ipsum dolor sit amet,
-                                        consectetur adipisicing elit. Blanditiis commodi cum cupiditate ducimus, fugit
-                                        harum id necessitatibus odio quam quasi, quibusdam rem tempora voluptates.
-                                        Cumque debitis dignissimos id quam vel!</p>
-                                    <div class="flex justify-center lg:justify-start mt-6">
-                                        <a class="px-4 py-3 bg-gray-900 text-gray-200 text-xs font-semibold rounded hover:bg-gray-800"
-                                            href="#">Get Started</a>
-                                        <a class="mx-4 px-4 py-3 bg-gray-300 text-gray-900 text-xs font-semibold rounded hover:bg-gray-400"
-                                            href="#">Learn More</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="hidden lg:block lg:w-1/2"
-                                style="clip-path:polygon(10% 0, 100% 0%, 100% 100%, 0 100%)">
-                                <div class="h-full object-cover">
-                                    <img src="../../img/darchabab.jpg" alt="DarChabab">
-                                    <div class="h-full bg-black opacity-25"></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="slide">
-                        <div class="flex" style="height:600px;">
-                            <div class="flex items-center text-center lg:text-left px-8 md:px-12 lg:w-1/2">
-                                <div>
-                                    <h2 class="text-3xl font-semibold text-gray-800 md:text-4xl">actuality 3 <span
-                                            class="text-indigo-600">Idea</span></h2>
-                                    <p class="mt-2 text-sm text-gray-500 md:text-base">Lorem ipsum dolor sit amet,
-                                        consectetur adipisicing elit. Blanditiis commodi cum cupiditate ducimus, fugit
-                                        harum id necessitatibus odio quam quasi, quibusdam rem tempora voluptates.
-                                        Cumque debitis dignissimos id quam vel!</p>
-                                    <div class="flex justify-center lg:justify-start mt-6">
-                                        <a class="px-4 py-3 bg-gray-900 text-gray-200 text-xs font-semibold rounded hover:bg-gray-800"
-                                            href="#">Get Started</a>
-                                        <a class="mx-4 px-4 py-3 bg-gray-300 text-gray-900 text-xs font-semibold rounded hover:bg-gray-400"
-                                            href="#">Learn More</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="hidden lg:block lg:w-1/2"
-                                style="clip-path:polygon(10% 0, 100% 0%, 100% 100%, 0 100%)">
-                                <div class="h-full object-cover">
-                                    <img src="../../img/darchabab.jpg" alt="DarChabab">
-                                    <div class="h-full bg-black opacity-25"></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="slide">
-                        <div class="flex" style="height:600px;">
-                            <div class="flex items-center text-center lg:text-left px-8 md:px-12 lg:w-1/2">
-                                <div>
-                                    <h2 class="text-3xl font-semibold text-gray-800 md:text-4xl">Build Your New <span
-                                            class="text-indigo-600">Idea</span></h2>
-                                    <p class="mt-2 text-sm text-gray-500 md:text-base">Lorem ipsum dolor sit amet,
-                                        consectetur adipisicing elit. Blanditiis commodi cum cupiditate ducimus, fugit
-                                        harum id necessitatibus odio quam quasi, quibusdam rem tempora voluptates.
-                                        Cumque debitis dignissimos id quam vel!</p>
-                                    <div class="flex justify-center lg:justify-start mt-6">
-                                        <a class="px-4 py-3 bg-gray-900 text-gray-200 text-xs font-semibold rounded hover:bg-gray-800"
-                                            href="#">Get Started</a>
-                                        <a class="mx-4 px-4 py-3 bg-gray-300 text-gray-900 text-xs font-semibold rounded hover:bg-gray-400"
-                                            href="#">Learn More</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="hidden lg:block lg:w-1/2"
-                                style="clip-path:polygon(10% 0, 100% 0%, 100% 100%, 0 100%)">
-                                <div class="h-full object-cover">
-                                    <img src="../../img/darchabab.jpg" alt="DarChabab">
-                                    <div class="h-full bg-black opacity-25"></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div> --}}
                 </div>
             </div>
         </div>
     </section>
 
-    {{-- statistics --}}
-    <section
-        class="bg-gradient-to-r from-purple-300 to-blue-300">
 
-        <div class="container flex flex-col mx-auto">
+    {{-- statistics --}}
+    <section class=" bg-[hsla(0,0%,100%,0.55)] ">
+        <div class="container rounded-br-3xl flex flex-col mx-auto">
             <div class="w-full draggable">
                 <div class="container flex flex-col items-center gap-16 mx-auto my-32">
                     <div class="grid w-full grid-cols-1 lg:grid-cols-4 md:grid-cols-2 gap-y-8">
                         <div class="flex flex-col items-center">
                             <h3 class="text-5xl font-extrabold leading-tight text-center text-mainbeige-color"><span
-                                    id="countto1" countTo="250"></span>+</h3>
-                            <p class="text-base font-medium leading-7 text-center text-mainbeigedark-color">Successful
-                                Projects</p>
+                                    id="countto1" countTo="{{ $totalArticlesPublished }}"></span>+</h3>
+                            <p class="text-base font-medium leading-7 text-center text-mainbeigedark-color">Nbr des
+                                articles publiés</p>
                         </div>
                         <div class="flex flex-col items-center">
-                            <h3 class="text-5xl font-extrabold leading-tight text-center text-mainbeige-color">$<span
-                                    id="countto2" countTo="12"></span>m</h3>
-                            <p class="text-base font-medium leading-7 text-center text-mainbeigedark-color">Annual
-                                Revenue
-                                Growth</p>
+                            <h3 class="text-5xl font-extrabold leading-tight text-center text-mainbeige-color">
+                                <span id="countto2" countTo="{{ $userCount }}"></span>+
+                            </h3>
+                            <p class="text-base font-medium leading-7 text-center text-mainbeigedark-color">Nbr des
+                                utilisateurs</p>
                         </div>
                         <div class="flex flex-col items-center">
-                            <h3 class="text-5xl font-extrabold leading-tight text-center text-mainbeige-color"><span
-                                    id="countto3" countTo="2600" data-decimal="1"></span>k+</h3>
-                            <p class="text-base font-medium leading-7 text-center text-mainbeigedark-color">Global
-                                Partners
-                            </p>
+                            <h3 class="text-5xl font-extrabold leading-tight text-center text-mainbeige-color">
+                                <span id="countto3" countTo="{{ $totalActivites }}"></span>+
+                            </h3>
+                            <p class="text-base font-medium leading-7 text-center text-mainbeigedark-color">Nbr des
+                                Activités</p>
                         </div>
                         <div class="flex flex-col items-center">
                             <h3 class="text-5xl font-extrabold leading-tight text-center text-mainbeige-color"><span
@@ -190,99 +75,52 @@
 
     </section>
 
-    <section>
-        <!-- This is an example component -->
-        <div class="max-w-2xl mx-auto pb-6">
-
-            <div id="default-carousel" class="relative my-32" data-carousel="static">
-                <!-- Carousel wrapper -->
-                <div class="overflow-hidden relative h-56 rounded-lg sm:h-64 xl:h-80 2xl:h-96">
-                    <!-- Item 1 -->
-                    <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                        <span
-                            class="absolute top-1/2 left-1/2 text-2xl font-semibold text-white -translate-x-1/2 -translate-y-1/2 sm:text-3xl dark:text-gray-800">First
-                            Slide</span>
-                        <img src="https://flowbite.com/docs/images/carousel/carousel-1.svg"
-                            class="block absolute top-1/2 left-1/2 w-full -translate-x-1/2 -translate-y-1/2"
-                            alt="...">
-                    </div>
-                    <!-- Item 2 -->
-                    <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                        <img src="https://flowbite.com/docs/images/carousel/carousel-2.svg"
-                            class="block absolute top-1/2 left-1/2 w-full -translate-x-1/2 -translate-y-1/2"
-                            alt="...">
-                    </div>
-                    <!-- Item 3 -->
-                    <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                        <img src="https://flowbite.com/docs/images/carousel/carousel-3.svg"
-                            class="block absolute top-1/2 left-1/2 w-full -translate-x-1/2 -translate-y-1/2"
-                            alt="...">
-                    </div>
+    {{-- picutes from the Blogg --}}
+    <section class="container mx-auto px-5 py-2 lg:px-32 lg:p-24">
+        <div class="-m-1 flex flex-wrap md:-m-2">
+            <div class="flex lg:w-1/2 flex-wrap">
+                <div class="w-1/2 p-1 md:p-2">
+                    <img alt="gallery" class="block h-full w-full rounded-lg object-cover object-center"
+                        src="{{ asset($articles[0]->picture) }}" />
                 </div>
-                <!-- Slider indicators -->
-                <div class="flex absolute bottom-5 left-1/2 z-30 space-x-3 -translate-x-1/2">
-                    <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 1"
-                        data-carousel-slide-to="0"></button>
-                    <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 2"
-                        data-carousel-slide-to="1"></button>
-                    <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 3"
-                        data-carousel-slide-to="2"></button>
+                <div class="w-1/2 p-1 md:p-2">
+                    <img alt="gallery" class="block h-full w-full rounded-lg object-cover object-center"
+                        src="{{ asset($articles[1]->picture) }}" />
                 </div>
-                <!-- Slider controls -->
-                <button type="button"
-                    class="flex absolute top-0 left-0 z-30 justify-center items-center px-4 h-full cursor-pointer group focus:outline-none"
-                    data-carousel-prev>
-                    <span
-                        class="inline-flex justify-center items-center w-8 h-8 rounded-full sm:w-10 sm:h-10 bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
-                        <svg class="w-5 h-5 text-white sm:w-6 sm:h-6 dark:text-gray-800" fill="none"
-                            stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M15 19l-7-7 7-7"></path>
-                        </svg>
-                        <span class="hidden">Previous</span>
-                    </span>
-                </button>
-                <button type="button"
-                    class="flex absolute top-0 right-0 z-30 justify-center items-center px-4 h-full cursor-pointer group focus:outline-none"
-                    data-carousel-next>
-                    <span
-                        class="inline-flex justify-center items-center w-8 h-8 rounded-full sm:w-10 sm:h-10 bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
-                        <svg class="w-5 h-5 text-white sm:w-6 sm:h-6 dark:text-gray-800" fill="none"
-                            stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7">
-                            </path>
-                        </svg>
-                        <span class="hidden">Next</span>
-                    </span>
-                </button>
+                <div class="w-full p-1 md:p-2">
+                    <img alt="gallery" class="block h-full w-full rounded-lg object-cover object-center"
+                        src="{{ asset($articles[2]->picture) }}" />
+                </div>
             </div>
-
-            <p class="mt-5">This carousel slider component is part of a larger, open-source library of Tailwind CSS
-                components. Learn
-                more
-                by going to the official <a class="text-blue-600 hover:underline"
-                    href="https://flowbite.com/docs/getting-started/introduction/" target="_blank">Flowbite
-                    Documentation</a>.
-            </p>
-
+            <div class="flex lg:w-1/2 flex-wrap">
+                <div class="w-full p-1 md:p-2">
+                    <img alt="gallery" class="block h-full w-full rounded-lg object-cover object-center"
+                        src="{{ asset($articles[3]->picture) }}" />
+                </div>
+                <div class="w-1/2 p-1 md:p-2">
+                    <img alt="gallery" class="block h-full w-full rounded-lg object-cover object-center"
+                        src="{{ asset($articles[4]->picture) }}" />
+                </div>
+                <div class="w-1/2 p-1 md:p-2">
+                    <img alt="gallery" class="block h-full w-full rounded-lg object-cover object-center"
+                        src="{{ asset($articles[5]->picture) }}" />
+                </div>
+            </div>
         </div>
     </section>
 
-    <section>
-
-    </section>
-
     <!-- component -->
-    <footer class="bg-gradient-to-r from-purple-300 to-blue-300">
+    <footer class="bg-[hsla(0,0%,100%,0.55)]">
         <div class="max-w-screen-xl px-4 py-16 mx-auto sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 gap-8 lg:grid-cols-3">
                 <div>
-                    <img src="#" class="mr-5 h-6 sm:h-9" alt="logo" />
-                    <p class="max-w-xs mt-4 text-sm text-black">
+                    <img src="{{ asset('img/black-logo.png') }}" class="mr-5 h-24 sm:h-14" alt="logo" />
+                    <p class="max-w-xs mt-4 text-sm font-semibold text-black">
                         DAR CHABAB AL HAY AL OUMALI
                     </p>
                     <div class="flex mt-8 space-x-6 text-black">
-                        <a class="hover:opacity-75" href target="_blank" rel="noreferrer">
+                        <a class="hover:opacity-75" href="https://www.facebook.com/maisondesjeuneshayoumali"
+                            rel="noreferrer">
                             <span class="sr-only"> Facebook </span>
                             <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                                 <path fillRule="evenodd"
@@ -290,7 +128,9 @@
                                     clipRule="evenodd" />
                             </svg>
                         </a>
-                        <a class="hover:opacity-75" href target="_blank" rel="noreferrer">
+                        <a class="hover:opacity-75"
+                            href="https://www.instagram.com/darchababhayoumali?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
+                            rel="noreferrer">
                             <span class="sr-only"> Instagram </span>
                             <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                                 <path fillRule="evenodd"
@@ -298,32 +138,17 @@
                                     clipRule="evenodd" />
                             </svg>
                         </a>
-                        <a class="hover:opacity-75" href target="_blank" rel="noreferrer">
-                            <span class="sr-only"> Twitter </span>
-                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                                <path
-                                    d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84" />
-                            </svg>
-                        </a>
-                        <a class="hover:opacity-75" href target="_blank" rel="noreferrer">
-                            <span class="sr-only"> GitHub </span>
-                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                                <path fillRule="evenodd"
-                                    d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"
-                                    clipRule="evenodd" />
-                            </svg>
-                        </a>
-                        <a class="hover:opacity-75" href target="_blank" rel="noreferrer">
+                        {{-- <a class="hover:opacity-75" href target="_blank" rel="noreferrer">
                             <span class="sr-only"> Dribbble </span>
                             <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                                 <path fillRule="evenodd"
                                     d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10c5.51 0 10-4.48 10-10S17.51 2 12 2zm6.605 4.61a8.502 8.502 0 011.93 5.314c-.281-.054-3.101-.629-5.943-.271-.065-.141-.12-.293-.184-.445a25.416 25.416 0 00-.564-1.236c3.145-1.28 4.577-3.124 4.761-3.362zM12 3.475c2.17 0 4.154.813 5.662 2.148-.152.216-1.443 1.941-4.48 3.08-1.399-2.57-2.95-4.675-3.189-5A8.687 8.687 0 0112 3.475zm-3.633.803a53.896 53.896 0 013.167 4.935c-3.992 1.063-7.517 1.04-7.896 1.04a8.581 8.581 0 014.729-5.975zM3.453 12.01v-.26c.37.01 4.512.065 8.775-1.215.25.477.477.965.694 1.453-.109.033-.228.065-.336.098-4.404 1.42-6.747 5.303-6.942 5.629a8.522 8.522 0 01-2.19-5.705zM12 20.547a8.482 8.482 0 01-5.239-1.8c.152-.315 1.888-3.656 6.703-5.337.022-.01.033-.01.054-.022a35.318 35.318 0 011.823 6.475 8.4 8.4 0 01-3.341.684zm4.761-1.465c-.086-.52-.542-3.015-1.659-6.084 2.679-.423 5.022.271 5.314.369a8.468 8.468 0 01-3.655 5.715z"
                                     clipRule="evenodd" />
                             </svg>
-                        </a>
+                        </a> --}}
                     </div>
                 </div>
-                <div class="grid grid-cols-1 gap-8 lg:col-span-2 sm:grid-cols-2 lg:grid-cols-4">
+                <div class="grid grid-cols-1 gap-8 lg:col-span-2 lg:grid-cols-2">
                     <div>
                         <p class="font-medium">
                             Company
@@ -347,34 +172,14 @@
                             <a class="hover:opacity-75" href> SEO Optimisation </a>
                         </nav>
                     </div>
-                    <div>
-                        <p class="font-medium">
-                            Helpful Links
-                        </p>0
-                        <nav class="flex flex-col mt-4 space-y-2 text-sm text-gray-500">
-                            <a class="hover:opacity-75" href> Contact </a>
-                            <a class="hover:opacity-75" href> FAQs </a>
-                            <a class="hover:opacity-75" href> Live Chat </a>
-                        </nav>
-                    </div>
-                    <div>
-                        <p class="font-medium">
-                            Legal
-                        </p>
-                        <nav class="flex flex-col mt-4 space-y-2 text-sm text-gray-500">
-                            <a class="hover:opacity-75" href> Privacy Policy </a>
-                            <a class="hover:opacity-75" href> Terms &amp; Conditions </a>
-                            <a class="hover:opacity-75" href> Returns Policy </a>
-                            <a class="hover:opacity-75" href> Accessibility </a>
-                        </nav>
-                    </div>
                 </div>
             </div>
-            <p class="mt-8 text-xs text-gray-800">
-                © 2024 Hay Al Oumali
-            </p>
         </div>
     </footer>
+    <div class="p-6 text-center">
+        <span>© 2024 Copyright:</span>
+        <a class="font-semibold" href="#">Hay Al Oumali</a>
+    </div>
 
     <script>
         const slides = document.querySelectorAll('.slide');
