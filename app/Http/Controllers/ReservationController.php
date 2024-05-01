@@ -6,6 +6,7 @@ use App\Models\Salle;
 use App\Models\Activite;
 use App\Models\Reservation;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 
 class ReservationController extends Controller
@@ -18,7 +19,7 @@ class ReservationController extends Controller
             ->join('salles', "reservations.salle_id", "=", "salles.id")
             ->join('associations', "reservations.association_id", "=", "associations.id")
             ->join('users', "associations.user_id", "=", "users.id")
-            ->orderby('created_at', 'desc')
+            ->orderby('reservations.created_at', 'desc')
             ->paginate(9);
 
         return view('association.reservations', compact('salles'), compact('reservations'));
@@ -40,6 +41,26 @@ class ReservationController extends Controller
 
         // dd($association);
 
+        $salleId = $validatedData['salle_id'];
+        $startTime = $validatedData['startTime'];
+        $endTime = $validatedData['endTime'];
+
+        $isSalleAvailable = DB::table('reservations')
+            ->where('salle_id', $salleId)
+            ->where(function ($query) use ($startTime, $endTime) {
+                $query->whereBetween('startTime', [$startTime, $endTime])
+                    ->orWhereBetween('endTime', [$startTime, $endTime])
+                    ->orWhere(function ($query) use ($startTime, $endTime) {
+                        $query->where('startTime', '<', $startTime)
+                            ->where('endTime', '>', $endTime);
+                    });
+            })
+            ->doesntExist();
+
+        if (!$isSalleAvailable) {
+            return redirect()->back()->with('error', 'La salle est déjà réservée pour cette période.');
+        }
+
         if ($request->has('activite_name')) {
             $activite = Activite::create([
                 'name' => $validatedData['activite_name'],
@@ -57,7 +78,6 @@ class ReservationController extends Controller
         ]);
 
         $salles = Salle::all();
-
 
         return redirect()->back()->with(compact('salles'))->with('success', 'Réservation crée avec succès.');
     }

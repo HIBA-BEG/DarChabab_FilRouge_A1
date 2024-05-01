@@ -53,11 +53,17 @@ Route::middleware(['auth', 'banned'])->group(function () {
     Route::delete('/Salles', [SalleController::class, 'reserve'])->name('reserveSalle')->middleware(['association']);
 
     Route::get('ToutesLesSalles', [SalleController::class, 'allSalles'])->name('association.home')->middleware(['association']);
+    Route::get('/reservations', [ReservationController::class, 'storeWithSalleV'])->name('ReservationWithSalle')->middleware(['association']);
+    Route::post('/reservations', [ReservationController::class, 'storeWithSalle'])->name('addReservationWithSalle')->middleware(['association']);
+
 
     Route::get('MesActivites', [AssociationController::class, 'activites'])->name('mesActivites')->middleware(['association']);
 
     Route::get('/reservations', [ReservationController::class, 'createReservation'])->name('reservations')->middleware(['association']);
     Route::post('/reservations', [ReservationController::class, 'store'])->name('addReservation')->middleware(['association']);
+    
+
+    Route::get('/reservations', [ReservationController::class, 'createReservation'])->name('reservations')->middleware(['association']);
 
 
     Route::get('/profileAssociation', [ProfileController::class, 'edit'])->name('profile.editAssociation')->middleware('Association')->middleware(['association']);
@@ -75,8 +81,10 @@ Route::middleware(['auth', 'banned'])->group(function () {
 
     Route::post('/AddPost', [ArticleBlogController::class, 'store'])->name('article.store');
     Route::delete('/MyfeedD/{article}', [ArticleBlogController::class, 'delete'])->name('deleteArticle');
-    Route::post('/MyfeedD/search', [ArticleBlogController::class, 'blogView'])->name('article.search');
+    // Route::get('/MyfeedD/search', [ArticleBlogController::class, 'blogView'])->name('article.search');
+    Route::get('/search', [ArticleBlogController::class, 'search'])->name('article.search');
 
+    Route::get('/MyfeedD/search', [ArticleBlogController::class, 'blogView'])->name('article.search');
 });
 
 Route::get('/Myfeed', [ArticleBlogController::class, 'blogView'])->name('blog');

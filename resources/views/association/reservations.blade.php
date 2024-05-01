@@ -25,7 +25,7 @@
                             </button>
                         </div>
 
-                        {{--hiba don't forget to add hidden to the first div --}}
+                        {{-- hiba don't forget to add hidden to the first div --}}
                         <div id="crud-modal" tabindex="-1" aria-hidden="true"
                             class="hidden fixed left-0 right-0 top-0 z-50 h-[calc(100%-2rem)] max-h-full w-full items-center justify-center overflow-y-auto overflow-x-hidden md:inset-0">
                             <div class="relative max-h-full w-full max-w-md p-4">
@@ -47,9 +47,10 @@
                                         </button>
                                     </div>
 
-                                    <form class="p-4 md:p-5" action="{{ route('addReservation') }}" method="POST">
+                                    <form id="reservation-form" class="p-4 md:p-5"
+                                        action="{{ route('addReservation') }}" method="POST">
                                         @csrf
-                                        <div class="mb-4 grid grid-cols-2 gap-4">
+                                        <div class="mb-8 grid grid-cols-2 gap-4">
                                             <div class="col-span-2">
                                                 <label for="activite_name"
                                                     class="mb-2 block text-sm font-medium text-gray-900 dark:text-white">Nom
@@ -78,7 +79,7 @@
                                                 </select>
                                             </div>
                                             <div class="col-span-2">
-                                                <label for="description"
+                                                <label for="startTime"
                                                     class="mb-2 block text-sm font-medium text-gray-900 dark:text-white">Date
                                                     et/ou temps de debut</label>
                                                 <input type="datetime-local" name="startTime" id="startTime"
@@ -86,52 +87,93 @@
                                                     required="" />
                                             </div>
                                             <div class="col-span-2">
-                                                <label for="description"
+                                                <label for="endTime"
                                                     class="mb-2 block text-sm font-medium text-gray-900 dark:text-white">Date
                                                     et/ou temps de fin</label>
                                                 <input type="datetime-local" name="endTime" id="endTime"
                                                     class="focus:ring-primary-600 focus:border-primary-600 dark:focus:ring-primary-500 dark:focus:border-primary-500 block w-full rounded-br-3xl rounded-tl-3xl border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 dark:border-gray-500 dark:bg-gray-600 dark:text-white dark:placeholder-gray-400"
                                                     required="" />
                                             </div>
+                                            <span id="error-msg"
+                                                class="col-span-2 text-red-700 w-full mx-auto font-bold"></span>
                                         </div>
                                         <div class="flex justify-center">
                                             <button type="submit" name="addReservation"
-                                                class="rounded-br-3xl rounded-tl-3xl bg-gradient-to-r to-purple-500 from-blue-400 py-3 px-6 font-sans text-xs font-bold uppercase text-white shadow-md shadow-pink-500/20 transition-all hover:shadow-lg hover:shadow-lightyellow-color focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none">
+                                                class="rounded-br-3xl rounded-tl-3xl bg-gradient-to-r to-purple-500 from-blue-400 py-3 px-6 font-sans text-xs font-bold uppercase text-white shadow-md shadow-pink-500/20 transition-all hover:shadow-lg hover:shadow-lightyellow-color focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
+                                                onclick="validateForm(event)">
                                                 Reserver
                                             </button>
                                         </div>
-
                                     </form>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                        @foreach ($reservations as $reservation)
-                            <div class="box w-full rounded-br-3xl rounded-tl-3xl flex flex-col justify-center p-12 bg-opacity-30 bg-white border border-opacity-25 backdrop-filter backdrop-blur-md transition-all duration-300">
-                                <div class="text-center">
-                                    <p class="text-xl text-gray-700 font-bold mb-2">{{ $reservation->activite->name }}</p>
+                        <div class="m-5">
+                            @if ($errors->any())
+                                <div class="col-12">
+                                    @foreach ($errors->all() as $error)
+                                        <div class="bg-red-100 border border-red-400 text-red-700 w-full px-4 py-3 lg:px-0 mx-auto rounded relative"
+                                            role="alert">
+                                            <strong class="font-bold">
+                                                {{ $error }}
+                                            </strong>
+                                        </div>
+                                    @endforeach
                                 </div>
-                                <p class="text-base text-black font-normal">{{ $reservation->activite->description }}</p>
-                                <div class="mt-5">
-                                    <p class="text-base text-black font-normal">{{ $reservation->salle->name }}</p>
+                            @endif
+                            @if (session()->has('error'))
+                                <div class="bg-red-100 border border-red-400 text-red-700 w-full px-4 py-3 lg:px-0 mx-auto rounded relative"
+                                    role="alert">
+                                    <strong class="font-bold">
+                                        {{ session('error') }}
+                                    </strong>
                                 </div>
-                                <div class="mt-5">
-                                    <p class="text-base text-black font-normal">Start Time: {{ $reservation->startTime }}</p>
-                                    <p class="text-base text-black font-normal">End Time: {{ $reservation->endTime }}</p>
+                            @endif
+                            @if (session()->has('success'))
+                                <div class="bg-green-100 border border-green-400 text-green-700 w-full px-4 py-3 lg:px-0 mx-auto rounded relative"
+                                    role="alert">
+                                    <strong>
+                                        {{ session('success') }}
+                                    </strong>
                                 </div>
-                            </div>
-                        @endforeach
+                            @endif
+                        </div>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                            @foreach ($reservations as $reservation)
+                                <div
+                                    class="box w-full rounded-br-3xl rounded-tl-3xl flex flex-col justify-center p-12 bg-opacity-30 bg-white border border-opacity-25 backdrop-filter backdrop-blur-md transition-all duration-300">
+                                    <div class="text-center">
+                                        <p class="text-xl text-gray-700 font-bold mb-2">
+                                            {{ $reservation->activite->name }}
+                                        </p>
+                                    </div>
+                                    <p class="text-base text-black font-normal">
+                                        {{ $reservation->activite->description }}
+                                    </p>
+                                    <div class="mt-5">
+                                        <p class="text-base text-black font-normal">{{ $reservation->salle->name }}</p>
+                                    </div>
+                                    <div class="mt-5">
+                                        <p class="text-base text-black font-normal">Start Time:
+                                            {{ $reservation->startTime }}</p>
+                                        <p class="text-base text-black font-normal">End Time:
+                                            {{ $reservation->endTime }}
+                                        </p>
+                                    </div>
+                                </div>
+                            @endforeach
+                        </div>
                     </div>
                 </div>
             </section>
         </section>
     </div>
-    <script>
-        var now = new Date();
+    {{-- <script>
+        // var nowFormatted = now.getFullYear() + '-' + ('0' + (now.getMonth() + 1)).slice(-2) + '-' + ('0' + now.getDate())
+        //     .slice(-2) + 'T' + ('0' + now.getHours()).slice(-2) + ':' + ('0' + now.getMinutes()).slice(-2);
 
-        var nowFormatted = now.getFullYear() + '-' + ('0' + (now.getMonth() + 1)).slice(-2) + '-' + ('0' + now.getDate())
-            .slice(-2) + 'T' + ('0' + now.getHours()).slice(-2) + ':' + ('0' + now.getMinutes()).slice(-2);
+        var now = new Date();
+        var nowFormatted = now.toISOString().slice(0, 16);
 
         document.getElementById('startTime').min = nowFormatted;
 
@@ -139,7 +181,72 @@
             var startTimeValue = document.getElementById('startTime').value;
             document.getElementById('endTime').min = startTimeValue;
         }
+
+        function validateForm(event) {
+            var startTime = document.getElementById('startTime').value;
+            var endTime = document.getElementById('endTime').value;
+
+            // Convert start and end time strings to Date objects
+            var startDate = new Date(startTime);
+            var endDate = new Date(endTime);
+
+            // Check if end time is before start time
+            if (endDate < startDate) {
+                // Show error message
+                document.getElementById('error-msg').innerText = 'End time must be after start time.';
+                // Prevent form submission
+                event.preventDefault();
+            } else {
+                // Clear error message
+                document.getElementById('error-msg').innerText = '';
+            }
+        }
+    </script> --}}
+
+    <script>
+        var now = new Date();
+        var nowFormatted = now.toISOString().slice(0, 16);
+        document.getElementById('startTime').min = nowFormatted;
+    
+        function updateEndTimeMin() {
+            var startTimeValue = document.getElementById('startTime').value;
+            document.getElementById('endTime').min = startTimeValue;
+        }
+    
+        function validateForm(event) {
+            var startTime = document.getElementById('startTime').value;
+            var endTime = document.getElementById('endTime').value;
+            var salleId = document.getElementById('salle').value;
+    
+            // Make an AJAX request to check salle availability
+            fetch('/check-salle-availability', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRF-TOKEN': '{{ csrf_token() }}'
+                },
+                body: JSON.stringify({
+                    salle_id: salleId,
+                    start_time: startTime,
+                    end_time: endTime
+                })
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (!data.available) {
+                    // Show error message
+                    document.getElementById('error-msg').innerText = data.message;
+                    // Prevent form submission
+                    event.preventDefault();
+                } else {
+                    // Clear error message
+                    document.getElementById('error-msg').innerText = '';
+                }
+            })
+            .catch(error => console.error('Error:', error));
+        }
     </script>
+    
 </body>
 
 </html>

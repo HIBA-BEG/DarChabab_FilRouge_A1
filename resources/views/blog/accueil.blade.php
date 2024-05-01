@@ -56,58 +56,55 @@
 
                             @endif
                         </div>
-                            <div class="flex items-center w-full ">
+                        <div class="flex items-center w-full ">
 
 
-                                    <form class="mx-auto w-full" method="POST"
-                                        action="{{ route('article.search') }}">
-                                        @csrf
-                                        <div class="flex">
-                                            <div class="relative">
-                                                <button id="dropdown-button" data-dropdown-toggle="dropdown"
-                                                    class="flex-shrink-0 z-10 inline-flex items-center py-2.5 px-4 text-sm font-medium text-center text-gray-900 bg-gray-100 border border-gray-300 rounded-s-lg hover:bg-gray-200"
-                                                    type="button">Categories <svg class="w-2.5 h-2.5 ms-2.5"
-                                                        aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
-                                                        fill="none" viewBox="0 0 10 6">
-                                                        <path stroke="currentColor" stroke-linecap="round"
-                                                            stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4" />
-                                                    </svg></button>
-                                                <div id="dropdown"
-                                                    class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700">
-                                                    <ul class="py-2 text-sm text-gray-700 dark:text-gray-200"
-                                                        aria-labelledby="dropdown-button">
-                                                        <li>
-                                                            <button type="button" value="all"
-                                                                class="categorie-filter-btn inline-flex w-full px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">All</button>
-                                                        </li>
-                                                        @foreach ($categories as $categorie)
-                                                            <li>
-                                                                <button type="button" value="{{ $categorie->id }}"
-                                                                    class="categorie-filter-btn inline-flex w-full px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">{{ $categorie->title }}</button>
-                                                            </li>
-                                                        @endforeach
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                            <div class="relative w-full">
-                                                <input type="search" id="search-dropdown" name="search"
-                                                    class="block p-2.5 w-full z-20 text-sm text-gray-900 bg-gray-50 rounded-e-lg border-s-gray-50 border-s-2 border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-s-gray-700  dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:border-blue-500"
-                                                    placeholder="Search event by title" />
-                                                <button type="submit"
-                                                    class="absolute top-0 end-0 p-2.5 text-sm font-medium h-full text-white bg-blue-700 rounded-e-lg border border-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-                                                    <svg class="w-4 h-4" aria-hidden="true"
-                                                        xmlns="http://www.w3.org/2000/svg" fill="none"
-                                                        viewBox="0 0 20 20">
-                                                        <path stroke="currentColor" stroke-linecap="round"
-                                                            stroke-linejoin="round" stroke-width="2"
-                                                            d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z" />
-                                                    </svg>
-                                                    <span class="sr-only">Search</span>
-                                                </button>
-                                            </div>
+                            <form class="mx-auto w-full" method="GET" action="{{ route('article.search')}}">
+                                @csrf
+                                <div class="flex">
+                                    <div class="relative">
+                                        <button id="dropdown-button" data-dropdown-toggle="dropdown"
+                                            class="flex-shrink-0 z-10 inline-flex items-center py-2.5 px-4 text-sm font-medium text-center text-gray-900 bg-gray-100 border border-gray-300 rounded-s-lg hover:bg-gray-200"
+                                            type="button">Categories <svg class="w-2.5 h-2.5 ms-2.5" aria-hidden="true"
+                                                xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+                                                <path stroke="currentColor" stroke-linecap="round"
+                                                    stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4" />
+                                            </svg></button>
+                                        <div id="dropdown"
+                                            class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700">
+                                            <ul class="py-2 text-sm text-gray-700 dark:text-gray-200"
+                                                aria-labelledby="dropdown-button">
+                                                <li>
+                                                    <button type="button" value="all"
+                                                        class="categorie-filter-btn inline-flex w-full px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">All</button>
+                                                </li>
+                                                @foreach ($categories as $categorie)
+                                                    <li>
+                                                        <button type="button" value="{{ $categorie->id }}"
+                                                            class="categorie-filter-btn inline-flex w-full px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">{{ $categorie->title }}</button>
+                                                    </li>
+                                                @endforeach
+                                            </ul>
                                         </div>
-                                    </form>
-                            </div>
+                                    </div>
+                                    <div class="relative w-full">
+                                        <input type="search" id="search" name="searchValue" value="{{ request('searchValue') }}"
+                                            class="block p-2.5 w-full z-20 text-sm text-gray-900 bg-gray-50 rounded-e-lg border-s-gray-50 border-s-2 border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-s-gray-700  dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:border-blue-500"
+                                            placeholder="Search Article by title" />
+                                        <button type="submit"
+                                            class="absolute top-0 end-0 p-2.5 text-sm font-medium h-full text-white bg-blue-700 rounded-e-lg border border-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                                            <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                                                fill="none" viewBox="0 0 20 20">
+                                                <path stroke="currentColor" stroke-linecap="round"
+                                                    stroke-linejoin="round" stroke-width="2"
+                                                    d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z" />
+                                            </svg>
+                                            <span class="sr-only">Search</span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
                         <div class="m-5">
                             @if ($errors->any())
                                 <div class="col-12">
@@ -209,12 +206,16 @@
                 </div>
 
                 <div class="lg:col-span-2 p-4 mt-3" id="posted">
-                    <!-- First Column -->
-                    <div class="grid grid-cols-1 gap-4">
+
+                    <div class="grid grid-cols-1 gap-4" id="articleContainerSearch"></div>
+                    <div class="grid grid-cols-1 gap-4" id="articleContainer">
+                        <div class="no-articles-message-container">
+                            <p class="no-articles-message"></p>
+                        </div>
                         @foreach ($articles as $article)
-                            <div
-                                class="flex w-full flex-col justify-center rounded-br-3xl rounded-tl-3xl border border-opacity-25 bg-white bg-opacity-30 p-12 backdrop-blur-md backdrop-filter transition-all duration-300">
-                                <!-- User Info with Three-Dot Menu -->
+                            <div class="article mycard flex w-full flex-col justify-center rounded-br-3xl rounded-tl-3xl border border-opacity-25 bg-white bg-opacity-30 p-12 backdrop-blur-md backdrop-filter transition-all duration-300"
+                                data-article-categorie="{{ $article->categorie->id }}">
+
                                 <div class="mb-4 flex items-center justify-between">
 
 
@@ -237,14 +238,10 @@
                                         </div>
                                     </div>
                                 </div>
-                                <!-- Message -->
                                 <div class="mb-4 flex items-center space-x-2">
                                     <p class="font-semibold text-gray-800"> Description:</p>
                                     <p class="text-gray-800">
                                         {{ $article->description }}
-                                        {{-- <a href=""
-                                            class="text-blue-600">#CuteKitten</a>
-                                        <a href="" class="text-blue-600">#AdventureCat</a> --}}
                                     </p>
                                 </div>
 
@@ -280,77 +277,132 @@
                                             </form>
                                         </div>
                                     @endif
-                                    {{-- @if (auth()->user()->role == 'Admin')
-                                        <div class="flex items-center justify-end gap-6">
-                                            <form action="{{ route('deleteArticle', $article->id) }}" method="post">
-                                                @csrf
-                                                @method('DELETE')
-                                                <div title="delete">
-                                                    <button type="submit">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" height="16"
-                                                            width="16" viewBox="0 0 448 512">
-                                                            <path fill="#e6321e"
-                                                                d="M170.5 51.6L151.5 80h145l-19-28.4c-1.5-2.2-4-3.6-6.7-3.6H177.1c-2.7 0-5.2 1.3-6.7 3.6zm147-26.6L354.2 80H368h48 8c13.3 0 24 10.7 24 24s-10.7 24-24 24h-8V432c0 44.2-35.8 80-80 80H112c-44.2 0-80-35.8-80-80V128H24c-13.3 0-24-10.7-24-24S10.7 80 24 80h8H80 93.8l36.7-55.1C140.9 9.4 158.4 0 177.1 0h93.7c18.7 0 36.2 9.4 46.6 24.9zM80 128V432c0 17.7 14.3 32 32 32H336c17.7 0 32-14.3 32-32V128H80zm80 64V400c0 8.8-7.2 16-16 16s-16-7.2-16-16V192c0-8.8 7.2-16 16-16s16 7.2 16 16zm80 0V400c0 8.8-7.2 16-16 16s-16-7.2-16-16V192c0-8.8 7.2-16 16-16s16 7.2 16 16zm80 0V400c0 8.8-7.2 16-16 16s-16-7.2-16-16V192c0-8.8 7.2-16 16-16s16 7.2 16 16z" />
-                                                        </svg>
-                                                    </button>
-                                                </div>
-                                            </form>
-                                        </div>
-                                    @endif --}}
                                 </div>
                             </div>
                         @endforeach
+                    </div>
+                    <div class="mt-8 flex justify-center">
+                        {{ $articles->links('pagination::tailwind') }}
                     </div>
                 </div>
             </div>
         </section>
     </div>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const categorieButtons = document.querySelectorAll('.categorie-filter-btn');
-            const allEvents = document.querySelectorAll('.event');
-            const noEventsMessageContainer = document.querySelector('.no-events-message-container');
-            const userBanned = true;
-
-            categorieButtons.forEach(function(button) {
-                button.addEventListener('click', function() {
-                    const selectedCategorieId = this.value;
-                    filterEventsByCategorie(selectedCategorieId);
-                });
-            });
-
-            function filterEventsByCategorie(selectedCategorieId) {
-                let eventsFound = false;
-
-                allEvents.forEach(event => {
-                    const eventCategorieId = event.getAttribute('data-event-categorie');
-                    if (selectedCategorieId === 'all' || eventCategorieId === selectedCategorieId) {
-                        event.style.display = 'block';
-                        eventsFound = true;
-                    } else {
-                        event.style.display = 'none';
-                    }
-                });
-                if (!eventsFound) {
-                    const noEventsMessage = document.querySelector('.no-events-message');
-                    if (!noEventsMessage) {
-                        const messageElement = document.createElement('p');
-                        messageElement.textContent = 'No events found for the selected categorie.';
-                        messageElement.className = 'flex justify-center w-full no-events-message';
-                        noEventsMessageContainer.appendChild(messageElement);
-                    }
-                } else {
-                    const noEventsMessage = document.querySelector('.no-events-message');
-                    if (noEventsMessage) {
-                        noEventsMessage.remove();
-                    }
-                }
+    <script type="text/javascript">
+        $.ajaxSetup({
+            headers: {
+                'csrftoken': '{{ csrf_token() }}'
             }
-
         });
     </script>
 
+    {{-- <script>
+         $(document).ready(function () {
+        $('#search').on('keyup', function(){
+            var value = $(this).val();
+            $.ajax({
+                type: "get",
+                url: "/search",
+                data: {'search':value},
+                success: function (data) {
+                    $('.mycard').html(data);
+                }
+            });
+
+        });
+    });
+    </script> --}}
+
+    <script>
+        $(document).ready(function() {
+            const currentPage = location.href;
+            if (currentPage === "http://127.0.0.1:8000/Myfeed") {
+                const search = document.querySelector("#search");
+                search.addEventListener("keyup", () => {
+                    const searchValue = search.value.trim();
+                    console.log("Search query:", searchValue); // Debugging statement
+
+                    if (searchValue !== "") {
+                        $.ajax({
+                            url: `http://127.0.0.1:8000/MyfeedD/search/${searchValue}`,
+                            type: "GET",
+                            success: function(data) {
+                                console.log("Received articles:", data); // Debugging statement
+                                displayArticles(data.articles);
+                            },
+                            error: function(xhr, status, error) { // Updated error handling
+                                console.error("Error fetching articles:", xhr, status, error);
+                                // Optionally, display an error message to the user
+                                // alert("An error occurred while fetching articles. Please try again later.");
+                            },
+                        });
+                        $("#articleContainer").hide();
+                        $("#articleContainerSearch").show();
+                    } else {
+                        $("#articleContainer").show();
+                        $("#articleContainerSearch").hide();
+                    }
+                });
+            }
+        });
+
+        const displayArticles = (articles) => {
+            console.log(articles); // Ensure articles are received
+
+            const container = document.querySelector("#articleContainerSearch");
+            container.innerHTML = "";
+
+            if (articles && articles.length > 0) {
+                articles.forEach((article) => {
+                    container.innerHTML += `
+                <div class="article flex w-full flex-col justify-center rounded-br-3xl rounded-tl-3xl border border-opacity-25 bg-white bg-opacity-30 p-12 backdrop-blur-md backdrop-filter transition-all duration-300"
+                    data-article-categorie="${article.categorie.id}">
+                    <div class="mb-4 flex items-center justify-between">
+                        <div class="flex items-center space-x-2">
+                            <img src="${article.user.profile_picture}" alt="User Avatar"
+                                class="h-8 w-8 rounded-full" />
+                            <div>
+                                <p class="font-semibold text-gray-800">${article.user.firstname}
+                                    ${article.user.lastname}</p>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex items-center space-x-2">
+                                <p class="font-semibold text-gray-800">Category:</p>
+                                <p class="text-sm text-gray-500">${article.categorie.title}</p>
+                            </div>
+                            <div class="flex items-center space-x-2">
+                                <p class="font-semibold text-gray-800">Title:</p>
+                                <p class="text-sm text-gray-500">${article.title}</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mb-4 flex items-center space-x-2">
+                        <p class="font-semibold text-gray-800"> Description:</p>
+                        <p class="text-gray-800">
+                            ${article.description}
+                        </p>
+                    </div>
+                    <div class="mb-4">
+                        <img src="${article.picture}" alt="Post Image"
+                            class="w-full object-cover rounded-lg">
+                    </div>
+                    <div class="flex items-center justify-between">
+                        <div class="flex">
+                            <p class="text-sm text-gray-500">Crée le ${article.created_at}</p>
+                        </div>
+                        // This part is skipped for now
+                    </div>
+                </div>
+            `;
+                });
+            } else {
+                container.innerHTML = "<p>No articles found</p>";
+            }
+        };
+    </script>
+
+    
 </body>
 
 </html>
