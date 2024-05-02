@@ -245,9 +245,9 @@
                                     </p>
                                 </div>
 
-                                <div class="mb-4">
+                                <div class="mb-4 flex justify-center">
                                     <img src="{{ asset($article->picture) }}" alt="Post Image"
-                                        class="w-full object-cover rounded-lg">
+                                        class="md:h-[600px] object-cover rounded-lg">
                                 </div>
                                 <div class="flex items-center justify-between">
                                     <div class="flex">
@@ -324,7 +324,7 @@
 
                     if (searchValue !== "") {
                         $.ajax({
-                            url: `http://127.0.0.1:8000/MyfeedD/search/${searchValue}`,
+                            url: `/MyfeedD/search?search=${searchValue}`,
                             type: "GET",
                             success: function(data) {
                                 console.log("Received articles:", data); // Debugging statement
@@ -347,13 +347,13 @@
         });
 
         const displayArticles = (articles) => {
-            console.log(articles); // Ensure articles are received
+            console.log("tesssssssssssst : ", articles); // Ensure articles are received
 
             const container = document.querySelector("#articleContainerSearch");
             container.innerHTML = "";
 
-            if (articles && articles.length > 0) {
-                articles.forEach((article) => {
+            if (articles && articles.data.length > 0) {
+                articles.data.forEach((article) => {
                     container.innerHTML += `
                 <div class="article flex w-full flex-col justify-center rounded-br-3xl rounded-tl-3xl border border-opacity-25 bg-white bg-opacity-30 p-12 backdrop-blur-md backdrop-filter transition-all duration-300"
                     data-article-categorie="${article.categorie.id}">

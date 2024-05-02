@@ -29,13 +29,38 @@ class ArticleBlogController extends Controller
 
     public function blogView(Request $request)
     {
+        // if ($request->has('search')) {
+        //     $searchTerm = $request->input('search');
+        //     $articles = ArticleBlog::where('title', 'like', '%' . $searchTerm . '%')
+        //         ->orderBy('created_at', 'desc')
+        //         ->with('categorie', 'user')
+        //         ->paginate(9);
+
+        //         return view('blog.accueil', compact('articles', 'admin', 'association', 'categories'));
+        // } else {
+        //     $categories = Categorie::all();
+        //     $id = auth()->user()->id;
+        //     $admin = DB::table('users')->where('users.id', $id)->first();
+        //     $association = DB::table('users')
+        //         ->join('associations', "associations.user_id", "=", "users.id")
+        //         ->where('users.id', $id)
+        //         ->where('banned', 0)
+        //         ->first();
+
+        //     $articles = ArticleBlog::orderBy('created_at', 'desc')
+        //         ->with('categorie', 'user')
+        //         ->paginate(9);
+
+        //     return view('blog.accueil', compact('articles', 'admin', 'association', 'categories'));
+        // }
+
         if ($request->has('search')) {
             $searchTerm = $request->input('search');
             $articles = ArticleBlog::where('title', 'like', '%' . $searchTerm . '%')
                 ->orderBy('created_at', 'desc')
                 ->with('categorie', 'user')
                 ->paginate(9);
-
+    
             return response()->json(['articles' => $articles]);
         } else {
             $categories = Categorie::all();
@@ -53,6 +78,7 @@ class ArticleBlogController extends Controller
 
             return view('blog.accueil', compact('articles', 'admin', 'association', 'categories'));
         }
+
     }
     
     // public function search(Request $request)
