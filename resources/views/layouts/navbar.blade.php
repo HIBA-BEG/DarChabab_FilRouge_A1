@@ -1,5 +1,5 @@
  <nav class=" lg:px-16 px-9 shadow-md flex flex-wrap items-center lg:py-2 py-2">
-     <div class="flex-1 flex gap-6">
+     <div class="flex-1 flex justify-center gap-6">
          <a href="https://www.instagram.com/darchababhayoumali?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" class="h-6 w-6">
              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
                  <path fill="#4D1F24"
@@ -20,7 +20,7 @@
          </a>
 
      </div>
-     <div class="hidden lg:flex lg:items-center lg:w-auto w-full" id="contacts">
+     {{-- <div class="hidden lg:flex lg:items-center lg:w-auto w-full" id="contacts">
          <nav>
              <ul
                  class="text-xl text-yellow-color text-center items-center gap-x-5 pt-4 md:gap-x-4 lg:text-lg lg:flex  lg:pt-0 ">
@@ -47,7 +47,7 @@
              </ul>
          </nav>
 
-     </div>
+     </div> --}}
  </nav>
 
  <nav class="bg-[hsla(0,0%,100%,0.55)] mx-4 shadow-xl rounded-br-3xl rounded-bl-3xl hover:border-slate-400 sticky top-0 z-50">
@@ -55,10 +55,9 @@
          <a href="#" class="flex items-center">
              <img src="{{ asset('img/black-logo.png') }}" class="block ml-4 h-16 my-1 bg-cover bg-center"
                  alt="Logo">
-             {{-- <span class="workwise mb-1 text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-orange-500 font-zenDots">W-W</span> --}}
          </a>
          <button data-collapse-toggle="mobile-menu" type="button"
-             class="md:hidden ml-3 text-gray-400 hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-300 rounded-lg inline-flex items-center justify-center"
+             class="lg:hidden ml-3 text-gray-400 hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-300 rounded-lg inline-flex items-center justify-center"
              aria-controls="mobile-menu-2" aria-expanded="false">
              <span class="sr-only">Open main menu</span>
              <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
@@ -72,18 +71,12 @@
                      clip-rule="evenodd"></path>
              </svg>
          </button>
-         <div class="hidden md:block w-full flex items-center justify-between md:w-auto" id="mobile-menu">
+         <div class="hidden lg:block w-full flex items-center justify-between lg:w-auto sm:justify-center" id="mobile-menu">
 
-             <ul
-                 class="text-xl font-semibold text-black text-center items-center gap-x-5 pt-4 md:gap-x-4 lg:text-lg lg:flex  lg:pt-0 ">
+             <ul class="text-xl font-semibold text-black text-center items-center gap-x-5 pt-4 md:gap-x-4 lg:text-lg lg:flex  lg:pt-0 ">
                  <li class="py-2 lg:py-0 ">
                      <a class="hover:pb-4 hover:border-b-4 hover:border-[#4D1F24]" href="/">
                          Accueil
-                     </a>
-                 </li>
-                 <li class="py-2 lg:py-0 ">
-                     <a class=" hover:pb-4 hover:border-b-4 hover:border-[#4D1F24]" href="{{ route('blog') }}">
-                         Blog
                      </a>
                  </li>
                  @auth

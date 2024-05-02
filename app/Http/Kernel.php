@@ -69,5 +69,6 @@ class Kernel extends HttpKernel
         'association' => \App\Http\Middleware\Association::class,
         'club' => \App\Http\Middleware\Club::class,
         'banned' => \App\Http\Middleware\Banned::class,
+        'archived' => \App\Http\Middleware\Archived::class,
     ];
 }

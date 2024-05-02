@@ -29,7 +29,7 @@ Route::post('forgotMyPassword', [PasswordOublieController::class, 'forgotPasswor
 Route::get('resetMyPassword/{token}', [PasswordOublieController::class, 'resetPassword'])->name('resetPassword');
 Route::post('resetMyPassword/{token}', [PasswordOublieController::class, 'resetPasswordPost'])->name('resetPassword');
 
-Route::middleware(['auth', 'banned'])->group(function () {
+Route::middleware(['auth', 'banned', 'archived'])->group(function () {
 
     Route::post('logout', [LoginController::class, 'destroy'])->name('logout');
 
@@ -81,10 +81,9 @@ Route::middleware(['auth', 'banned'])->group(function () {
 
     Route::post('/AddPost', [ArticleBlogController::class, 'store'])->name('article.store');
     Route::delete('/MyfeedD/{article}', [ArticleBlogController::class, 'delete'])->name('deleteArticle');
-    // Route::get('/MyfeedD/search', [ArticleBlogController::class, 'blogView'])->name('article.search');
-    Route::get('/search', [ArticleBlogController::class, 'search'])->name('article.search');
+    Route::put('MyfeedD/{id}', [ArticleBlogController::class, 'update'])->name('updateArticle');
 
-    Route::get('/MyfeedD/search', [ArticleBlogController::class, 'blogView'])->name('article.search');
 });
 
+Route::get('/MyfeedD/search', [ArticleBlogController::class, 'blogView'])->name('article.search');
 Route::get('/Myfeed', [ArticleBlogController::class, 'blogView'])->name('blog');

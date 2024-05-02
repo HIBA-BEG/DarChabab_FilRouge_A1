@@ -21,7 +21,7 @@
                         Maison Des Jeunes<br /><span class="">Hay Al Oumali</span>
                     </h1>
                     <div class="flex justify-center container mx-auto p-4">
-                        <a href="">
+                        <a href="{{ route('blog') }}">
                             <button
                                 class="block rounded-br-3xl rounded-tl-3xl bg-gradient-to-r to-purple-500 from-blue-400 py-3 px-6 font-sans text-xs font-bold uppercase text-white shadow-md shadow-pink-500/20 transition-all hover:shadow-lg hover:shadow-lightyellow-color focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
                                 type="button">
@@ -109,7 +109,6 @@
         </div>
     </section>
 
-    <!-- component -->
     <footer class="bg-[hsla(0,0%,100%,0.55)]">
         <div class="max-w-screen-xl px-4 py-16 mx-auto sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 gap-8 lg:grid-cols-3">

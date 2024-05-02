@@ -17,6 +17,36 @@
                     Toutes les Associations
                 </h1>
             </div>
+            <div class="m-5">
+                @if ($errors->any())
+                    <div class="col-12">
+                        @foreach ($errors->all() as $error)
+                            <div class="bg-red-100 border border-red-400 text-red-700 w-full px-4 py-3 lg:px-0 mx-auto rounded relative"
+                                role="alert">
+                                <strong class="font-bold">
+                                    {{ $error }}
+                                </strong>
+                            </div>
+                        @endforeach
+                    </div>
+                @endif
+                @if (session()->has('error'))
+                    <div class="bg-red-100 border border-red-400 text-red-700 w-full px-4 py-3 lg:px-0 mx-auto rounded relative"
+                        role="alert">
+                        <strong class="font-bold">
+                            {{ session('error') }}
+                        </strong>
+                    </div>
+                @endif
+                @if (session()->has('success'))
+                    <div class="bg-green-100 border border-green-400 text-green-700 w-full px-4 py-3 lg:px-0 mx-auto rounded relative"
+                        role="alert">
+                        <strong>
+                            {{ session('success') }}
+                        </strong>
+                    </div>
+                @endif
+            </div>
             @if ($associations->isEmpty())
                 <div
                     class="box w-full rounded-br-3xl rounded-tl-3xl flex flex-col justify-center p-12 bg-opacity-30 bg-white border border-opacity-25 backdrop-filter backdrop-blur-md transition-all duration-300">
@@ -110,7 +140,7 @@
                                 class="box w-full rounded-br-3xl rounded-tl-3xl flex flex-col justify-center p-12 bg-opacity-30 bg-white border border-opacity-25 backdrop-filter backdrop-blur-md  transition-all duration-300">
                                 <div class="mb-8">
                                     <img class="w-full object-cover rounded-br-3xl rounded-tl-3xl h-48"
-                                        src="{{ asset('img/' . $association->profile_picture) }}"
+                                        src="{{ asset($association->profile_picture) }}"
                                         alt="photo de profile">
                                 </div>
                                 <div class="text-center">

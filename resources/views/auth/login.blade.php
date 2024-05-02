@@ -14,17 +14,6 @@
             <div class="flex text-black">
                 <div class="mb-8 flex flex-col items-center gap-4 ">
                     <img src="{{ asset('img/white-logo.png') }}" width="250" alt="" srcset="" />
-                    {{-- <h1 class="mb-2 text-2xl">Instagram</h1> --}}
-                    {{-- @if (session('error'))
-                        <div role="alert">
-
-                            <div class="bg-red-100 border border-red-400 text-red-700 w-full px-4 py-3 lg:px-0 mx-auto rounded relative"
-                                role="alert">
-                                <strong class="font-bold">{{ session('error') }}</strong>
-                            </div>
-                        </div>
-                    @endif --}}
-
                     <div class="mt-5">
                         @if ($errors->any())
                             <div class="col-12">

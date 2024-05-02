@@ -32,6 +32,9 @@ class LoginController extends Controller
                 if ($user->banned == 1) {
                     Auth::logout();
                     return redirect()->route('login')->with('error', "Votre compte est actuellement suspendu en raison d'une violation des politiques.");
+                } else if ($user->archived == 1) {
+                    Auth::logout();
+                    return redirect()->route('login')->with('error', "Votre compte est actuellement archivé.");
                 } else {
                     // User's account is confirmed, allow login
                     return redirect()->route('association.home');
