@@ -1,10 +1,10 @@
-<php 
+<?php 
 
 abstract class user {
     public $nom;
     public $prenom;
 
-    abstact public function nomcomplet();
+    abstract public function nomcomplet();
 
     abstract public function lastname();
 
@@ -28,7 +28,9 @@ class Apprenant extends user {
     public function lastname(){
         echo $this->nom;
     }
-
-    $exemple = new nomcomplet();
 }
+
+    // $exemple = new Apprenant("hiba; 'begh", "17");
+
+    
 

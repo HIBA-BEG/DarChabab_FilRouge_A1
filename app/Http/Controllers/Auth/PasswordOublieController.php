@@ -23,38 +23,6 @@ class PasswordOublieController extends Controller
         return view("auth.forgotPassword");
     }
 
-    // function resetPassword(){
-
-    // }
-
-    // function forgotPassword(Request $request)
-    // {
-    //     $request->validate([
-    //         'email' => "required|email|exists:users",
-    //     ]);
-
-    //     $token = Str::random(64);
-
-    //     DB::table(table: 'password_reset_tokens')->insert([
-    //         'email' => $request->email,
-    //         'token' => $token,
-    //         'created_at' => now()
-    //     ]);
-
-    //     // Mail::send(view("emails.forgotPassword", ['token' => $token]));
-
-    //     Mail::send('emails.forgotPassword', ['token' => $token], function ($message) use ($request) {
-    //         $message->to($request->email);
-    //         $message->subject('Password Reset'); // Add subject here
-    //     });
-
-
-    //     return redirect()->to(route('auth.forgotPassword'))->with("success", "we have sent an email to reset password.");
-
-
-    //     // return response()->json(['message' => 'Password reset token generated successfully']);
-    // }
-
     function forgotPassword(Request $request)
 {
     $request->validate([
@@ -110,10 +78,7 @@ class PasswordOublieController extends Controller
                 "token" => $request->token
             ])->first();
 
-       // if (!$updatePassword) {
-       //     return redirect()->to(route("auth.newPassword"))->with("error", "Invalide");
-       // }
-
+  
         ModelsUser::where("email", $request->email)
         ->update(["password" => Hash::make($request->password)]);
 

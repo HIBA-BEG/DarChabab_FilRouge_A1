@@ -24,7 +24,7 @@
                 <div class="flex flex-wrap m-4 text-center">
 
                     {{-- 1 Associations non verifiés --}}
-                    <div class="p-4 sm:w-1/2 lg:w-1/4 w-full hover:scale-105 duration-500">
+                    <div class="p-4 sm:w-1/2 lg:w-1/3 w-full hover:scale-105 duration-500">
                         <div class="items-center  justify-between p-4  rounded-lg bg-white shadow-purple-50 shadow-md">
                             <h2 class="text-gray-900 text-lg font-bold my-auto">Associations non verifiés:</h2>
                             <div class="flex justify-center container mx-auto p-4">
@@ -35,7 +35,7 @@
                     </div>
 
                     {{-- 2 Nombre des associations --}}
-                    <div class="p-4 sm:w-1/2 lg:w-1/4 w-full hover:scale-105 duration-500">
+                    <div class="p-4 sm:w-1/2 lg:w-1/3 w-full hover:scale-105 duration-500">
                         <div class="items-center  justify-between p-4 rounded-lg bg-white shadow-blue-50 shadow-md">
                             <h2 class="text-gray-900 text-lg font-bold my-auto">Associations:</h2>
                             <div class="flex justify-center container mx-auto p-4">
@@ -46,7 +46,7 @@
                     </div>
 
                     {{-- 3 Clubs --}}
-                    <div class="p-4 sm:w-1/2 lg:w-1/4 w-full hover:scale-105 duration-500">
+                    <div class="p-4 sm:w-1/2 lg:w-1/3 w-full hover:scale-105 duration-500">
                         <div class="items-center  justify-between p-4 rounded-lg bg-white shadow-purple-50 shadow-md">
                             <h2 class="text-gray-900 text-lg font-bold my-auto">Clubs:</h2>
                             <div class="flex justify-center container mx-auto p-4">
@@ -56,7 +56,7 @@
                     </div>
 
                     {{-- 4 nbr Activités --}}
-                    <div class="p-4 sm:w-1/2 lg:w-1/4 w-full hover:scale-105 duration-500">
+                    <div class="p-4 sm:w-1/2 lg:w-1/3 w-full hover:scale-105 duration-500">
                         <div class="items-center  justify-between p-4 rounded-lg bg-white shadow-blue-50 shadow-md">
                             <h2 class="text-gray-900 text-lg font-bold my-auto">Nombre totale des activités:</h2>
                             <div class="flex justify-center container mx-auto p-4">
@@ -76,7 +76,7 @@
                     </div> --}}
 
                     {{-- 6 nbr des utilisateurs all roles except admin --}}
-                    <div class="p-4 sm:w-1/2 lg:w-1/4 w-full hover:scale-105 duration-500">
+                    <div class="p-4 sm:w-1/2 lg:w-1/3 w-full hover:scale-105 duration-500">
                         <div class="items-center  justify-between p-4 rounded-lg bg-white shadow-blue-50 shadow-md">
                             <h2 class="text-gray-900 text-lg font-bold my-auto">Totale des utilisateurs:</h2>
                             <div class="flex justify-center container mx-auto p-4">
@@ -103,7 +103,7 @@
                      --}}
 
                     {{-- 8 Nombre totale des articles publiés --}}
-                    <div class="p-4 sm:w-1/2 lg:w-1/4 w-full hover:scale-105 duration-500">
+                    <div class="p-4 sm:w-1/2 lg:w-1/3 w-full hover:scale-105 duration-500">
                         <div class="items-center  justify-between p-4 rounded-lg bg-white shadow-blue-50 shadow-md">
                             <h2 class="text-gray-900 text-lg font-bold my-auto">Nombre totale des articles publiés:</h2>
                             <div class="flex justify-center container mx-auto p-4">
@@ -113,7 +113,7 @@
                     </div>
 
                     {{-- 9 Nombre des associations Nationale --}}
-                    <div class="p-4 sm:w-1/2 lg:w-1/4 w-full hover:scale-105 duration-500">
+                    <div class="p-4 sm:w-1/2 lg:w-1/3 w-full hover:scale-105 duration-500">
                         <div class="items-center  justify-between p-4 rounded-lg bg-white shadow-purple-50 shadow-md">
                             <h2 class="text-gray-900 text-lg font-bold my-auto">Associations Nationale:</h2>
                             <div class="flex justify-center container mx-auto p-4 ">
@@ -123,7 +123,7 @@
                     </div>
 
                     {{-- 10 Associations régionale --}}
-                    <div class="p-4 sm:w-1/2 lg:w-1/4 w-full hover:scale-105 duration-500">
+                    <div class="p-4 sm:w-1/2 lg:w-1/3 w-full hover:scale-105 duration-500">
                         <div class="items-center  justify-between p-4 rounded-lg bg-white shadow-blue-50 shadow-md">
                             <h2 class="text-gray-900 text-lg font-bold my-auto">Associations régionale:</h2>
                             <div class="flex justify-center container mx-auto p-4">
@@ -133,17 +133,17 @@
                     </div>
 
                     {{-- 11 Associations locale --}}
-                    <div class="p-4 sm:w-1/2 lg:w-1/4 w-full hover:scale-105 duration-500">
+                    {{-- <div class="p-4 sm:w-1/2 lg:w-1/4 w-full hover:scale-105 duration-500">
                         <div class="items-center  justify-between p-4 rounded-lg bg-white shadow-purple-50 shadow-md">
                             <h2 class="text-gray-900 text-lg font-bold my-auto">Associations locale:</h2>
                             <div class="flex justify-center container mx-auto p-4">
                                 <h1 class="text-purple-400 text-7xl font-bold">{{ $localeCount }}</h1>
                             </div>
                         </div>
-                    </div>
+                    </div> --}}
 
                     {{-- 3 Clubs --}}
-                    <div class="p-4 sm:w-1/2 lg:w-1/4 w-full hover:scale-105 duration-500">
+                    <div class="p-4 sm:w-1/2 lg:w-1/3 w-full hover:scale-105 duration-500">
                         <div class="items-center  justify-between p-4 rounded-lg bg-white shadow-blue-50 shadow-md">
                             <h2 class="text-gray-900 text-lg font-bold my-auto">Nombre des utilisateurs archivés:</h2>
                             <div class="flex justify-center container mx-auto p-4">

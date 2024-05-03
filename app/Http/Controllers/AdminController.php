@@ -85,24 +85,14 @@ class AdminController extends Controller
         $user->save();
         return redirect()->route('confirmAccount')->with('success', 'Le compte a été confirmé avec succès.');
     }
-    
-    // public function Ban(Request $request, $id)
-    // {
-    //     $request->validate([
-    //         'confirmed' => 'required|boolean',
-    //     ]);
-    //     $user = User::findOrFail($id);
-    //     $user->confirmed = $request->input('confirmed');
-    //     $user->save();
-    //     return redirect()->route('confirmAccount')->with('success', 'Le compte a été confirmé avec succès.');
-    // }
-
     public function banAssociation($userId)
     {
         $user = User::find($userId);
 
         if ($user) {
             $user->update(['banned' => true]);
+
+            
             if (auth()->check() && auth()->user()->id == $userId) {
                 auth()->logout();
                 return redirect()->route('login')->with('banned_message', 'You are banned from logging in.');

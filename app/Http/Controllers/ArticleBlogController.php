@@ -10,10 +10,6 @@ use App\Models\Categorie;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
-
-
-
-
 class ArticleBlogController extends Controller
 {
 
@@ -56,7 +52,7 @@ class ArticleBlogController extends Controller
         $validatedData = $request->validate([
             'title' => 'required',
             'description' => 'required',
-            'picture' => 'required',
+            'picture' => 'required|imagex`',
             'categorie_id' => ['required', 'exists:categories,id'],
         ]);
 
@@ -93,31 +89,30 @@ class ArticleBlogController extends Controller
             'description' => 'required',
             'categorie_id' => 'exists:categories,id',
         ]);
-  // dd($validatedData);
-       
-            $article = ArticleBlog::findOrFail($id);
+        // dd($validatedData);
 
-            if ($request->hasFile('picture')) {
-                $profilePicture = $request->file('picture');
-                $fileName = time() . '_' . $profilePicture->getClientOriginalName();
-                $filePath = $profilePicture->storeAs('uploads', $fileName, 'public');
-                $profilePicturePath = '/storage/' . $filePath;
-    
-                $article->update([
-                    'picture' => $profilePicturePath,
-                ]);
-            }
-    
-          $article->update([
-                'title' => $validatedData['title'],
-                'description' => $validatedData['description'],
-                'categorie_id' => $validatedData['categorie_id'],
+        $article = ArticleBlog::findOrFail($id);
+
+        if ($request->hasFile('picture')) {
+            $profilePicture = $request->file('picture');
+            $fileName = time() . '_' . $profilePicture->getClientOriginalName();
+            $filePath = $profilePicture->storeAs('uploads', $fileName, 'public');
+            $profilePicturePath = '/storage/' . $filePath;
+
+            $article->update([
+                'picture' => $profilePicturePath,
             ]);
+        }
 
-           
-    
-            return redirect()->back()->with('success', 'Article blog updated successfully.');
-        
+        $article->update([
+            'title' => $validatedData['title'],
+            'description' => $validatedData['description'],
+            'categorie_id' => $validatedData['categorie_id'],
+        ]);
+
+
+
+        return redirect()->back()->with('success', 'Article blog updated successfully.');
     }
 
     public function delete(ArticleBlog $article)

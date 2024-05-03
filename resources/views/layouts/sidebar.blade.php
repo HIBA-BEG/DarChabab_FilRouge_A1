@@ -26,7 +26,6 @@
 </style>
 
 @if (auth()->user()->role == 'Admin')
-    <!-- Navbar -->
     <nav id="navbar" class="sticky top-0 z-40 flex w-full flex-row justify-end bg-gray-700 px-4 sm:justify-between">
         <ul class="breadcrumb hidden flex-row items-center py-4 text-lg text-white sm:flex">
             <li class="inline">
@@ -48,7 +47,6 @@
         </button>
     </nav>
 
-    <!-- Sidebar-->
     <div id="containerSidebar" class="z-40">
         <div class="navbar-menu relative z-40">
             <nav id="sidebar"
@@ -103,7 +101,7 @@
                                 <span class="select-none">Toutes les salles</span>
                             </a>
                         </li>
-                        <li>
+                        {{-- <li>
                             <a class="nav-link flex items-center rounded py-3 pl-3 pr-4 text-gray-50 hover:bg-gray-600"
                                 href="#Reservations">
                                 <span class="select-none">Reservations</span>
@@ -114,7 +112,7 @@
                                 href="#Calendrier">
                                 <span class="select-none">Calendrier</span>
                             </a>
-                        </li>
+                        </li> --}}
                     </ul>
                 </div>
 
@@ -155,7 +153,6 @@
     </div>
 
 @else
-    <!-- Navbar start -->
     <nav id="navbar" class="sticky top-0 z-40 flex w-full flex-row justify-end bg-gray-700 px-4 sm:justify-between">
         <ul class="breadcrumb hidden flex-row items-center py-4 text-lg text-white sm:flex">
             <li class="inline">
@@ -176,14 +173,11 @@
             </svg>
         </button>
     </nav>
-    <!-- Navbar end -->
 
-    <!-- Sidebar start-->
     <div id="containerSidebar" class="z-40">
         <div class="navbar-menu relative z-40">
             <nav id="sidebar"
                 class="fixed left-0 bottom-0 flex w-3/4 -translate-x-full flex-col overflow-y-auto bg-gray-700 pt-6 pb-8 sm:max-w-xs lg:w-80">
-                <!-- one categor / navigation group -->
                 <div class="px-4 pb-6">
                     <h3 class="mb-2 text-xs font-medium uppercase text-gray-500">
                         Mon Dashboard
@@ -212,18 +206,16 @@
                                 href="#Clubs">
                                 <span class="select-none">Clubs</span>
                             </a>
-                        </li> --}}
+                        </li> 
                         <li>
                             <a class="flex items-center rounded py-3 pl-3 pr-4 text-gray-50 hover:bg-gray-600"
                                 href="#Calendrier">
                                 <span class="select-none">Calendrier</span>
                             </a>
-                        </li>
+                        </li>--}}
                     </ul>
                 </div>
-                <!-- navigation group end-->
 
-                <!-- example copies start -->
                 <div class="px-4 pb-6">
                     <h3 class="mb-2 text-xs font-medium uppercase text-gray-500">
                         Mon Profile
@@ -271,7 +263,7 @@
 
                 <div class="flex justify-center container mx-auto p-4">
                     <form action="{{ route('logout') }}" method="POST">
-                        @csrf <!-- CSRF Protection -->
+                        @csrf 
                         <button type="submit"
                             class="rounded-br-3xl rounded-tl-3xl bg-gradient-to-r to-purple-500 from-blue-400 py-3 px-6 font-sans text-xs font-bold uppercase text-white shadow-md shadow-pink-500/20 transition-all hover:shadow-lg hover:shadow-lightyellow-color focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
                             data-ripple-light="true">
@@ -285,7 +277,6 @@
         </div>
         <div class="mx-auto lg:ml-80"></div>
     </div>
-    <!-- Sidebar end -->
 @endif
 
 
@@ -307,20 +298,14 @@
         sidebar.style.top = parseInt(navbar.clientHeight) - 1 + "px";
     });
 
-    // Get the current URL
     var currentUrl = window.location.href;
 
-    // Select all links in the navigation
     var navLinks = document.querySelectorAll('.nav-link');
 
-    // Loop through each link
     navLinks.forEach(function(link) {
-        // Get the href attribute of the link
         var linkUrl = link.getAttribute('href');
 
-        // If the current URL matches the link URL
         if (currentUrl === linkUrl) {
-            // Add the 'active' class to the link
             link.classList.add('active');
         }
     });

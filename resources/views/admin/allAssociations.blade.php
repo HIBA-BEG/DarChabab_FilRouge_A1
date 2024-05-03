@@ -97,13 +97,13 @@
                                 </div>
 
 
-                                <div class="flex justify-start h-fit">
+                                <div class="flex justify-start h-fit mt-4">
                                     <form action="{{ route('Archive.association', ['userId' => $association->id]) }}"
                                         method="post">
                                         @csrf
                                         @method('PUT')
                                         <div title="archived">
-                                            <button type="submit">
+                                            <button type="submit" class="w-full rounded-br-3xl rounded-tl-3xl bg-gradient-to-r to-purple-400 from-blue-300 py-3 px-6 font-sans text-xs font-bold uppercase text-white shadow-md shadow-pink-500/20 transition-all hover:shadow-lg hover:shadow-lightyellow-color focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none">
                                                 Archive
                                             </button>
                                         </div>
@@ -175,14 +175,14 @@
                                 </div>
 
                                 <div>
-                                    <div class="flex justify-start h-fit">
+                                    <div class="flex justify-start h-fit mt-4">
                                         <form
                                             action="{{ route('Archive.association', ['userId' => $association->id]) }}"
                                             method="post">
                                             @csrf
                                             @method('PUT')
                                             <div title="archived">
-                                                <button type="submit">
+                                                <button type="submit" class="w-full rounded-br-3xl rounded-tl-3xl bg-gradient-to-r to-purple-400 from-blue-300 py-3 px-6 font-sans text-xs font-bold uppercase text-white shadow-md shadow-pink-500/20 transition-all hover:shadow-lg hover:shadow-lightyellow-color focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none">
                                                     Archive
                                                 </button>
                                             </div>

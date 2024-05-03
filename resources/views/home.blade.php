@@ -9,14 +9,16 @@
 
 <body class="bg-blue-200">
     @include('layouts.navbar')
- 
+
     {{-- darchabab picture + blog button --}}
     <section class="lg:my-20 my-10">
-        <div class="relative overflow-hidden bg-cover bg-no-repeat bg-[80%] bg-[url('{{ asset('img/darchabab.jpg') }}')] h-[500px]">
+        <div
+            class="relative overflow-hidden bg-cover bg-no-repeat bg-[80%] bg-[url('{{ asset('img/darchabab.jpg') }}')] h-[500px]">
         </div>
         <div class="w-100 mx-auto px-6 sm:max-w-2xl md:max-w-3xl md:px-12 lg:max-w-5xl xl:max-w-7xl xl:px-32">
             <div class="text-center">
-                <div class="block rounded-br-3xl rounded-tl-3xl bg-gradient-to-r bg-[hsla(0,0%,100%,0.55)] px-6 py-12 dark:shadow-black/20 md:py-16 md:px-12 mt-[-300px] backdrop-blur-[30px]">
+                <div
+                    class="block rounded-br-3xl rounded-tl-3xl bg-gradient-to-r bg-[hsla(0,0%,100%,0.55)] px-6 py-12 dark:shadow-black/20 md:py-16 md:px-12 mt-[-300px] backdrop-blur-[30px]">
                     <h1 class="mt-2 mb-16 text-2xl font-bold tracking-tight md:text-6xl xl:text-7xl">
                         Maison Des Jeunes<br /><span class="">Hay Al Oumali</span>
                     </h1>
@@ -36,7 +38,7 @@
 
 
     {{-- statistics --}}
-    <section class=" bg-[hsla(0,0%,100%,0.55)] ">
+    <section class="bg-[hsla(0,0%,100%,0.55)]">
         <div class="container rounded-br-3xl flex flex-col mx-auto">
             <div class="w-full draggable">
                 <div class="container flex flex-col items-center gap-16 mx-auto my-32">
@@ -61,13 +63,13 @@
                             <p class="text-base font-medium leading-7 text-center text-mainbeigedark-color">Nbr des
                                 Activités</p>
                         </div>
-                        <div class="flex flex-col items-center">
+                        {{-- <div class="flex flex-col items-center">
                             <h3 class="text-5xl font-extrabold leading-tight text-center text-mainbeige-color"><span
                                     id="countto4" countTo="18000"></span>+</h3>
                             <p class="text-base font-medium leading-7 text-center text-mainbeigedark-color">Daily
                                 Website
                                 Visitors</p>
-                        </div>
+                        </div> --}}
                     </div>
                 </div>
             </div>
@@ -81,21 +83,21 @@
             <div class="flex lg:w-1/2 flex-wrap">
                 <div class="w-1/2 p-1 md:p-2">
                     <img alt="gallery" class="block h-full w-full rounded-lg object-cover object-center"
-                        src="{{ asset($articles[0]->picture) }}" />
+                        src="{{ asset($articles[2]->picture) }}" />
                 </div>
                 <div class="w-1/2 p-1 md:p-2">
                     <img alt="gallery" class="block h-full w-full rounded-lg object-cover object-center"
-                        src="{{ asset($articles[1]->picture) }}" />
+                        src="{{ asset($articles[3]->picture) }}" />
                 </div>
                 <div class="w-full p-1 md:p-2">
                     <img alt="gallery" class="block h-full w-full rounded-lg object-cover object-center"
-                        src="{{ asset($articles[2]->picture) }}" />
+                        src="{{ asset($articles[0]->picture) }}" />
                 </div>
             </div>
             <div class="flex lg:w-1/2 flex-wrap">
                 <div class="w-full p-1 md:p-2">
                     <img alt="gallery" class="block h-full w-full rounded-lg object-cover object-center"
-                        src="{{ asset($articles[3]->picture) }}" />
+                        src="{{ asset($articles[1]->picture) }}" />
                 </div>
                 <div class="w-1/2 p-1 md:p-2">
                     <img alt="gallery" class="block h-full w-full rounded-lg object-cover object-center"
@@ -181,19 +183,6 @@
     </div>
 
     <script>
-        const slides = document.querySelectorAll('.slide');
-        let currentSlide = 0;
-
-        function showSlide() {
-            slides.forEach((slide, index) => {
-                slide.style.display = index === currentSlide ? 'block' : 'none';
-            });
-
-            currentSlide = (currentSlide + 1) % slides.length;
-        }
-
-        setInterval(showSlide, 5000);
-
         let numbers = document.querySelectorAll("[countTo]");
 
         numbers.forEach((number) => {
